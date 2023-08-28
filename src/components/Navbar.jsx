@@ -76,7 +76,7 @@ function Navbar() {
           </NavLink>
 
           <NavLink className="py-2 px-5 bg-[#667b68] rounded-full text-white">
-            Order Online
+            Order Onlines
           </NavLink>
 
           {/* <li>
