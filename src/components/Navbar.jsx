@@ -5,7 +5,7 @@ import "../index.css";
 
 function Navbar() {
   return (
-    <div className="sticky top-0 backdrop-blur-lg bg-[#FAF1E4]/80">
+    <div className="shadow sticky top-0 backdrop-blur-lg bg-[#FAF1E4]/80">
       <nav>
         <div className="flex items-center justify-between py-5 max-w-6xl mx-auto">
           <div className="">
