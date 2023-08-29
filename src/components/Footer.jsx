@@ -3,7 +3,7 @@ import Logo from "../assets/logo/Chicken.png";
 
 export default function Footer() {
   return (
-    <div>
+    <div className="bg-[#FAF1E4]">
       <div className="max-w-6xl mx-auto py-10">
         <div className="grid grid-cols-5 gap-4">
           <div className="lg:col-span-2">
@@ -19,44 +19,58 @@ export default function Footer() {
               </div>
             </div>
             <div className="flex flex-col">
-              <h1 className="text-base font-bold text-gray-700 py-5">
+              <h1 className="text-base font-bold text-gray-700 pt-5">
                 Sign up to get 10% off your first order
               </h1>
-              <input
-                type="text"
-                placeholder="Your Email Address"
-                className="border rounded-lg p-2 focus:outline-none focus:border-[#667b68]"
-              />
-              <span className="text-end pt-2">
-                <button className="bg-[#667B68] rounded-full text-white p-2">
+              <form className="flex items-center justify-between pt-2 gap-2">
+                <input
+                  type="email"
+                  placeholder="Your Email Address"
+                  className="border rounded-md p-2 outline-none border-[#435334] bg-[#FAF1E4] w-full"
+                />
+                <button className="bg-[#435334] rounded-md text-white p-2">
                   Subscribe
                 </button>
-              </span>
+              </form>
             </div>
           </div>
 
           <div className="">
-            <h1 className="text-base font-bold pb-5">Location</h1>
+            <h1 className="text-base font-bold pb-5 text-[#435334]">
+              Location
+            </h1>
             <div className="space-y-2 text-gray-700">
-              <p>123 Nueva Ecija, DF 4422</p>
-              <p>144 Metro Manila, FF 4444</p>
-              <p>42 Tagaytay, SOP 4009</p>
+              <p className="cursor-pointer hover:text-[#9EB384]">
+                123 Nueva Ecija, DF 4422
+              </p>
+              <p className="cursor-pointer hover:text-[#9EB384]">
+                144 Metro Manila, FF 4444
+              </p>
+              <p className="cursor-pointer hover:text-[#9EB384]">
+                42 Tagaytay, SOP 4009
+              </p>
             </div>
           </div>
           <div>
-            <h1 className="text-base font-bold pb-5">Useful Links</h1>
+            <h1 className="text-base font-bold pb-5 text-[#435334]">
+              Useful Links
+            </h1>
             <div className="space-y-2 text-gray-700">
-              <p>Your Account</p>
-              <p></p>
-              <p>Investors</p>
-              <p>Help Center</p>
-              <p>FAQs</p>
+              <p className="cursor-pointer hover:text-[#9EB384]">
+                Your Account
+              </p>
+              <p className="cursor-pointer hover:text-[#9EB384]"></p>
+              <p className="cursor-pointer hover:text-[#9EB384]">Investors</p>
+              <p className="cursor-pointer hover:text-[#9EB384]">Help Center</p>
+              <p className="cursor-pointer hover:text-[#9EB384]">FAQs</p>
             </div>
           </div>
           <div className="">
-            <h1 className="text-base font-bold pb-5">Contact Us</h1>
+            <h1 className="text-base font-bold pb-5 text-[#435334]">
+              Contact Us
+            </h1>
             <div className="space-y-2 text-gray-700">
-              <div className="flex">
+              <div className="flex hover:text-[#9EB384]">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +86,7 @@ export default function Footer() {
                 </i>
                 <span className="pl-3">Nueva Ecija, Philippines</span>
               </div>
-              <div className="flex">
+              <div className="flex hover:text-[#9EB384]">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +102,7 @@ export default function Footer() {
                 </i>
                 <span className="pl-3">{"(123) 123-1234"}</span>
               </div>
-              <div className="flex">
+              <div className="flex hover:text-[#9EB384]">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +128,7 @@ export default function Footer() {
               <div className="">
                 <h1 className="text-base font-bold text-black py-5">Socials</h1>
                 <ul className="flex items-center justify-between text-gray-700">
-                  <li>
+                  <li className="cursor-pointer hover:text-[#9EB384]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -127,7 +141,7 @@ export default function Footer() {
                       />
                     </svg>
                   </li>
-                  <li>
+                  <li className="cursor-pointer hover:text-[#9EB384]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -140,7 +154,7 @@ export default function Footer() {
                       />
                     </svg>
                   </li>
-                  <li>
+                  <li className="cursor-pointer hover:text-[#9EB384]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -153,7 +167,7 @@ export default function Footer() {
                       />
                     </svg>
                   </li>
-                  <li>
+                  <li className="cursor-pointer hover:text-[#9EB384]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -175,7 +189,9 @@ export default function Footer() {
       <div className="flex items-center justify-center p-5">
         <p className="text-base">
           All Rights Reserved &copy; 2023 Copyright | Made by{" "}
-          <a href="JanggoDev.com"><b>JanggoDev</b></a>
+          <a href="JanggoDev.com" className="text-[#435334]">
+            <b>JanggoDev</b>
+          </a>
         </p>
       </div>
     </div>

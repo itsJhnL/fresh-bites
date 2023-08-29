@@ -1,23 +1,27 @@
 import React from "react";
+import Footer from "../components/Footer";
+import image from "../assets/images/background.png";
 
 export default function Contact() {
-  /* const background = {
+  const background = {
     backgroundImage: `url(${image})`,
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
-    filter: `blur(10px)`,
-  }; */
+    // height: "100vh",
+    // width: "100%",
+    backgroundColor: "#CEDEBD",
+  };
   return (
-    <section>
-      <div className="flex flex-col items-center justify-center">
-        <div className="flex max-w-6xl mx-auto py-24">
+    <div className="h-screen" style={background}>
+      <div className="flex flex-col items-center justify-between h-full w-full">
+        <div className="grid grid-cols-2 max-w-6xl mx-auto py-24">
           <div className="">
             <div className="text-4xl text-black font-bold p-5">
               <h1>Get in touch, let's talk.</h1>
-              <p className="border-t-4 border-[#667b68] w-24"></p>
+              <p className="border-t-4 border-[#435334] w-24"></p>
             </div>
-            <div className="text-base text-justify text-black font-normal px-5">
-              <p>
+            <div className="text-base text-justify text-black font-normal">
+              <p className="w-80 m-5">
                 For any inquiries, collaboration opportunities, or simply to say
                 hello, feel free to reach out to us through the following
                 contact information.
@@ -25,7 +29,7 @@ export default function Contact() {
             </div>
             <div className="p-5 text-black font-medium space-y-3">
               <div className="flex">
-                <i className="pr-5 text-[#667b68]">
+                <i className="pr-5 text-[#435334]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -41,7 +45,7 @@ export default function Contact() {
                 <p>Nueva Ecija, Philippines</p>
               </div>
               <div className="flex">
-                <i className="pr-5 text-[#667b68]">
+                <i className="pr-5 text-[#435334]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="24"
@@ -63,7 +67,7 @@ export default function Contact() {
                 <p>{"(123) 123-1234"}</p>
               </div>
               <div className="flex">
-                <i className="pr-5 text-[#667b68]">
+                <i className="pr-5 text-[#435334]">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -78,22 +82,26 @@ export default function Contact() {
                   </svg>
                 </i>
                 <p>
-                  <a href="mailto:johnleo.bruno@gmail.com" target="_blank" rel="noreferrer">
+                  <a
+                    href="mailto:johnleo.bruno@gmail.com"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     freshbites@me.com
                   </a>
                 </p>
               </div>
             </div>
           </div>
-          <div className="flex border p-5">
+          <div className="flex border bg-[#FAF1E4] p-5">
             <form action="">
               <div className="space-y-5">
                 <div className="flex flex-col">
                   <label htmlFor="name" className="font-bold">
-                    Name <span className="text-[#667b68]">*</span>
+                    Name <span className="text-[#435334]">*</span>
                   </label>
                   <input
-                    className="border p-2 focus:outline-none focus:border-[#667b68]"
+                    className="border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334] bg-[#FAF1E4]"
                     type="text"
                     id="name"
                     placeholder=""
@@ -102,10 +110,10 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="email" className="font-bold">
-                    Email <span className="text-[#667b68]">*</span>
+                    Email <span className="text-[#435334]">*</span>
                   </label>
                   <input
-                    className="border p-2 focus:outline-none focus:border-[#667b68]"
+                    className="border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334] bg-[#FAF1E4]"
                     type="email"
                     id="email"
                     placeholder=""
@@ -114,10 +122,10 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="subject" className="font-bold">
-                    Subject <span className="text-[#667b68]">*</span>
+                    Subject <span className="text-[#435334]">*</span>
                   </label>
                   <input
-                    className="border p-2 focus:outline-none focus:border-[#667b68]"
+                    className="border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334] bg-[#FAF1E4]"
                     type="text"
                     id="subject"
                     required
@@ -125,10 +133,10 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="message" className="font-bold">
-                    Message <span className="text-[#667b68]">*</span>
+                    Message <span className="text-[#435334]">*</span>
                   </label>
                   <textarea
-                    className=" border p-2 focus:outline-none focus:border-[#667b68]"
+                    className=" border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334] bg-[#FAF1E4]"
                     name=""
                     id="message"
                     cols="50"
@@ -140,7 +148,7 @@ export default function Contact() {
               <div className="text-center pt-6">
                 <button
                   type="submit"
-                  className="border rounded-lg px-5 py-2 bg-[#667b68] text-white"
+                  className="border border-[#CEDEBD] rounded-lg px-5 py-2 bg-[#435334] text-white"
                 >
                   Send message
                 </button>
@@ -148,8 +156,8 @@ export default function Contact() {
             </form>
           </div>
         </div>
-      </div>
-      {/* <Footer /> */}
-    </section>
+      </div>{" "}
+      <Footer />
+    </div>
   );
 }
