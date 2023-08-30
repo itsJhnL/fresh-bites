@@ -148,7 +148,7 @@ export default function Contact() {
               <div className="text-center pt-6">
                 <button
                   type="submit"
-                  className="border border-[#CEDEBD] rounded-lg px-5 py-2 bg-[#435334] text-white"
+                  className="border border-[#CEDEBD]  px-5 py-2 bg-[#435334] text-white"
                 >
                   Send message
                 </button>

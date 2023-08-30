@@ -26,9 +26,9 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Your Email Address"
-                  className="border rounded-md p-2 outline-none border-[#435334] bg-[#FAF1E4] w-full"
+                  className="border  p-2 outline-none border-[#435334] bg-[#FAF1E4] w-full"
                 />
-                <button className="bg-[#435334] rounded-md text-white p-2">
+                <button className="bg-[#435334]  text-white p-2">
                   Subscribe
                 </button>
               </form>

@@ -13,17 +13,17 @@ function Navbar() {
               {<img src={Logo} alt="" className="h-[30px] w-[100%]" />}
             </NavLink>
           </div>
-          <div className="flex text-base space-x-4">
+          <div className="flex items-center justify-center text-base space-x-10">
             <NavLink
               to="/"
               style={({ isActive }) => ({
                 color: isActive ? "#435334" : "#000",
-                borderRadius: isActive ? "5px" : "",
-                paddingLeft: isActive ? "15px" : "15px",
+                /* paddingLeft: isActive ? "15px" : "15px",
                 paddingRight: isActive ? "15px" : "15px",
                 paddingTop: isActive ? "8px" : "8px",
-                paddingBottom: isActive ? "8px" : "8px",
+                paddingBottom: isActive ? "8px" : "8px", */
                 fontWeight: isActive ? "bold" : "",
+                borderBottom: isActive ? "solid 3px" : "",
               })}
             >
               Home
@@ -32,12 +32,12 @@ function Navbar() {
               to="/Menu"
               style={({ isActive }) => ({
                 color: isActive ? "#435334" : "#000",
-                borderRadius: isActive ? "5px" : "",
-                paddingLeft: isActive ? "15px" : "15px",
+                /* paddingLeft: isActive ? "15px" : "15px",
                 paddingRight: isActive ? "15px" : "15px",
                 paddingTop: isActive ? "8px" : "8px",
-                paddingBottom: isActive ? "8px" : "8px",
+                paddingBottom: isActive ? "8px" : "8px", */
                 fontWeight: isActive ? "bold" : "",
+                borderBottom: isActive ? "solid 3px" : "",
               })}
             >
               Menu
@@ -46,20 +46,34 @@ function Navbar() {
               to="/Contact"
               style={({ isActive }) => ({
                 color: isActive ? "#435334" : "#000",
-                borderRadius: isActive ? "5px" : "",
-                paddingLeft: isActive ? "15px" : "15px",
+                /* paddingLeft: isActive ? "15px" : "15px",
                 paddingRight: isActive ? "15px" : "15px",
                 paddingTop: isActive ? "8px" : "8px",
-                paddingBottom: isActive ? "8px" : "8px",
+                paddingBottom: isActive ? "8px" : "8px", */
                 fontWeight: isActive ? "bold" : "",
-                borderBottom: isActive ? "" : "",
+                borderBottom: isActive ? "solid 3px" : "",
               })}
             >
               Contact
             </NavLink>
-            <NavLink className="p-2 bg-[#435334] rounded-md text-white">
-              Order Online
+            <NavLink to="" className="text-[#435334]">
+              <i>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M12 12q-1.65 0-2.825-1.175T8 8q0-1.65 1.175-2.825T12 4q1.65 0 2.825 1.175T16 8q0 1.65-1.175 2.825T12 12Zm-8 8v-2.8q0-.85.438-1.563T5.6 14.55q1.55-.775 3.15-1.163T12 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20H4Z"
+                  />
+                </svg>
+              </i>
             </NavLink>
+            {/* <NavLink>
+              <i></i>
+            </NavLink> */}
           </div>
         </div>
       </nav>

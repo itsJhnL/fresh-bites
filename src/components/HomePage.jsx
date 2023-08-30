@@ -1,8 +1,15 @@
 import React from "react";
 import "../index.css";
-import Chicken from "../assets/images/chicken1.png";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
+import Chicken from "../assets/images/chicken1.png";
+import Pizza from "../assets/images/pizza1.png";
+import Chicken1 from "../assets/images/chicken2.png";
+import Chicken2 from "../assets/images/chicken3.png";
+import Chicken5 from "../assets/images/chicken5.png";
+import Pizza2 from "../assets/images/pizza2.png";
+import Pasta from "../assets/images/pasta.png";
+import Pizza3 from "../assets/images/pizza3.png";
 
 function HomePage() {
   return (
@@ -27,29 +34,140 @@ function HomePage() {
               </p>
             </div>
             <div className="pt-7">
-              <Link
-                to="/Menu"
-                className="p-2 px-5 bg-[#435334] text-white rounded-md"
-              >
+              <Link to="/Menu" className="p-2 px-5 bg-[#435334] text-white">
                 Show More
               </Link>
             </div>
           </div>
           <div className="object-scale-down mb-28 h-96 w-96">
-            <img src={Chicken} alt=""/>
+            <img src={Chicken} alt="" />
+          </div>
+        </div>
+      </div>
+      <div className="bg-[#CEDEBD] py-24">
+        {/* Best Selling Dishes */}
+        <div className="text-center pb-5">
+          <h1 className="text-lg">SPECIALTIES</h1>
+          <p className="text-xl font-bold">Our Best Selling</p>
+        </div>
+        <div className="flex items-center justify-center max-w-6xl mx-auto">
+          <div className="grid grid-cols-4 gap-4">
+            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
+              <img src={Chicken1} alt="" className="h-[200px] w-[200px]" />
+              <span className="text-center">
+                <p className="text-[#435334] text-base font-bold">
+                  &#8369; 160
+                </p>
+                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
+              </span>
+              <button className="border border-[#435334] text-[#435334] hover:bg-[#CEDEBD] hover:text-[#000] p-2">
+                ORDER NOW
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
+              <img src={Pizza3} alt="" className="h-[200px] w-[200px]" />
+              <span className="text-center">
+                <p className="text-[#435334] text-base font-bold">
+                  &#8369; 160
+                </p>
+                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
+              </span>
+              <button className="border border-[#435334] text-[#435334] hover:bg-[#CEDEBD] hover:text-[#000] p-2">
+                ORDER NOW
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
+              <img src={Chicken5} alt="" className="h-[200px] w-[200px]" />
+              <span className="text-center">
+                <p className="text-[#435334] text-base font-bold">
+                  &#8369; 160
+                </p>
+                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
+              </span>
+              <button className="border border-[#435334] text-[#435334] hover:bg-[#CEDEBD] hover:text-[#000] p-2">
+                ORDER NOW
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
+              <img src={Chicken2} alt="" className="h-[200px] w-[200px]" />
+              <span className="text-center">
+                <p className="text-[#435334] text-base font-bold">
+                  &#8369; 160
+                </p>
+                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
+              </span>
+              <button className="border border-[#435334] text-[#435334] hover:bg-[#CEDEBD] hover:text-[#000] p-2">
+                ORDER NOW
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
+              <img src={Pizza2} alt="" className="h-[200px] w-[200px]" />
+              <span className="text-center">
+                <p className="text-[#435334] text-base font-bold">
+                  &#8369; 160
+                </p>
+                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
+              </span>
+              <button className="border border-[#435334] text-[#435334] hover:bg-[#CEDEBD] hover:text-[#000] p-2">
+                ORDER NOW
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
+              <img src={Pasta} alt="" className="h-[200px] w-[200px]" />
+              <span className="text-center">
+                <p className="text-[#435334] text-base font-bold">
+                  &#8369; 160
+                </p>
+                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
+              </span>
+              <button className="border border-[#435334] text-[#435334] hover:bg-[#CEDEBD] hover:text-[#000] p-2">
+                ORDER NOW
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
+              <img src={Pasta} alt="" className="h-[200px] w-[200px]" />
+              <span className="text-center">
+                <p className="text-[#435334] text-base font-bold">
+                  &#8369; 160
+                </p>
+                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
+              </span>
+              <button className="border border-[#435334] text-[#435334] hover:bg-[#CEDEBD] hover:text-[#000] p-2">
+                ORDER NOW
+              </button>
+            </div>
+            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
+              <img src={Pasta} alt="" className="h-[200px] w-[200px]" />
+              <span className="text-center">
+                <p className="text-[#435334] text-base font-bold">
+                  &#8369; 160
+                </p>
+                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
+              </span>
+              <button className="border border-[#435334] text-[#435334] hover:bg-[#CEDEBD] hover:text-[#000] p-2">
+                ORDER NOW
+              </button>
+            </div>
           </div>
         </div>
       </div>
       <div className="bg-[#f1f1f1]">
-        {/* Best Selling Dishes */}
-        <div className="flex items-center justify-center">
-          <div className="grid grid-cols-3 gap-4">
-            <div>Image</div>
-            <div>Image</div>
-            <div>Image</div>
-            <div>Image</div>
-            <div>Image</div>
-            <div>Image</div>
+        {/* What we serve */}
+        <div className="text-center">
+          <h1>WHAT WE SERVE</h1>
+          <p>Your Favorite Food Delivery Partner</p>
+        </div>
+        <div className="flext items-center justify-center">
+          <div className="flex">
+            <div>
+              <img src={Chicken} alt="" />
+            </div>
+            <div>
+              <img src={Chicken} alt="" />
+            </div>
+            <div>
+              <img src={Chicken} alt="" />
+            </div>
           </div>
         </div>
       </div>
