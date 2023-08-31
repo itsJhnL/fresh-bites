@@ -3,20 +3,18 @@ import Logo from "../assets/logo/Chicken.png";
 
 export default function Footer() {
   return (
-    <div className="bg-[#FAF1E4]">
+    <div className="bg-[#FFF] border-t-4">
       <div className="max-w-6xl mx-auto py-10">
         <div className="grid grid-cols-5 gap-4">
           <div className="lg:col-span-2">
             <img src={Logo} alt="" />
-            <div className="">
-              <div className="text-justify space-y-2 text-gray-700">
-                <p>
-                  Welcome to our platform! We're here to provide top-quality
-                  products/services and ensure a seamless experience. Explore,
-                  inquire, and enjoy our offerings. Your satisfaction is our
-                  priority.
-                </p>
-              </div>
+            <div className="text-justify space-y-2 text-gray-700 pt-5">
+              <p>
+                Welcome to our platform! We're here to provide top-quality
+                products/services and ensure a seamless experience. Explore,
+                inquire, and enjoy our offerings. Your satisfaction is our
+                priority.
+              </p>
             </div>
             <div className="flex flex-col">
               <h1 className="text-base font-bold text-gray-700 pt-5">
@@ -26,7 +24,7 @@ export default function Footer() {
                 <input
                   type="email"
                   placeholder="Your Email Address"
-                  className="border  p-2 outline-none border-[#435334] bg-[#FAF1E4] w-full"
+                  className="border  p-2 outline-none border-[#435334] w-full"
                 />
                 <button className="bg-[#435334]  text-white p-2">
                   Subscribe

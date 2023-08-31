@@ -10,7 +10,7 @@ import pizza from "../assets/images/pizza1.png";
 export default function Menu() {
   return (
     <div>
-      <div className="bg-[#CEDEBD]">
+      <div className="bg-[#FFF]">
         <div className="flex items-center justify-center max-w-6xl mx-auto py-24">
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-[#FAF1E4] flex flex-col items-center justify-center p-10 space-y-4">

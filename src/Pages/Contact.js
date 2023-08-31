@@ -9,7 +9,7 @@ export default function Contact() {
     backgroundRepeat: "no-repeat",
     // height: "100vh",
     // width: "100%",
-    backgroundColor: "#CEDEBD",
+    backgroundColor: "#FFF",
   };
   return (
     <div className="h-screen" style={background}>
