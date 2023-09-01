@@ -184,7 +184,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center p-5">
+      <div className="flex items-center justify-center p-5 bg-[#CEDEBD]">
         <p className="text-base">
           All Rights Reserved &copy; 2023 Copyright | Made by{" "}
           <a href="JanggoDev.com" className="text-[#435334]">

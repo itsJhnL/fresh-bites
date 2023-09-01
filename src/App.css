@@ -1,5 +1,12 @@
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #435334;
+}
 
 
-.image {
-    background-image: url('./assets/images/chicken1.png');
+@media screen { 
+    
 }

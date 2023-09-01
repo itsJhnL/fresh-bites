@@ -7,11 +7,16 @@ import About from "./Pages/About";
 import User from "./Pages/User";
 import Navbar from "./components/Navbar";
 import HomePage from "./components/HomePage";
+import "./App.css";
+import ScrollButton from "./components/ScrollButton";
+
+// import styled from "styled-components";
 
 export default function App() {
   return (
     <div className="">
       <Navbar />
+      <ScrollButton />
       {/* <HomePage /> */}
       <Routes>
         <Route exact path="/" element={<HomePage />}></Route>

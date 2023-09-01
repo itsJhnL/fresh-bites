@@ -1,23 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Footer from "./Footer";
-import Chicken from "../assets/images/chicken1.png";
-import Pizza from "../assets/images/pizza1.png";
-import Chicken1 from "../assets/images/chicken2.png";
-import Chicken2 from "../assets/images/chicken3.png";
-import Chicken5 from "../assets/images/chicken5.png";
-import Pizza2 from "../assets/images/pizza2.png";
-import pasta2 from "../assets/images/pasta2.png";
-import Pasta from "../assets/images/pasta.png";
-import Pizza3 from "../assets/images/pizza3.png";
-import Burger2 from "../assets/images/burger2.png";
+import Chicken from "../assets/images/menu/chicken1.png";
+import Pizza from "../assets/images/menu/pizza1.png";
+import Chicken1 from "../assets/images/menu/chicken2.png";
+import Chicken2 from "../assets/images/menu/chicken3.png";
+import Chicken5 from "../assets/images/menu/chicken5.png";
+import Pizza2 from "../assets/images/menu/pizza2.png";
+import pasta2 from "../assets/images/menu/pasta2.png";
+import Pasta from "../assets/images/menu/pasta.png";
+import Pizza3 from "../assets/images/menu/pizza3.png";
+import Burger2 from "../assets/images/menu/burger2.png";
+import Meatballs from "../assets/images/menu/meatballs.png";
 import Order from "../assets/svg/Order.png";
 import OnTheWay from "../assets/svg/OnTheWay.png";
 import Delivered from "../assets/svg/Delivered.png";
-import Pic from "../assets/pic.jpg";
+import Person1 from "../assets/images/reviews/Person1.jpg";
+import Person2 from "../assets/images/reviews/Person2.jpg";
+import Person3 from "../assets/images/reviews/Person3.jpg";
+import Person4 from "../assets/images/reviews/Person4.jpg";
+import Person5 from "../assets/images/reviews/Person5.jpg";
 
 function HomePage() {
+  //useState for Specified Position
+  const [clicked, setClicked] = useState();
+
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0, // position start from top 0.
+      behavior: "auto", // auto scroll to top page, no animation.
+    });
+    setClicked(true);
+  };
+
   return (
     <div>
       <div className="bg-[#FAF1E4] h-screen">
@@ -29,7 +45,8 @@ function HomePage() {
               </span>
               <h1 className="Pacifico font-normal text-8xl">Fresh Bites</h1>
               <p className="pt-5">
-                Indulge in the extraordinary with our Unforgettable Chicken Bite
+                Indulge in the extraordinary with our Unforgettable Chicken
+                Bite.
               </p>
               <p className="text-justify max-w-lg pt-4">
                 Immerse your taste buds in a symphony of flavors that lingers
@@ -40,12 +57,16 @@ function HomePage() {
               </p>
             </div>
             <div className="pt-7">
-              <Link to="/Menu" className="p-2 px-5 bg-[#435334] text-white">
-                Show More
-              </Link>
+              <NavLink
+                to="/Menu"
+                onClick={scrollUp}
+                className="p-2 px-5 bg-[#435334] text-white"
+              >
+                {clicked ? "Scrolling..." : "Show More"}
+              </NavLink>
             </div>
           </div>
-          <div className="object-scale-down mb-28 h-96 w-96">
+          <div className="object-fit mb-28 w-96">
             <img src={Chicken} alt="" />
           </div>
         </div>
@@ -57,102 +78,160 @@ function HomePage() {
           <p className="text-2xl font-bold">Our Best Selling</p>
         </div>
         <div className="flex items-center justify-center max-w-6xl mx-auto">
-          <div className="grid grid-cols-4 gap-4">
-            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
-              <img src={Chicken1} alt="" className="h-[200px] w-[200px]" />
-              <span className="text-center">
-                <p className="text-[#435334] text-base font-bold">
-                  &#8369; 160
-                </p>
-                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
-              </span>
-              <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
-                ORDER NOW
-              </button>
+          <div className="grid grid-cols-3 gap-4 h-full max-sm:grid-cols-1 max-sm:w-full max-sm:m-5 sm:grid-cols-2 sm:m-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="bg-[#FAF1E4] p-10">
+              <div className="flex flex-col items-center jusity-center">
+                <img src={Chicken1} alt="" className="h-[200px] w-[200px] " />
+                <span className="text-center space-y-2 pt-5">
+                  <p className="text-[#435334] text-base font-bold">
+                    &#8369; 399
+                  </p>
+                  <h1 className="text-lg font-bold">
+                    {" "}
+                    Roasted Chicken with Carrots
+                  </h1>
+                </span>
+              </div>
+              <div className="text-center pt-10">
+                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                  ORDER NOW
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
-              <img src={Pizza3} alt="" className="h-[200px] w-[200px]" />
-              <span className="text-center">
-                <p className="text-[#435334] text-base font-bold">
-                  &#8369; 160
-                </p>
-                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
-              </span>
-              <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
-                ORDER NOW
-              </button>
+            <div className="bg-[#FAF1E4] p-10">
+              <div className="flex flex-col items-center justify-center">
+                <img src={Pizza3} alt="" className="h-[200px] w-[200px]" />
+                <span className="text-center space-y-2 pt-5">
+                  <p className="text-[#435334] text-base font-bold">
+                    &#8369; 999
+                  </p>
+                  <h1 className="text-lg font-bold">
+                    {" "}
+                    Chocolate and Strawberry Pizza
+                  </h1>
+                </span>
+              </div>
+              <div className="text-center pt-10">
+                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                  ORDER NOW
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
-              <img src={Chicken5} alt="" className="h-[200px] w-[200px]" />
-              <span className="text-center">
-                <p className="text-[#435334] text-base font-bold">
-                  &#8369; 160
-                </p>
-                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
-              </span>
-              <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
-                ORDER NOW
-              </button>
+            <div className="bg-[#FAF1E4] p-10">
+              <div className="flex flex-col items-center justify-center">
+                <img src={Chicken5} alt="" className="h-[200px] w-[200px]" />
+                <span className="text-center space-y-2 pt-5">
+                  <p className="text-[#435334] text-base font-bold">
+                    &#8369; 99
+                  </p>
+                  <h1 className="text-lg font-bold"> Roasted Chicken Leg</h1>
+                </span>
+              </div>
+              <div className="text-center pt-10">
+                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                  ORDER NOW
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
-              <img src={Chicken2} alt="" className="h-[200px] w-[200px]" />
-              <span className="text-center">
-                <p className="text-[#435334] text-base font-bold">
-                  &#8369; 160
-                </p>
-                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
-              </span>
-              <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
-                ORDER NOW
-              </button>
+            <div className="bg-[#FAF1E4] p-10">
+              <div className="flex flex-col items-center justify-center">
+                <img src={Chicken2} alt="" className="h-[200px] w-[200px]" />
+                <span className="text-center space-y-2 pt-5">
+                  <p className="text-[#435334] text-base font-bold">
+                    &#8369; 160
+                  </p>
+                  <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
+                </span>
+              </div>
+              <div className="text-center pt-10">
+                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                  ORDER NOW
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
-              <img src={Pizza2} alt="" className="h-[200px] w-[200px]" />
-              <span className="text-center">
-                <p className="text-[#435334] text-base font-bold">
-                  &#8369; 160
-                </p>
-                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
-              </span>
-              <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
-                ORDER NOW
-              </button>
+            <div className="bg-[#FAF1E4] p-10">
+              <div className="flex flex-col items-center justify-center">
+                <img src={Pizza2} alt="" className="h-[200px] w-[200px]" />
+                <span className="text-center space-y-2 pt-5">
+                  <p className="text-[#435334] text-base font-bold">
+                    &#8369; 399
+                  </p>
+                  <h1 className="text-lg font-bold"> Margherita Pizza </h1>
+                </span>
+              </div>
+              <div className="text-center pt-10">
+                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                  ORDER NOW
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
-              <img src={Pizza} alt="" className="h-[200px] w-[200px]" />
-              <span className="text-center">
-                <p className="text-[#435334] text-base font-bold">
-                  &#8369; 160
-                </p>
-                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
-              </span>
-              <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
-                ORDER NOW
-              </button>
+            <div className="bg-[#FAF1E4] p-10">
+              <div className="flex flex-col items-center justify-center">
+                <img src={Pizza} alt="" className="h-[200px] w-[200px]" />
+                <span className="text-center space-y-2 pt-5">
+                  <p className="text-[#435334] text-base font-bold">
+                    &#8369; 499
+                  </p>
+                  <h1 className="text-lg font-bold"> Pizza Bites</h1>
+                </span>
+              </div>
+              <div className="text-center pt-10">
+                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                  ORDER NOW
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
-              <img src={Pasta} alt="" className="h-[200px] w-[200px]" />
-              <span className="text-center">
-                <p className="text-[#435334] text-base font-bold">
-                  &#8369; 160
-                </p>
-                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
-              </span>
-              <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
-                ORDER NOW
-              </button>
+            <div className="bg-[#FAF1E4] p-10">
+              <div className="flex flex-col items-center justify-center">
+                <img src={Pasta} alt="" className="h-[200px] w-[200px]" />
+                <span className="text-center space-y-2 pt-5">
+                  <p className="text-[#435334] text-base font-bold">
+                    &#8369; 199
+                  </p>
+                  <h1 className="text-lg font-bold"> Spaghetti Bolognese </h1>
+                </span>
+              </div>
+              <div className="text-center pt-10">
+                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                  ORDER NOW
+                </button>
+              </div>
             </div>
-            <div className="flex flex-col items-center justify-center bg-[#FAF1E4] p-10 space-y-5">
-              <img src={Burger2} alt="" className="h-[200px] w-[200px]" />
-              <span className="text-center">
-                <p className="text-[#435334] text-base font-bold">
-                  &#8369; 160
-                </p>
-                <h1 className="text-lg font-bold"> Chicken NOKNOK</h1>
-              </span>
-              <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
-                ORDER NOW
-              </button>
+            <div className="bg-[#FAF1E4] p-10">
+              <div className="flex flex-col items-center justify-center">
+                <img src={Burger2} alt="" className="h-[200px] w-[200px]" />
+                <span className="text-center space-y-2 pt-5">
+                  <p className="text-[#435334] text-base font-bold">
+                    &#8369; 289
+                  </p>
+                  <h1 className="text-lg font-bold"> Burger Bite King</h1>
+                </span>
+              </div>
+              <div className="text-center pt-10">
+                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                  ORDER NOW
+                </button>
+              </div>
+            </div>
+            <div className="bg-[#FAF1E4] p-10">
+              <div className="flex flex-col items-center justify-center">
+                <img
+                  src={Meatballs}
+                  alt=""
+                  className="object-cover h-[200px] w-[200px]"
+                />
+                <span className="text-center space-y-2 pt-5">
+                  <p className="text-[#435334] text-base font-bold">
+                    &#8369; 150
+                  </p>
+                  <h1 className="text-lg font-bold"> Meatballs Pasta</h1>
+                </span>
+              </div>
+              <div className="text-center pt-10">
+                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                  ORDER NOW
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -182,7 +261,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="bg-[#FFF]">
+      <div className="bg-[#FFF] my-14">
         {/* About Us */}
         <div className="text-center pt-10">
           <h1 className="text-lg text-[#435334] font-semibold">ABOUT US</h1>
@@ -210,13 +289,13 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="bg-[#f1f1f1]">
+      <div className="bg-[#f1f1f1] space-y-4">
         {/* Reviews */}
         <div className="text-center pt-10">
           <h1 className="text-lg text-[#435334] font-semibold">REVIEWS</h1>
           <p className="text-2xl font-bold">What They Say?</p>
         </div>
-        <div className="flex items-center justify-center max-w-6xl mx-auto py-10">
+        <div className="flex items-center justify-center max-w-6xl mx-auto pt-10">
           <div className="grid grid-cols-3 gap-4">
             <div className="bg-[#FFF] p-10 rounded-xl">
               <span className="float-right">
@@ -235,16 +314,14 @@ function HomePage() {
                 </i>
               </span>
               <div className="flex items-center justify-between py-5">
-                <div className="drop-shadow-md">
-                  <img
-                    src={Pic}
-                    alt=""
-                    className="object-fit h-[100px] w-[100px] rounded-full"
-                  />
-                </div>
+                <img
+                  src={Person1}
+                  alt=""
+                  className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                />
                 <span>
-                  <h1 className="text-lg">John Leo Bruno</h1>
-                  <p className="text-[#435334]">Software Engineer</p>
+                  <h1 className="text-lg">Emily Thompson</h1>
+                  <p className="text-[#435334]">Designer</p>
                 </span>
               </div>
               <div className="text-justify text-gray-700">
@@ -272,16 +349,14 @@ function HomePage() {
                 </i>
               </span>
               <div className="flex items-center justify-between py-5">
-                <div className="drop-shadow-md">
-                  <img
-                    src={Pic}
-                    alt=""
-                    className="object-fit h-[100px] w-[100px] rounded-full"
-                  />
-                </div>
+                <img
+                  src={Person2}
+                  alt=""
+                  className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                />
                 <span>
-                  <h1 className="text-lg">John Leo Bruno</h1>
-                  <p className="text-[#435334]">Software Engineer</p>
+                  <h1 className="text-lg">David Turner</h1>
+                  <p className="text-[#435334]">Cloud Architect</p>
                 </span>
               </div>
               <div className="text-justify text-gray-700">
@@ -309,16 +384,14 @@ function HomePage() {
                 </i>
               </span>
               <div className="flex items-center justify-between py-5">
-                <div className="drop-shadow-md">
-                  <img
-                    src={Pic}
-                    alt=""
-                    className="object-fit h-[100px] w-[100px] rounded-full"
-                  />
-                </div>
+                <img
+                  src={Person3}
+                  alt=""
+                  className="object-cover h-[100px] w-[100px] rounded-full"
+                />
                 <span>
-                  <h1 className="text-lg">John Leo Bruno</h1>
-                  <p className="text-[#435334]">Software Engineer</p>
+                  <h1 className="text-lg">William Anderson</h1>
+                  <p className="text-[#435334]">Web Developer</p>
                 </span>
               </div>
               <div className="text-justify text-gray-700">
@@ -329,7 +402,11 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="bg-[#FFF] p-10 rounded-xl">
+          </div>
+        </div>
+        <div className="flex items-center justify-center max-w-6xl mx-auto pb-10">
+          <div className="grid grid-cols-6 gap-4">
+            <div className="bg-[#FFF] p-10 rounded-xl col-start-2 col-end-4">
               <span className="float-right">
                 <i>
                   <svg
@@ -346,16 +423,14 @@ function HomePage() {
                 </i>
               </span>
               <div className="flex items-center justify-between py-5">
-                <div className="drop-shadow-md">
-                  <img
-                    src={Pic}
-                    alt=""
-                    className="object-fit h-[100px] w-[100px] rounded-full"
-                  />
-                </div>
+                <img
+                  src={Person4}
+                  alt=""
+                  className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                />
                 <span>
-                  <h1 className="text-lg">John Leo Bruno</h1>
-                  <p className="text-[#435334]">Software Engineer</p>
+                  <h1 className="text-lg">Sophia Rodriguez</h1>
+                  <p className="text-[#435334]">IT Consultant</p>
                 </span>
               </div>
               <div className="text-justify text-gray-700">
@@ -366,7 +441,7 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="bg-[#FFF] p-10 rounded-xl">
+            <div className="bg-[#FFF] p-10 rounded-xl col-start-4 col-end-6">
               <span className="float-right">
                 <i>
                   <svg
@@ -383,15 +458,13 @@ function HomePage() {
                 </i>
               </span>
               <div className="flex items-center justify-between py-5">
-                <div className="drop-shadow-md">
-                  <img
-                    src={Pic}
-                    alt=""
-                    className="object-fit h-[100px] w-[100px] rounded-full"
-                  />
-                </div>
+                <img
+                  src={Person5}
+                  alt=""
+                  className="object-cover  h-[100px] w-[100px] rounded-full"
+                />
                 <span>
-                  <h1 className="text-lg">John Leo Bruno</h1>
+                  <h1 className="text-lg">Michael Anderson</h1>
                   <p className="text-[#435334]">Software Engineer</p>
                 </span>
               </div>

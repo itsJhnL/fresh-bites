@@ -1,60 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/logo/Chicken.png";
 import "../index.css";
 
 function Navbar() {
+  const [clicked, setClicked] = useState();
+
+  const scrollUp = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "auto",
+    });
+    setClicked(true);
+  };
+
   return (
     <div className="shadow sticky top-0 backdrop-blur-lg bg-[#FAF1E4]/80">
       <nav>
         <div className="flex items-center justify-between py-5 max-w-6xl mx-auto">
           <div className="">
-            <NavLink to="/">
-              {<img src={Logo} alt="" className="h-[30px] w-[100%]" />}
+            <NavLink to="/" onClick={scrollUp}>
+              {<img src={Logo} alt="" className="h-[30px] w-full" />}
+              {clicked ? "" : ""}
             </NavLink>
           </div>
           <div className="flex items-center justify-center text-base space-x-10">
             <NavLink
               to="/"
+              onClick={scrollUp}
               style={({ isActive }) => ({
                 color: isActive ? "#435334" : "#000",
-                /* paddingLeft: isActive ? "15px" : "15px",
-                paddingRight: isActive ? "15px" : "15px",
-                paddingTop: isActive ? "8px" : "8px",
-                paddingBottom: isActive ? "8px" : "8px", */
                 fontWeight: isActive ? "bold" : "",
                 borderBottom: isActive ? "solid 3px" : "",
               })}
             >
-              Home
+              {clicked ? "Home" : "Home"}
             </NavLink>
             <NavLink
               to="/Menu"
+              onClick={scrollUp}
               style={({ isActive }) => ({
                 color: isActive ? "#435334" : "#000",
-                /* paddingLeft: isActive ? "15px" : "15px",
-                paddingRight: isActive ? "15px" : "15px",
-                paddingTop: isActive ? "8px" : "8px",
-                paddingBottom: isActive ? "8px" : "8px", */
                 fontWeight: isActive ? "bold" : "",
                 borderBottom: isActive ? "solid 3px" : "",
               })}
             >
-              Menu
+              {clicked ? "Menu" : "Menu"}
             </NavLink>
             <NavLink
               to="/Contact"
+              onClick={scrollUp}
               style={({ isActive }) => ({
                 color: isActive ? "#435334" : "#000",
-                /* paddingLeft: isActive ? "15px" : "15px",
-                paddingRight: isActive ? "15px" : "15px",
-                paddingTop: isActive ? "8px" : "8px",
-                paddingBottom: isActive ? "8px" : "8px", */
                 fontWeight: isActive ? "bold" : "",
                 borderBottom: isActive ? "solid 3px" : "",
               })}
             >
-              Contact
+              {clicked ? "Contact" : "Contact"}
             </NavLink>
             <NavLink to="" className="text-[#435334]">
               <i>

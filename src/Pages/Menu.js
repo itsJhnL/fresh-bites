@@ -1,11 +1,11 @@
 import React from "react";
 import Footer from "../components/Footer";
-import chicken1 from "../assets/images/chicken1.png";
-import chicken2 from "../assets/images/chicken2.png";
-import chicken6 from "../assets/images/chicken6.png";
-import burger2 from "../assets/images/burger2.png";
-import burger1 from "../assets/images/burger1.png";
-import pizza from "../assets/images/pizza1.png";
+import chicken1 from "../assets/images/menu/chicken1.png";
+import chicken2 from "../assets/images/menu/chicken2.png";
+import chicken6 from "../assets/images/menu/chicken6.png";
+import burger2 from "../assets/images/menu/burger2.png";
+import burger1 from "../assets/images/menu/burger1.png";
+import pizza from "../assets/images/menu/pizza1.png";
 
 export default function Menu() {
   return (
