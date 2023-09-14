@@ -23,56 +23,54 @@ function Navbar() {
   const NavLinks = () => {
     return (
       <>
-        <ul className="flex items-center justify-center text-base space-x-10">
-          <NavLink
-            to="/"
-            onClick={scrollUp}
-            style={({ isActive }) => ({
-              color: isActive ? "#435334" : "#000",
-              fontWeight: isActive ? "bold" : "",
-              borderBottom: isActive ? "solid 3px" : "",
-            })}
-          >
-            {clicked ? "Home" : "Home"}
-          </NavLink>
-          <NavLink
-            to="/Menu"
-            onClick={scrollUp}
-            style={({ isActive }) => ({
-              color: isActive ? "#435334" : "#000",
-              fontWeight: isActive ? "bold" : "",
-              borderBottom: isActive ? "solid 3px" : "",
-            })}
-          >
-            {clicked ? "Menu" : "Menu"}
-          </NavLink>
-          <NavLink
-            to="/Contact"
-            onClick={scrollUp}
-            style={({ isActive }) => ({
-              color: isActive ? "#435334" : "#000",
-              fontWeight: isActive ? "bold" : "",
-              borderBottom: isActive ? "solid 3px" : "",
-            })}
-          >
-            {clicked ? "Contact" : "Contact"}
-          </NavLink>
-          <NavLink to="" className="text-[#435334]">
-            <i>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  fill="currentColor"
-                  d="M12 12q-1.65 0-2.825-1.175T8 8q0-1.65 1.175-2.825T12 4q1.65 0 2.825 1.175T16 8q0 1.65-1.175 2.825T12 12Zm-8 8v-2.8q0-.85.438-1.563T5.6 14.55q1.55-.775 3.15-1.163T12 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20H4Z"
-                />
-              </svg>
-            </i>
-          </NavLink>
-        </ul>
+        <NavLink
+          to="/"
+          onClick={scrollUp}
+          style={({ isActive }) => ({
+            color: isActive ? "#435334" : "#000",
+            fontWeight: isActive ? "bold" : "",
+            borderBottom: isActive ? "solid 3px" : "",
+          })}
+        >
+          {clicked ? "Home" : "Home"}
+        </NavLink>
+        <NavLink
+          to="/Menu"
+          onClick={scrollUp}
+          style={({ isActive }) => ({
+            color: isActive ? "#435334" : "#000",
+            fontWeight: isActive ? "bold" : "",
+            borderBottom: isActive ? "solid 3px" : "",
+          })}
+        >
+          {clicked ? "Menu" : "Menu"}
+        </NavLink>
+        <NavLink
+          to="/Contact"
+          onClick={scrollUp}
+          style={({ isActive }) => ({
+            color: isActive ? "#435334" : "#000",
+            fontWeight: isActive ? "bold" : "",
+            borderBottom: isActive ? "solid 3px" : "",
+          })}
+        >
+          {clicked ? "Contact" : "Contact"}
+        </NavLink>
+        <NavLink to="" className="text-[#435334]">
+          <i>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M12 12q-1.65 0-2.825-1.175T8 8q0-1.65 1.175-2.825T12 4q1.65 0 2.825 1.175T16 8q0 1.65-1.175 2.825T12 12Zm-8 8v-2.8q0-.85.438-1.563T5.6 14.55q1.55-.775 3.15-1.163T12 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20H4Z"
+              />
+            </svg>
+          </i>
+        </NavLink>
       </>
     );
   };
@@ -87,7 +85,7 @@ function Navbar() {
               {clicked ? "" : ""}
             </NavLink>
           </div>
-          <div className="sm:hidden lg:block">
+          <div className="flex items-center justify-center text-base space-x-10 sm:hidden lg:block">
             <NavLinks />
           </div>
           <div className="flex sm:blocok lg:hidden">
@@ -113,9 +111,15 @@ function Navbar() {
           </div>
         </div>
         {nav && (
-          <div className="absolute max-sm:block lg:hidden">
-            <button className="">{nav ? <NavLinks /> : ""}</button>
-          </div>
+          <>
+            <div className="absolute h-[100vh] w-[100vw] backdrop-blur-sm bg-white/30">
+              <div className="absolute right-0 p-5 h-[100vh] w-[25vw] bg-[#f1f1f1]/70 max-sm:block lg:hidden">
+                <button className="flex flex-col items-center justify-center">
+                  {nav ? <NavLinks /> : ""}
+                </button>
+              </div>
+            </div>
+          </>
         )}
       </nav>
     </div>

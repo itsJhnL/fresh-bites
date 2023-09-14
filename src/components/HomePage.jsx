@@ -77,7 +77,7 @@ function HomePage() {
           <p className="text-2xl font-bold">Our Best Selling</p>
         </div>
         <div className="flex items-center justify-center max-w-6xl mx-auto">
-          <div className="grid grid-cols-3 gap-4 h-full sm:grid-cols-1 sm:w-full sm:m-5 sm:grid-cols-2 sm:m-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 h-full sm:grid-cols-1 sm:w-full sm:m-5 md:grid-cols-2 lg:grid-cols-3">
             <div className="bg-[#FAF1E4] p-10">
               <div className="flex flex-col items-center jusity-center">
                 <img src={Chicken1} alt="" className="h-[200px] w-[200px] " />
