@@ -35,28 +35,27 @@ function HomePage() {
   };
 
   return (
-    <div>
-      <div className="bg-[#FAF1E4] h-screen">
-        <div className="flex items-center justify-between max-w-6xl mx-auto h-full w-full">
-          <div className="mb-28">
-            <div>
-              <span className="Pacifico text-[#435334] font-normal text-5xl">
-                Welcome to
-              </span>
-              <h1 className="Pacifico font-normal text-8xl">Fresh Bites</h1>
-              <p className="pt-5">
-                Indulge in the extraordinary with our Unforgettable Chicken
-                Bite.
-              </p>
-              <p className="text-justify max-w-lg pt-4">
-                Immerse your taste buds in a symphony of flavors that lingers
-                long after your last bite. Crafted to perfection, each tender
-                piece of succulent chicken is infused with a harmonious blend of
-                exquisite spices and seasonings. A remarkable burst of taste
-                that's simply unforgettable.
-              </p>
-            </div>
-            <div className="pt-7">
+    <>
+      <div className="bg-[#FAF1E4] py-24 drop-shadow">
+        <div className="flex sm:flex-col lg:flex-row items-center justify-between max-w-6xl mx-auto p-5 ">
+          <div>
+            <span className="Pacifico text-[#435334] font-normal sm:text-2xl md:text-5xl">
+              Welcome to
+            </span>
+            <h1 className="Pacifico font-normal sm:text-5xl md:text-8xl">
+              Fresh Bites
+            </h1>
+            <p className="pt-5 text-xl ">
+              Indulge in the extraordinary with our Unforgettable Chicken Bite.
+            </p>
+            <p className="text-justify max-w-xl pt-4">
+              Immerse your taste buds in a symphony of flavors that lingers long
+              after your last bite. Crafted to perfection, each tender piece of
+              succulent chicken is infused with a harmonious blend of exquisite
+              spices and seasonings. A remarkable burst of taste that's simply
+              unforgettable.
+            </p>
+            <button className="pt-7">
               <NavLink
                 to="/Menu"
                 onClick={scrollUp}
@@ -64,10 +63,10 @@ function HomePage() {
               >
                 {clicked ? "Scrolling..." : "Show More"}
               </NavLink>
-            </div>
+            </button>
           </div>
-          <div className="object-fit mb-28 w-96">
-            <img src={Chicken} alt="" />
+          <div className="object-cover rounded-full mb-5">
+            <img src={Chicken} alt="" className="w-96" />
           </div>
         </div>
       </div>
@@ -78,7 +77,7 @@ function HomePage() {
           <p className="text-2xl font-bold">Our Best Selling</p>
         </div>
         <div className="flex items-center justify-center max-w-6xl mx-auto">
-          <div className="grid grid-cols-3 gap-4 h-full max-sm:grid-cols-1 max-sm:w-full max-sm:m-5 sm:grid-cols-2 sm:m-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-3 gap-4 h-full sm:grid-cols-1 sm:w-full sm:m-5 sm:grid-cols-2 sm:m-5 md:grid-cols-2 lg:grid-cols-3">
             <div className="bg-[#FAF1E4] p-10">
               <div className="flex flex-col items-center jusity-center">
                 <img src={Chicken1} alt="" className="h-[200px] w-[200px] " />
@@ -93,7 +92,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                <button className="border border-[#435334] text-[#FFF] bg-[#435334] hover:bg-[#9EB384] hover:text-[#435334] p-2">
                   ORDER NOW
                 </button>
               </div>
@@ -112,7 +111,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                <button className="border border-[#435334] text-[#FFF] bg-[#435334] hover:bg-[#9EB384] hover:text-[#435334] p-2">
                   ORDER NOW
                 </button>
               </div>
@@ -128,7 +127,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                <button className="border border-[#435334] text-[#FFF] bg-[#435334] hover:bg-[#9EB384] hover:text-[#435334] p-2">
                   ORDER NOW
                 </button>
               </div>
@@ -144,7 +143,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                <button className="border border-[#435334] text-[#FFF] bg-[#435334] hover:bg-[#9EB384] hover:text-[#435334] p-2">
                   ORDER NOW
                 </button>
               </div>
@@ -160,7 +159,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                <button className="border border-[#435334] text-[#FFF] bg-[#435334] hover:bg-[#9EB384] hover:text-[#435334] p-2">
                   ORDER NOW
                 </button>
               </div>
@@ -176,7 +175,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                <button className="border border-[#435334] text-[#FFF] bg-[#435334] hover:bg-[#9EB384] hover:text-[#435334] p-2">
                   ORDER NOW
                 </button>
               </div>
@@ -192,7 +191,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                <button className="border border-[#435334] text-[#FFF] bg-[#435334] hover:bg-[#9EB384] hover:text-[#435334] p-2">
                   ORDER NOW
                 </button>
               </div>
@@ -208,7 +207,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                <button className="border border-[#435334] text-[#FFF] bg-[#435334] hover:bg-[#9EB384] hover:text-[#435334] p-2">
                   ORDER NOW
                 </button>
               </div>
@@ -228,7 +227,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border border-[#435334] text-[#435334] hover:bg-[#435334] hover:text-[#FFF] p-2">
+                <button className="border border-[#435334] text-[#FFF] bg-[#435334] hover:bg-[#9EB384] hover:text-[#435334] p-2">
                   ORDER NOW
                 </button>
               </div>
@@ -236,7 +235,7 @@ function HomePage() {
           </div>
         </div>
       </div>
-      <div className="bg-[#F1f1f1]">
+      <div className="bg-[#f1f1f1]">
         {/* What we serve */}
         <div className="text-center pt-10">
           <h1 className="text-lg text-[#435334] font-semibold">
@@ -246,7 +245,7 @@ function HomePage() {
             Your Favorite Food <br /> Delivery Partner
           </p>
         </div>
-        <div className="flex items-center justify-between text-center text-lg font-bold max-w-6xl mx-auto py-16">
+        <div className="flex sm:flex-col lg:flex-row items-center justify-between text-center text-lg font-bold max-w-6xl mx-auto py-16">
           <div>
             <img src={Order} alt="" className="h-[300px] w-[300px]" />
             <p>Easy To Order</p>
@@ -268,7 +267,7 @@ function HomePage() {
           <p className="text-2xl font-bold">Why Choose Us?</p>
         </div>
         <div className="flex items-center justify-center">
-          <div className="flex text-justify max-w-6xl mx-auto space-x-10">
+          <div className="flex sm:flex-col lg:flex-row max-w-6xl mx-auto space-x-10">
             <div>
               <img
                 src={pasta2}
@@ -276,7 +275,7 @@ function HomePage() {
                 className="object-contain h-96 w-screen"
               />
             </div>
-            <div className="space-y-5 pt-10">
+            <div className="space-y-5 p-10">
               <h1 className="text-3xl">Top Food Picks Across the Country</h1>
               <p className="text-lg">
                 Discover the best dishes from across the country, each
@@ -293,12 +292,12 @@ function HomePage() {
         {/* Reviews */}
         <div className="text-center pt-10">
           <h1 className="text-lg text-[#435334] font-semibold">REVIEWS</h1>
-          <p className="text-2xl font-bold">What They Say?</p>
+          <p className="text-2xl font-bold">What Do Our Customer Say?</p>
         </div>
         <div className="flex items-center justify-center max-w-6xl mx-auto pt-10">
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-[#FFF] p-10 rounded-xl">
-              <span className="float-right">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-5">
+            <div className="relative bg-[#FFF] p-6 rounded-xl">
+              <span className="absolute right-4">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -313,15 +312,19 @@ function HomePage() {
                   </svg>
                 </i>
               </span>
-              <div className="flex items-center justify-between py-5">
-                <img
-                  src={Person1}
-                  alt=""
-                  className="object-cover object-top h-[100px] w-[100px] rounded-full"
-                />
+              <div className="flex items-center justify-between py-5 space-x-5 sm:flex-col lg:flex-row sm:flex-col lg:flex-row">
+                <div className="border bg-[#9EB384] rounded-full p-2">
+                  <div className="border bg-[#CEDEBD] rounded-full p-2">
+                    <img
+                      src={Person1}
+                      alt=""
+                      className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                    />
+                  </div>
+                </div>
                 <span>
                   <h1 className="text-lg">Emily Thompson</h1>
-                  <p className="text-[#435334]">Designer</p>
+                  <p className="text-[#435334]">Desinger</p>
                 </span>
               </div>
               <div className="text-justify text-gray-700">
@@ -332,8 +335,8 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="bg-[#FFF] p-10 rounded-xl">
-              <span className="float-right">
+            <div className="relative bg-[#FFF] p-6 rounded-xl">
+              <span className="absolute right-4">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -348,14 +351,18 @@ function HomePage() {
                   </svg>
                 </i>
               </span>
-              <div className="flex items-center justify-between py-5">
-                <img
-                  src={Person2}
-                  alt=""
-                  className="object-cover object-top h-[100px] w-[100px] rounded-full"
-                />
+              <div className="flex items-center justify-between py-5 space-x-5 sm:flex-col lg:flex-row">
+                <div className="border bg-[#9EB384] rounded-full p-2">
+                  <div className="border bg-[#CEDEBD] rounded-full p-2">
+                    <img
+                      src={Person2}
+                      alt=""
+                      className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                    />
+                  </div>
+                </div>
                 <span>
-                  <h1 className="text-lg">David Turner</h1>
+                  <h1 className="text-lg">David Scathieber </h1>
                   <p className="text-[#435334]">Cloud Architect</p>
                 </span>
               </div>
@@ -367,8 +374,8 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="bg-[#FFF] p-10 rounded-xl">
-              <span className="float-right">
+            <div className="relative bg-[#FFF] p-6 rounded-xl">
+              <span className="absolute right-4">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -383,12 +390,16 @@ function HomePage() {
                   </svg>
                 </i>
               </span>
-              <div className="flex items-center justify-between py-5">
-                <img
-                  src={Person3}
-                  alt=""
-                  className="object-cover h-[100px] w-[100px] rounded-full"
-                />
+              <div className="flex items-center justify-between py-5 space-x-5 sm:flex-col lg:flex-row">
+                <div className="border bg-[#9EB384] rounded-full p-2">
+                  <div className="border bg-[#CEDEBD] rounded-full p-2">
+                    <img
+                      src={Person3}
+                      alt=""
+                      className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                    />
+                  </div>
+                </div>
                 <span>
                   <h1 className="text-lg">William Anderson</h1>
                   <p className="text-[#435334]">Web Developer</p>
@@ -402,12 +413,8 @@ function HomePage() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="flex items-center justify-center max-w-6xl mx-auto pb-10">
-          <div className="grid grid-cols-6 gap-4">
-            <div className="bg-[#FFF] p-10 rounded-xl col-start-2 col-end-4">
-              <span className="float-right">
+            <div className="relative bg-[#FFF] p-6 rounded-xl sm:block lg:hidden">
+              <span className="absolute right-4">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -422,12 +429,16 @@ function HomePage() {
                   </svg>
                 </i>
               </span>
-              <div className="flex items-center justify-between py-5">
-                <img
-                  src={Person4}
-                  alt=""
-                  className="object-cover object-top h-[100px] w-[100px] rounded-full"
-                />
+              <div className="flex items-center justify-between py-5 space-x-5 sm:flex-col lg:flex-row">
+                <div className="border bg-[#9EB384] rounded-full p-2">
+                  <div className="border bg-[#CEDEBD] rounded-full p-2">
+                    <img
+                      src={Person4}
+                      alt=""
+                      className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                    />
+                  </div>
+                </div>
                 <span>
                   <h1 className="text-lg">Sophia Rodriguez</h1>
                   <p className="text-[#435334]">IT Consultant</p>
@@ -441,8 +452,8 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="bg-[#FFF] p-10 rounded-xl col-start-4 col-end-6">
-              <span className="float-right">
+            <div className="relative bg-[#FFF] p-6 rounded-xl sm:block lg:hidden">
+              <span className="absolute right-4">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -457,12 +468,98 @@ function HomePage() {
                   </svg>
                 </i>
               </span>
-              <div className="flex items-center justify-between py-5">
-                <img
-                  src={Person5}
-                  alt=""
-                  className="object-cover  h-[100px] w-[100px] rounded-full"
-                />
+              <div className="flex items-center justify-between py-5 space-x-5 sm:flex-col lg:flex-row">
+                <div className="border bg-[#9EB384] rounded-full p-2">
+                  <div className="border bg-[#CEDEBD] rounded-full p-2">
+                    <img
+                      src={Person5}
+                      alt=""
+                      className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                    />
+                  </div>
+                </div>
+                <span>
+                  <h1 className="text-lg">Michael Anderson</h1>
+                  <p className="text-[#435334]">Software Engineer</p>
+                </span>
+              </div>
+              <div className="text-justify text-gray-700">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Dolorem cupiditate doloremque est labore molestiae esse natus
+                  repellat mollitia repellendus hic?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-center max-w-6xl mx-auto pb-10 sm:hidden md:hidden lg:block">
+          <div className="grid lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 gap-4">
+            <div className="relative bg-[#FFF] p-6 rounded-xl lg:col-start-2 md:col-end-4">
+              <span className="absolute right-4">
+                <i>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill="#435334"
+                      d="M5.315 3.401c-1.61 0-2.916 1.343-2.916 3c0 1.656 1.306 3 2.916 3c2.915 0 .972 5.799-2.916 5.799v1.4c6.939.001 9.658-13.199 2.916-13.199zm8.4 0c-1.609 0-2.915 1.343-2.915 3c0 1.656 1.306 3 2.915 3c2.916 0 .973 5.799-2.915 5.799v1.4c6.938.001 9.657-13.199 2.915-13.199z"
+                    />
+                  </svg>
+                </i>
+              </span>
+              <div className="flex items-center justify-between py-5 space-x-5 sm:flex-col lg:flex-row">
+                <div className="border bg-[#9EB384] rounded-full p-2">
+                  <div className="border bg-[#CEDEBD] rounded-full p-2">
+                    <img
+                      src={Person4}
+                      alt=""
+                      className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                    />
+                  </div>
+                </div>
+                <span>
+                  <h1 className="text-lg">Sophia Rodriguez</h1>
+                  <p className="text-[#435334]">IT Consultant</p>
+                </span>
+              </div>
+              <div className="text-justify text-gray-700">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                  Dolorem cupiditate doloremque est labore molestiae esse natus
+                  repellat mollitia repellendus hic?
+                </p>
+              </div>
+            </div>
+            <div className="relative bg-[#FFF] p-6 rounded-xl col-start-4 col-end-6">
+              <span className="absolute right-4">
+                <i>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill="#435334"
+                      d="M5.315 3.401c-1.61 0-2.916 1.343-2.916 3c0 1.656 1.306 3 2.916 3c2.915 0 .972 5.799-2.916 5.799v1.4c6.939.001 9.658-13.199 2.916-13.199zm8.4 0c-1.609 0-2.915 1.343-2.915 3c0 1.656 1.306 3 2.915 3c2.916 0 .973 5.799-2.915 5.799v1.4c6.938.001 9.657-13.199 2.915-13.199z"
+                    />
+                  </svg>
+                </i>
+              </span>
+              <div className="flex items-center justify-between py-5 space-x-5 sm:flex-col lg:flex-row">
+                <div className="border bg-[#9EB384] rounded-full p-2">
+                  <div className="border bg-[#CEDEBD] rounded-full p-2">
+                    <img
+                      src={Person5}
+                      alt=""
+                      className="object-cover object-top h-[100px] w-[100px] rounded-full"
+                    />
+                  </div>
+                </div>
                 <span>
                   <h1 className="text-lg">Michael Anderson</h1>
                   <p className="text-[#435334]">Software Engineer</p>
@@ -480,7 +577,7 @@ function HomePage() {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

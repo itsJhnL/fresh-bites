@@ -9,10 +9,10 @@ import pizza from "../assets/images/menu/pizza1.png";
 
 export default function Menu() {
   return (
-    <div>
+    <>
       <div className="bg-[#FFF]">
-        <div className="flex items-center justify-center max-w-6xl mx-auto py-24">
-          <div className="grid grid-cols-3 gap-4">
+        <div className="flex flex-wrap items-center justify-center max-w-6xl mx-auto py-24">
+          <div className="grid grid-cols-3 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-5">
             <div className="bg-[#FAF1E4] flex flex-col items-center justify-center p-10 space-y-4">
               <img src={chicken1} alt="" className="h-[200px] w-[200px]" />
               <span className="text-center text-lg font-bold">
@@ -117,6 +117,6 @@ export default function Menu() {
         </div>
       </div>
       <Footer />
-    </div>
+    </>
   );
 }

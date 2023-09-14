@@ -4,8 +4,8 @@ import Logo from "../assets/logo/Chicken.png";
 export default function Footer() {
   return (
     <div className="bg-[#FFF] border-t-4">
-      <div className="max-w-6xl mx-auto py-10">
-        <div className="grid grid-cols-5 gap-4">
+      <div className="max-w-6xl mx-auto py-10 px-5">
+        <div className="grid lg:grid-cols-5 sm:grid-cols-1 md:grid-cols-2 gap-4">
           <div className="lg:col-span-2">
             <img src={Logo} alt="" />
             <div className="text-justify space-y-2 text-gray-700 pt-5">
@@ -111,12 +111,12 @@ export default function Footer() {
                     <path
                       fill="currentColor"
                       d="M32.33 6a2 2 0 0 0-.41 0h-28a2 2 0 0 0-.53.08l14.45 14.39Z"
-                      class="clr-i-solid clr-i-solid-path-1"
+                      className="clr-i-solid clr-i-solid-path-1"
                     />
                     <path
                       fill="currentColor"
                       d="m33.81 7.39l-14.56 14.5a2 2 0 0 1-2.82 0L2 7.5a2 2 0 0 0-.07.5v20a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V8a2 2 0 0 0-.12-.61ZM5.3 28H3.91v-1.43l7.27-7.21l1.41 1.41Zm26.61 0h-1.4l-7.29-7.23l1.41-1.41l7.27 7.21Z"
-                      class="clr-i-solid clr-i-solid-path-2"
+                      className="clr-i-solid clr-i-solid-path-2"
                     />
                     <path fill="none" d="M0 0h36v36H0z" />
                   </svg>
@@ -184,10 +184,15 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center p-5 bg-[#CEDEBD]">
+      <div className="flex items-center justify-center p-5 bg-[#CEDEBD] text-center">
         <p className="text-base">
           All Rights Reserved &copy; 2023 Copyright | Made by{" "}
-          <a href="JanggoDev.com" className="text-[#435334]">
+          <a
+            href="https://janggo-dev.vercel.app/"
+            target="blank"
+            rel="noopenner"
+            className="text-[#435334]"
+          >
             <b>JanggoDev</b>
           </a>
         </p>

@@ -12,16 +12,16 @@ export default function Contact() {
     backgroundColor: "#FFF",
   };
   return (
-    <div className="h-screen" style={background}>
-      <div className="flex flex-col items-center justify-between h-full w-full">
-        <div className="grid grid-cols-2 max-w-6xl mx-auto py-24">
-          <div className="">
+    <div className="h-screen" /* style={background} */>
+      <div className="flex flex-col items-center justify-center">
+        <div className="grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 max-w-6xl mx-auto py-24">
+          <div>
             <div className="text-4xl text-black font-bold p-5">
               <h1>Get in touch, let's talk.</h1>
               <p className="border-t-4 border-[#435334] w-24"></p>
             </div>
             <div className="text-base text-justify text-black font-normal">
-              <p className="w-80 m-5">
+              <p className="m-5">
                 For any inquiries, collaboration opportunities, or simply to say
                 hello, feel free to reach out to us through the following
                 contact information.
@@ -54,9 +54,9 @@ export default function Contact() {
                   >
                     <path
                       fill="currentColor"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M19.47 4.03c.14.141.22.332.22.53v3.83a.75.75 0 1 1-1.5 0V6.37l-3.16 3.16a.75.75 0 1 1-1.06-1.061l3.159-3.16H15.11a.75.75 0 0 1 0-1.5h3.828a.75.75 0 0 1 .53.22Z"
-                      clip-rule="evenodd"
+                      clipRule="evenodd"
                     />
                     <path
                       fill="currentColor"
@@ -76,7 +76,7 @@ export default function Contact() {
                   >
                     <path
                       fill="currentColor"
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="m7.172 11.334l2.83 1.935l2.728-1.882l6.115 6.033c-.161.052-.333.08-.512.08H1.667c-.22 0-.43-.043-.623-.12l6.128-6.046ZM20 6.376v9.457c0 .247-.054.481-.15.692l-5.994-5.914L20 6.376ZM0 6.429l6.042 4.132l-5.936 5.858A1.663 1.663 0 0 1 0 15.833V6.43ZM18.333 2.5c.92 0 1.667.746 1.667 1.667v.586L9.998 11.648L0 4.81v-.643C0 3.247.746 2.5 1.667 2.5h16.666Z"
                     />
                   </svg>
@@ -93,15 +93,18 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          <div className="flex border bg-[#FAF1E4] p-5">
+          <div className="flex items-center justify-center">
             <form action="">
               <div className="space-y-5">
                 <div className="flex flex-col">
                   <label htmlFor="name" className="font-bold">
-                    Name <span className="text-[#435334]">*</span>
+                    Name{" "}
+                    <span className="text-[#435334]" title="required">
+                      *
+                    </span>
                   </label>
                   <input
-                    className="border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334] bg-[#FAF1E4]"
+                    className="border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334]"
                     type="text"
                     id="name"
                     placeholder=""
@@ -110,10 +113,13 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="email" className="font-bold">
-                    Email <span className="text-[#435334]">*</span>
+                    Email{" "}
+                    <span className="text-[#435334]" title="required">
+                      *
+                    </span>
                   </label>
                   <input
-                    className="border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334] bg-[#FAF1E4]"
+                    className="border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334]"
                     type="email"
                     id="email"
                     placeholder=""
@@ -122,10 +128,13 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="subject" className="font-bold">
-                    Subject <span className="text-[#435334]">*</span>
+                    Subject{" "}
+                    <span className="text-[#435334]" title="required">
+                      *
+                    </span>
                   </label>
                   <input
-                    className="border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334] bg-[#FAF1E4]"
+                    className="border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334]"
                     type="text"
                     id="subject"
                     required
@@ -133,14 +142,17 @@ export default function Contact() {
                 </div>
                 <div className="flex flex-col">
                   <label htmlFor="message" className="font-bold">
-                    Message <span className="text-[#435334]">*</span>
+                    Message{" "}
+                    <span className="text-[#435334]" title="required">
+                      *
+                    </span>
                   </label>
                   <textarea
-                    className=" border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334] bg-[#FAF1E4]"
+                    className=" border border-[#CEDEBD] p-2 focus:outline-none focus:border-[#435334]"
                     name=""
                     id="message"
-                    cols="50"
-                    rows="6"
+                    cols="40"
+                    rows="4"
                     required
                   ></textarea>
                 </div>
@@ -156,7 +168,7 @@ export default function Contact() {
             </form>
           </div>
         </div>
-      </div>{" "}
+      </div>
       <Footer />
     </div>
   );
