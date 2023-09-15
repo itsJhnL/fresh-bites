@@ -23,23 +23,23 @@ export default function ScrollButton() {
   window.addEventListener("scroll", toggleVisible);
 
   return (
-    <div>
-      <button onClick={scrollToTop} className="fixed bottom-5 right-5 tran">
+    <>
+      <button
+        onClick={scrollToTop}
+        className="bg-[#FF785B] text-white z-10 fixed bottom-3 right-3"
+      >
         <i>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="50"
-            height="50"
+            width="45"
+            height="45"
             viewBox="0 0 24 24"
             style={{ display: visible ? "inline" : "none" }}
           >
-            <path
-              fill="#435334"
-              d="M12 22A10 10 0 0 1 2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10a10 10 0 0 1-10 10m0-15l-5 5h3v4h4v-4h3l-5-5Z"
-            />
+            <path fill="currentColor" d="M5 15h4v6h6v-6h4l-7-8zM4 3h16v2H4z" />
           </svg>
         </i>
       </button>
-    </div>
+    </>
   );
 }

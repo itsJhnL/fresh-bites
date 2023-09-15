@@ -27,8 +27,8 @@ function Navbar() {
           to="/"
           onClick={scrollUp}
           style={({ isActive }) => ({
-            color: isActive ? "#435334" : "#000",
-            fontWeight: isActive ? "bold" : "",
+            color: isActive ? "#435334" : "#00213F",
+            fontWeight: isActive ? "bold" : "bold",
             borderBottom: isActive ? "solid 3px" : "",
           })}
         >
@@ -38,8 +38,8 @@ function Navbar() {
           to="/Menu"
           onClick={scrollUp}
           style={({ isActive }) => ({
-            color: isActive ? "#435334" : "#000",
-            fontWeight: isActive ? "bold" : "",
+            color: isActive ? "#435334" : "#00213F",
+            fontWeight: isActive ? "bold" : "bold",
             borderBottom: isActive ? "solid 3px" : "",
           })}
         >
@@ -49,14 +49,14 @@ function Navbar() {
           to="/Contact"
           onClick={scrollUp}
           style={({ isActive }) => ({
-            color: isActive ? "#435334" : "#000",
-            fontWeight: isActive ? "bold" : "",
+            color: isActive ? "#435334" : "#00213F",
+            fontWeight: isActive ? "bold" : "bold",
             borderBottom: isActive ? "solid 3px" : "",
           })}
         >
           {clicked ? "Contact" : "Contact"}
         </NavLink>
-        <NavLink to="" className="text-[#435334]">
+        {/*  <NavLink to="" className="text-[#435334]">
           <i>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -70,18 +70,18 @@ function Navbar() {
               />
             </svg>
           </i>
-        </NavLink>
+        </NavLink> */}
       </>
     );
   };
 
   return (
-    <div className="shadow sticky top-0 z-50 backdrop-blur-lg bg-[#FAF1E4]/80 drop-shadow-md">
+    <div className="sticky top-0 z-50 backdrop-blur-lg bg-[#FFF]/80">
       <nav>
-        <div className="flex items-center justify-between py-5 max-w-6xl mx-auto px-5">
+        <div className="flex items-center justify-between py-8 max-w-7xl mx-auto px-5">
           <div className="">
             <NavLink to="/" onClick={scrollUp}>
-              {<img src={Logo} alt="" className="h-[30px] w-full" />}
+              <img src={Logo} alt="" className="h-[30px] w-full" />
               {clicked ? "" : ""}
             </NavLink>
           </div>
@@ -113,8 +113,8 @@ function Navbar() {
         {nav && (
           <>
             <div className="absolute h-[100vh] w-[100vw] backdrop-blur-sm bg-white/30">
-              <div className="absolute right-0 p-5 h-[100vh] w-[25vw] bg-[#f1f1f1]/70 max-sm:block lg:hidden">
-                <button className="flex flex-col items-center justify-center">
+              <div className="flex absolute right-0 p-5 h-[100vh] w-[25vw] bg-[#f1f1f1]/70 max-sm:block lg:hidden">
+                <button className="flex flex-col space-y-4" onClick={showNav}>
                   {nav ? <NavLinks /> : ""}
                 </button>
               </div>

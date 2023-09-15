@@ -17,7 +17,7 @@ export default function Footer() {
               </p>
             </div>
             <div className="flex flex-col">
-              <h1 className="text-base font-bold text-gray-700 pt-5">
+              <h1 className="text-base font-bold text-[#00213F] pt-5">
                 Sign up to get 10% off your first order
               </h1>
               <form className="flex items-center justify-between pt-2 gap-2">
@@ -26,7 +26,7 @@ export default function Footer() {
                   placeholder="Your Email Address"
                   className="border  p-2 outline-none border-[#435334] w-full"
                 />
-                <button className="bg-[#435334]  text-white p-2">
+                <button className="hover:bg-[#E8FBFF] bg-[#FF785B] rounded-full text-white hover:text-[#00213F] p-2">
                   Subscribe
                 </button>
               </form>
@@ -34,41 +34,41 @@ export default function Footer() {
           </div>
 
           <div className="">
-            <h1 className="text-base font-bold pb-5 text-[#435334]">
+            <h1 className="text-base font-bold pb-5 text-[#00213F]">
               Location
             </h1>
             <div className="space-y-2 text-gray-700">
-              <p className="cursor-pointer hover:text-[#9EB384]">
+              <p className="cursor-pointer hover:text-[#FF785B]">
                 123 Nueva Ecija, DF 4422
               </p>
-              <p className="cursor-pointer hover:text-[#9EB384]">
+              <p className="cursor-pointer hover:text-[#FF785B]">
                 144 Metro Manila, FF 4444
               </p>
-              <p className="cursor-pointer hover:text-[#9EB384]">
+              <p className="cursor-pointer hover:text-[#FF785B]">
                 42 Tagaytay, SOP 4009
               </p>
             </div>
           </div>
           <div>
-            <h1 className="text-base font-bold pb-5 text-[#435334]">
+            <h1 className="text-base font-bold pb-5 text-[#00213F]">
               Useful Links
             </h1>
             <div className="space-y-2 text-gray-700">
-              <p className="cursor-pointer hover:text-[#9EB384]">
+              <p className="cursor-pointer hover:text-[#FF785B]">
                 Your Account
               </p>
-              <p className="cursor-pointer hover:text-[#9EB384]"></p>
-              <p className="cursor-pointer hover:text-[#9EB384]">Investors</p>
-              <p className="cursor-pointer hover:text-[#9EB384]">Help Center</p>
-              <p className="cursor-pointer hover:text-[#9EB384]">FAQs</p>
+              <p className="cursor-pointer hover:text-[#FF785B]"></p>
+              <p className="cursor-pointer hover:text-[#FF785B]">Investors</p>
+              <p className="cursor-pointer hover:text-[#FF785B]">Help Center</p>
+              <p className="cursor-pointer hover:text-[#FF785B]">FAQs</p>
             </div>
           </div>
           <div className="">
-            <h1 className="text-base font-bold pb-5 text-[#435334]">
+            <h1 className="text-base font-bold pb-5 text-[#00213F]">
               Contact Us
             </h1>
             <div className="space-y-2 text-gray-700">
-              <div className="flex hover:text-[#9EB384]">
+              <div className="flex hover:text-[#FF785B]">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ export default function Footer() {
                 </i>
                 <span className="pl-3">Nueva Ecija, Philippines</span>
               </div>
-              <div className="flex hover:text-[#9EB384]">
+              <div className="flex hover:text-[#FF785B]">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ export default function Footer() {
                 </i>
                 <span className="pl-3">{"(123) 123-1234"}</span>
               </div>
-              <div className="flex hover:text-[#9EB384]">
+              <div className="flex hover:text-[#FF785B]">
                 <i>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -124,9 +124,11 @@ export default function Footer() {
                 <span className="pl-3">Freshbites@me.com</span>
               </div>
               <div className="">
-                <h1 className="text-base font-bold text-black py-5">Socials</h1>
+                <h1 className="text-base font-bold text-[#00213F] py-5">
+                  Socials
+                </h1>
                 <ul className="flex items-center justify-between text-gray-700">
-                  <li className="cursor-pointer hover:text-[#9EB384]">
+                  <li className="cursor-pointer hover:text-[#FF785B]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -139,7 +141,7 @@ export default function Footer() {
                       />
                     </svg>
                   </li>
-                  <li className="cursor-pointer hover:text-[#9EB384]">
+                  <li className="cursor-pointer hover:text-[#FF785B]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -152,7 +154,7 @@ export default function Footer() {
                       />
                     </svg>
                   </li>
-                  <li className="cursor-pointer hover:text-[#9EB384]">
+                  <li className="cursor-pointer hover:text-[#FF785B]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -165,7 +167,7 @@ export default function Footer() {
                       />
                     </svg>
                   </li>
-                  <li className="cursor-pointer hover:text-[#9EB384]">
+                  <li className="cursor-pointer hover:text-[#FF785B]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -184,7 +186,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center p-5 bg-[#CEDEBD] text-center">
+      <div className="flex items-center justify-center p-5 bg-[#F1F1F1] text-center">
         <p className="text-base">
           All Rights Reserved &copy; 2023 Copyright | Made by{" "}
           <a
