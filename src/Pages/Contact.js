@@ -1,6 +1,9 @@
 import React from "react";
 import Footer from "../components/Footer";
 import image from "../assets/images/background.png";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import CallIcon from "@mui/icons-material/Call";
+import AttachEmailIcon from "@mui/icons-material/AttachEmail";
 
 export default function Contact() {
   const background = {
@@ -28,58 +31,21 @@ export default function Contact() {
               </p>
             </div>
             <div className="p-5 text-black font-medium space-y-3">
-              <div className="flex">
-                <i className="pr-5 text-[#435334]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"
-                    />
-                  </svg>
+              <div className="flex text-[#00213F] hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
+                <i className="pr-5">
+                  <LocationOnIcon />
                 </i>
                 <p>Nueva Ecija, Philippines</p>
               </div>
-              <div className="flex">
-                <i className="pr-5 text-[#435334]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      fillRule="evenodd"
-                      d="M19.47 4.03c.14.141.22.332.22.53v3.83a.75.75 0 1 1-1.5 0V6.37l-3.16 3.16a.75.75 0 1 1-1.06-1.061l3.159-3.16H15.11a.75.75 0 0 1 0-1.5h3.828a.75.75 0 0 1 .53.22Z"
-                      clipRule="evenodd"
-                    />
-                    <path
-                      fill="currentColor"
-                      d="M5 9.86a18.466 18.466 0 0 0 9.566 9.292l.68.303a3.5 3.5 0 0 0 4.33-1.247l.889-1.324a1 1 0 0 0-.203-1.335l-3.012-2.43a1 1 0 0 0-1.431.183l-.932 1.257a12.14 12.14 0 0 1-5.51-5.511l1.256-.932a1 1 0 0 0 .183-1.431l-2.43-3.012a1 1 0 0 0-1.335-.203l-1.333.894a3.5 3.5 0 0 0-1.237 4.355L5 9.86Z"
-                    />
-                  </svg>
+              <div className="flex text-[#00213F] hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
+                <i className="pr-5 ">
+                  <CallIcon />
                 </i>
-                <p>{"(123) 123-1234"}</p>
+                <p>{"+63 992-718-0980"}</p>
               </div>
-              <div className="flex">
-                <i className="pr-5 text-[#435334]">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fill="currentColor"
-                      fillRule="evenodd"
-                      d="m7.172 11.334l2.83 1.935l2.728-1.882l6.115 6.033c-.161.052-.333.08-.512.08H1.667c-.22 0-.43-.043-.623-.12l6.128-6.046ZM20 6.376v9.457c0 .247-.054.481-.15.692l-5.994-5.914L20 6.376ZM0 6.429l6.042 4.132l-5.936 5.858A1.663 1.663 0 0 1 0 15.833V6.43ZM18.333 2.5c.92 0 1.667.746 1.667 1.667v.586L9.998 11.648L0 4.81v-.643C0 3.247.746 2.5 1.667 2.5h16.666Z"
-                    />
-                  </svg>
+              <div className="flex text-[#00213F] hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
+                <i className="pr-5 ">
+                  <AttachEmailIcon />
                 </i>
                 <p>
                   <a
@@ -87,15 +53,15 @@ export default function Contact() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    freshbites@me.com
+                    JanggoDev@gmail.com
                   </a>
                 </p>
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center">
+          <div className="px-5">
             <form action="">
-              <div className="space-y-5">
+              <div className="space-y-6">
                 <div className="flex flex-col">
                   <label htmlFor="name" className="font-bold">
                     Name{" "}
@@ -160,7 +126,7 @@ export default function Contact() {
               <div className="text-center pt-6">
                 <button
                   type="submit"
-                  className="border border-[#CEDEBD]  px-5 py-2 bg-[#435334] text-white"
+                  className="px-5 py-2 bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] text-white font-semibold rounded-full"
                 >
                   Send message
                 </button>

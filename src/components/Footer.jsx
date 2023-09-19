@@ -1,5 +1,12 @@
 import React from "react";
 import Logo from "../assets/logo/Chicken.png";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import CallIcon from "@mui/icons-material/Call";
+import AttachEmailIcon from "@mui/icons-material/AttachEmail";
+import FacebookIcon from "@mui/icons-material/Facebook";
+// import InstagramIcon from "@mui/icons-material/Instagram";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import YouTubeIcon from "@mui/icons-material/YouTube";
 
 export default function Footer() {
   return (
@@ -38,13 +45,13 @@ export default function Footer() {
               Location
             </h1>
             <div className="space-y-2 text-gray-700">
-              <p className="cursor-pointer hover:text-[#FF785B]">
+              <p className="cursor-pointer hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
                 123 Nueva Ecija, DF 4422
               </p>
-              <p className="cursor-pointer hover:text-[#FF785B]">
+              <p className="cursor-pointer hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
                 144 Metro Manila, FF 4444
               </p>
-              <p className="cursor-pointer hover:text-[#FF785B]">
+              <p className="cursor-pointer hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
                 42 Tagaytay, SOP 4009
               </p>
             </div>
@@ -54,13 +61,19 @@ export default function Footer() {
               Useful Links
             </h1>
             <div className="space-y-2 text-gray-700">
-              <p className="cursor-pointer hover:text-[#FF785B]">
+              <p className="cursor-pointer hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
                 Your Account
               </p>
-              <p className="cursor-pointer hover:text-[#FF785B]"></p>
-              <p className="cursor-pointer hover:text-[#FF785B]">Investors</p>
-              <p className="cursor-pointer hover:text-[#FF785B]">Help Center</p>
-              <p className="cursor-pointer hover:text-[#FF785B]">FAQs</p>
+              <p className="cursor-pointer hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out"></p>
+              <p className="cursor-pointer hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
+                Investors
+              </p>
+              <p className="cursor-pointer hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
+                Help Center
+              </p>
+              <p className="cursor-pointer hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
+                FAQs
+              </p>
             </div>
           </div>
           <div className="">
@@ -68,80 +81,33 @@ export default function Footer() {
               Contact Us
             </h1>
             <div className="space-y-2 text-gray-700">
-              <div className="flex hover:text-[#FF785B]">
+              <div className="flex hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
                 <i>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M12 11.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Z"
-                    />
-                  </svg>
+                  <LocationOnIcon />
                 </i>
                 <span className="pl-3">Nueva Ecija, Philippines</span>
               </div>
-              <div className="flex hover:text-[#FF785B]">
+              <div className="flex hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
                 <i>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1V20c0 .55-.45 1-1 1c-9.39 0-17-7.61-17-17c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1c0 1.25.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"
-                    />
-                  </svg>
+                  <CallIcon />
                 </i>
-                <span className="pl-3">{"(123) 123-1234"}</span>
+                <span className="pl-3">{"+63 992-718-0980"}</span>
               </div>
-              <div className="flex hover:text-[#FF785B]">
+              <div className="flex hover:text-[#FF785B] hover:translate-x-2 duration-200 ease-in-out">
                 <i>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 36 36"
-                  >
-                    <path
-                      fill="currentColor"
-                      d="M32.33 6a2 2 0 0 0-.41 0h-28a2 2 0 0 0-.53.08l14.45 14.39Z"
-                      className="clr-i-solid clr-i-solid-path-1"
-                    />
-                    <path
-                      fill="currentColor"
-                      d="m33.81 7.39l-14.56 14.5a2 2 0 0 1-2.82 0L2 7.5a2 2 0 0 0-.07.5v20a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2V8a2 2 0 0 0-.12-.61ZM5.3 28H3.91v-1.43l7.27-7.21l1.41 1.41Zm26.61 0h-1.4l-7.29-7.23l1.41-1.41l7.27 7.21Z"
-                      className="clr-i-solid clr-i-solid-path-2"
-                    />
-                    <path fill="none" d="M0 0h36v36H0z" />
-                  </svg>
+                  <AttachEmailIcon />
                 </i>
-                <span className="pl-3">Freshbites@me.com</span>
+                <span className="pl-3">JanggoDev@gmail.com</span>
               </div>
               <div className="">
                 <h1 className="text-base font-bold text-[#00213F] py-5">
                   Socials
                 </h1>
                 <ul className="flex items-center justify-between text-gray-700">
-                  <li className="cursor-pointer hover:text-[#FF785B]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"
-                      />
-                    </svg>
+                  <li className="cursor-pointer hover:text-[#FF785B] hover:translate-y-2 duration-200 ease-in-out">
+                    <FacebookIcon />
                   </li>
-                  <li className="cursor-pointer hover:text-[#FF785B]">
+                  <li className="cursor-pointer hover:text-[#FF785B] hover:translate-y-2 duration-200 ease-in-out">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -154,31 +120,11 @@ export default function Footer() {
                       />
                     </svg>
                   </li>
-                  <li className="cursor-pointer hover:text-[#FF785B]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z"
-                      />
-                    </svg>
+                  <li className="cursor-pointer hover:text-[#FF785B] hover:translate-y-2 duration-200 ease-in-out">
+                    <TwitterIcon />
                   </li>
-                  <li className="cursor-pointer hover:text-[#FF785B]">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="m10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73Z"
-                      />
-                    </svg>
+                  <li className="cursor-pointer hover:text-[#FF785B] hover:translate-y-2 duration-200 ease-in-out">
+                    <YouTubeIcon />
                   </li>
                 </ul>
               </div>

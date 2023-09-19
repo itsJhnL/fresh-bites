@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/logo/Chicken.png";
 import "../index.css";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
 
 function Navbar() {
   const [clicked, setClicked] = useState();
@@ -56,21 +59,16 @@ function Navbar() {
         >
           {clicked ? "Contact" : "Contact"}
         </NavLink>
-        {/*  <NavLink to="" className="text-[#435334]">
-          <i>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="M12 12q-1.65 0-2.825-1.175T8 8q0-1.65 1.175-2.825T12 4q1.65 0 2.825 1.175T16 8q0 1.65-1.175 2.825T12 12Zm-8 8v-2.8q0-.85.438-1.563T5.6 14.55q1.55-.775 3.15-1.163T12 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T20 17.2V20H4Z"
-              />
-            </svg>
-          </i>
-        </NavLink> */}
+        <span className="text-gray-700 sm:hidden lg:inline-block">|</span>
+        <NavLink to="" className="text-[#435334] sm:hidden lg:inline-block">
+          <FavoriteIcon />
+        </NavLink>
+        <NavLink to="" className="text-[#435334] sm:hidden lg:inline-block">
+          <ShoppingCartIcon />
+        </NavLink>
+        <NavLink to="" className="text-[#435334] sm:hidden lg:inline-block">
+          <PersonIcon />
+        </NavLink>
       </>
     );
   };
@@ -79,13 +77,24 @@ function Navbar() {
     <div className="sticky top-0 z-50 backdrop-blur-lg bg-[#FFF]/80">
       <nav>
         <div className="flex items-center justify-between py-8 max-w-7xl mx-auto px-5">
-          <div className="">
+          <div>
             <NavLink to="/" onClick={scrollUp}>
               <img src={Logo} alt="" className="h-[30px] w-full" />
               {clicked ? "" : ""}
             </NavLink>
           </div>
-          <div className="flex items-center justify-center text-base space-x-10 sm:hidden lg:block">
+          {/* <div className="flex space-x-8 sm:block lg:hidden">
+            <NavLink to="" className="text-[#435334] sm:inline-block lg:hidden">
+              <FavoriteIcon />
+            </NavLink>
+            <NavLink to="" className="text-[#435334] sm:inline-block lg:hidden">
+              <ShoppingCartIcon />
+            </NavLink>
+            <NavLink to="" className="text-[#435334] sm:inline-block lg:hidden">
+              <PersonIcon />
+            </NavLink>
+          </div> */}
+          <div className="flex items-center justify-center text-base space-x-8 sm:hidden lg:block">
             <NavLinks />
           </div>
           <div className="flex sm:blocok lg:hidden">
@@ -113,7 +122,7 @@ function Navbar() {
         {nav && (
           <>
             <div className="absolute h-[100vh] w-[100vw] backdrop-blur-sm bg-white/30">
-              <div className="flex absolute right-0 p-5 h-[100vh] w-[25vw] bg-[#f1f1f1]/70 max-sm:block lg:hidden">
+              <div className="flex absolute right-0 p-5 h-[100vh] w-[50vw] bg-[#f1f1f1]/70 max-sm:block lg:hidden">
                 <button className="flex flex-col space-y-4" onClick={showNav}>
                   {nav ? <NavLinks /> : ""}
                 </button>
