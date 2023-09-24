@@ -105,7 +105,7 @@ function HomePage() {
               </div>
               <div className="text-center pt-10">
                 <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
-                  Add to Basket
+                  Add to Cart
                 </button>
               </div>
             </div>
@@ -133,7 +133,7 @@ function HomePage() {
               </div>
               <div className="text-center pt-10">
                 <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
-                  Add to Basket
+                  Add to Cart
                 </button>
               </div>
             </div>
@@ -161,7 +161,7 @@ function HomePage() {
               </div>
               <div className="text-center pt-10">
                 <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
-                  Add to Basket
+                  Add to Cart
                 </button>
               </div>
             </div>
