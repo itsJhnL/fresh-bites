@@ -37,7 +37,7 @@ function HomePage() {
         <div className="max-w-7xl mx-auto py-24 px-5">
           <div className="bg-[#CEDEBD] py-24 rounded-[100px] grow">
             <div className="relative flex items-center justify-between max-w-6xl mx-auto p-5">
-              <div className="sm:max-w-sm md:w-md lg:max-w-xl">
+              <div className="sm:max-w-sm md:w-md lg:max-w-xl z-10">
                 <h1 className="Pacifico font-normal text-[#00213F] sm:text-4xl md:text-7xl">
                   Fresh Food
                 </h1>
