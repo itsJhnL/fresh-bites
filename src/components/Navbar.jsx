@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../assets/logo/Chicken.png";
 import "../index.css";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import PersonIcon from "@mui/icons-material/Person";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 function Navbar() {
   const [clicked, setClicked] = useState();
@@ -60,14 +60,16 @@ function Navbar() {
           {clicked ? "Contact" : "Contact"}
         </NavLink>
         <span className="text-gray-700 sm:hidden lg:inline-block">|</span>
-        <NavLink to="" className="text-[#435334] sm:hidden lg:inline-block">
-          <FavoriteIcon />
+        <NavLink to="" className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block">
+          <FavoriteBorderIcon />
+          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">2</span>
         </NavLink>
-        <NavLink to="" className="text-[#435334] sm:hidden lg:inline-block">
-          <ShoppingCartIcon />
+        <NavLink to="" className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block">
+          <ShoppingCartOutlinedIcon />
+          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">2</span>
         </NavLink>
-        <NavLink to="" className="text-[#435334] sm:hidden lg:inline-block">
-          <PersonIcon />
+        <NavLink to="" className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block">
+          <PersonOutlineOutlinedIcon />
         </NavLink>
       </>
     );

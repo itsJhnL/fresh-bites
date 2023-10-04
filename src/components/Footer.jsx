@@ -27,13 +27,13 @@ export default function Footer() {
               <h1 className="text-base font-bold text-[#00213F] pt-5">
                 Sign up to get 10% off your first order
               </h1>
-              <form className="flex items-center justify-between pt-2 gap-2">
+              <form className="flex items-center justify-between pt-2">
                 <input
                   type="email"
                   placeholder="Your Email Address"
-                  className="border  p-2 outline-none border-[#435334] w-full"
+                  className="border p-2 outline-none w-full"
                 />
-                <button className="hover:bg-[#E8FBFF] bg-[#FF785B] rounded-full text-white hover:text-[#00213F] p-2">
+                <button className="hover:bg-[#E8FBFF] bg-[#FF785B] rounded-r-full text-white hover:text-[#00213F] p-2">
                   Subscribe
                 </button>
               </form>
@@ -104,10 +104,10 @@ export default function Footer() {
                   Socials
                 </h1>
                 <ul className="flex items-center justify-between text-gray-700">
-                  <li className="cursor-pointer hover:text-[#FF785B] hover:translate-y-2 duration-200 ease-in-out">
+                  <li className="cursor-pointer hover:text-[#FF785B] hover:-translate-y-1 duration-200 ease-in-out">
                     <FacebookIcon />
                   </li>
-                  <li className="cursor-pointer hover:text-[#FF785B] hover:translate-y-2 duration-200 ease-in-out">
+                  <li className="cursor-pointer hover:text-[#FF785B] hover:-translate-y-1 duration-200 ease-in-out">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="24"
@@ -120,10 +120,10 @@ export default function Footer() {
                       />
                     </svg>
                   </li>
-                  <li className="cursor-pointer hover:text-[#FF785B] hover:translate-y-2 duration-200 ease-in-out">
+                  <li className="cursor-pointer hover:text-[#FF785B] hover:-translate-y-1 duration-200 ease-in-out">
                     <TwitterIcon />
                   </li>
-                  <li className="cursor-pointer hover:text-[#FF785B] hover:translate-y-2 duration-200 ease-in-out">
+                  <li className="cursor-pointer hover:text-[#FF785B] hover:-translate-y-1 duration-200 ease-in-out">
                     <YouTubeIcon />
                   </li>
                 </ul>

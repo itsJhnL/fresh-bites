@@ -26,7 +26,7 @@ export default function ScrollButton() {
     <>
       <button
         onClick={scrollToTop}
-        className="bg-[#FF785B] text-white z-10 fixed bottom-3 right-3"
+        className="bg-[#FF785B] text-white z-10 fixed bottom-3 right-3 hover:-translate-y-1 duration-300 ease-in"
       >
         <i>
           <svg
