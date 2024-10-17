@@ -38,7 +38,7 @@ function HomePage() {
       <div className="overflow-hidden lg:m-5">
         <div className="max-w-7xl mx-auto">
           <div className="bg-[#CEDEBD] lg:rounded-[7em]">
-            <div className="flex-row flex items-center justify-between space-x-5 sm:p-10 md:px-16">
+            <div className="sm:flex-col md:flex-row flex items-center justify-between sm:p-10 md:px-16">
               <div className="">
                 <h1 className="Pacifico font-normal text-[#00213F] sm:text-4xl md:text-7xl">
                   Fresh Food.
@@ -60,7 +60,7 @@ function HomePage() {
                   </NavLink>
                 </button>
               </div>
-              <div>
+              <div className="sm:pt-10 md:p-0">
                 <img src={Chicken} alt="" className="object-scale-down sm:h-64 md:h-96" />
               </div>
             </div>
@@ -83,7 +83,7 @@ function HomePage() {
                 </i>
               </div>
               <div className="relative flex flex-col items-center jusity-center">
-                <img src={Chicken1} alt="" className="h-[200px] w-[200px] " />
+                <img src={Chicken1} alt="" className="h-56 w-56 " />
                 <div className="absolute left-2 top-0">
                   <div className="bg-white rounded-full p-2">
                     <p className="bg-[#CEDEBD] rounded-full p-4 text-base text-[#00213F] font-bold">
@@ -111,7 +111,7 @@ function HomePage() {
                 </i>
               </div>
               <div className="relative flex flex-col items-center justify-center">
-                <img src={Pizza2} alt="" className="h-[200px] w-[200px]" />
+                <img src={Pizza2} alt="" className="h-56 w-56" />
                 <div className="absolute left-2 top-0">
                   <div className="bg-white rounded-full p-2">
                     <p className="bg-[#CEDEBD] rounded-full p-4 text-base text-[#00213F] font-bold">
@@ -139,7 +139,7 @@ function HomePage() {
                 </i>
               </div>
               <div className="relative flex flex-col items-center justify-center">
-                <img src={Pizza} alt="" className="h-[200px] w-[200px]" />
+                <img src={Pizza} alt="" className="h-56 w-56" />
                 <div className="absolute left-2 top-0">
                   <div className="bg-white rounded-full p-2">
                     <p className="bg-[#CEDEBD] rounded-full p-4 text-base text-[#00213F] font-bold">
