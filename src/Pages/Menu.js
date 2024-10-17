@@ -14,6 +14,7 @@ import Pasta from "../assets/images/menu/pasta.png";
 import Burger2 from "../assets/images/menu/burger2.png";
 import Meatballs from "../assets/images/menu/meatballs.png";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 export default function Menu() {
   const [clicked, setClicked] = useState();
@@ -34,12 +35,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={chicken1} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={chicken1}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -52,7 +57,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -60,12 +68,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={chicken2} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={chicken2}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -78,7 +90,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -86,12 +101,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={Pizza2} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={Pizza2}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -104,7 +123,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -112,12 +134,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={pizza} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={pizza}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -130,7 +156,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -138,12 +167,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={chicken6} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={chicken6}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -156,7 +189,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -164,12 +200,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={burger2} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={burger2}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -182,7 +222,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -190,12 +233,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={burger1} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={burger1}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -208,7 +255,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -216,12 +266,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={Chicken2} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={Chicken2}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -234,7 +288,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -242,12 +299,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={Chicken5} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={Chicken5}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -260,7 +321,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -268,12 +332,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={Pizza3} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={Pizza3}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -286,7 +354,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -294,12 +365,16 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
                 <div className="flex flex-col items-center jusity-center">
-                  <img src={Pasta} alt="" className="h-[200px] w-[200px]" />
+                  <img
+                    src={Pasta}
+                    alt=""
+                    className="object-contain h-56 w-56"
+                  />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
                       {" "}
@@ -312,7 +387,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>
@@ -320,7 +398,7 @@ export default function Menu() {
             <div className="border shadow-md ">
               <div className="relative p-10">
                 <div className="absolute top-5 right-5 hover:cursor-pointer">
-                  <i className="text-gray-500">
+                  <i className="text-gray-500 hover:text-[#FF785B]">
                     <FavoriteBorderIcon />
                   </i>
                 </div>
@@ -328,7 +406,7 @@ export default function Menu() {
                   <img
                     src={Meatballs}
                     alt=""
-                    className="object-cover h-[200px] w-[200px]"
+                    className="object-cover object-contain h-56 w-56"
                   />
                   <span className="text-center space-y-2 pt-5">
                     <h1 className="text-lg text-[#00213F] font-bold">
@@ -342,7 +420,10 @@ export default function Menu() {
                 <p className="text-2xl text-[#00213F] font-bold">
                   <span className="text-lg">&#36;</span>49.00
                 </p>
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  <span className="pr-2">
+                    <ShoppingCartOutlinedIcon />
+                  </span>
                   Add to Cart
                 </button>
               </div>

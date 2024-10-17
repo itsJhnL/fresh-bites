@@ -66,7 +66,7 @@ function Navbar() {
         >
           <FavoriteBorderIcon />
           <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">
-            2
+            11
           </span>
         </NavLink>
         <NavLink
@@ -75,7 +75,7 @@ function Navbar() {
         >
           <ShoppingCartOutlinedIcon />
           <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">
-            2
+            13
           </span>
         </NavLink>
         <NavLink

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../index.css";
 import { NavLink } from "react-router-dom";
 import Footer from "./Footer";
@@ -34,12 +34,11 @@ function HomePage() {
 
   return (
     <>
-      {/* Mobile view is not responsive */}
       <div className="overflow-hidden lg:m-5">
         <div className="max-w-7xl mx-auto">
           <div className="bg-[#CEDEBD] lg:rounded-[7em]">
             <div className="sm:flex-col md:flex-row flex items-center justify-between sm:p-10 md:px-16">
-              <div className="">
+              <div className="sm:text-center md:text-left ">
                 <h1 className="Pacifico font-normal text-[#00213F] sm:text-4xl md:text-7xl">
                   Fresh Food.
                 </h1>
@@ -61,7 +60,11 @@ function HomePage() {
                 </button>
               </div>
               <div className="sm:pt-10 md:p-0">
-                <img src={Chicken} alt="" className="object-scale-down sm:h-64 md:h-96" />
+                <img
+                  src={Chicken}
+                  alt=""
+                  className="object-contain sm:h-64 md:h-96"
+                />
               </div>
             </div>
           </div>
@@ -78,12 +81,16 @@ function HomePage() {
           <div className="grid gap-4 h-full sm:grid-cols-1 max-sm:w-full sm:m-5 md:grid-cols-2 lg:grid-cols-3">
             <div className="relative shadow-md p-10">
               <div className="absolute top-5 right-5 hover:cursor-pointer">
-                <i className="text-gray-500">
+                <i className="text-gray-500 hover:text-[#FF785B]">
                   <FavoriteBorderIcon />
                 </i>
               </div>
               <div className="relative flex flex-col items-center jusity-center">
-                <img src={Chicken1} alt="" className="h-56 w-56 " />
+                <img
+                  src={Chicken1}
+                  alt=""
+                  className="object-contain h-56 w-56 "
+                />
                 <div className="absolute left-2 top-0">
                   <div className="bg-white rounded-full p-2">
                     <p className="bg-[#CEDEBD] rounded-full p-4 text-base text-[#00213F] font-bold">
@@ -99,19 +106,19 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border-[#435334] text-[#FFF] bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
-                  Add to Cart
+                <button className="border-[#435334] text-[#FFF] bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  Order Now
                 </button>
               </div>
             </div>
             <div className="relative shadow-md p-10">
               <div className="absolute top-5 right-5 hover:cursor-pointer">
-                <i className="text-gray-500">
+                <i className="text-gray-500 hover:text-[#FF785B]">
                   <FavoriteBorderIcon />
                 </i>
               </div>
               <div className="relative flex flex-col items-center justify-center">
-                <img src={Pizza2} alt="" className="h-56 w-56" />
+                <img src={Pizza2} alt="" className="object-contain h-56 w-56" />
                 <div className="absolute left-2 top-0">
                   <div className="bg-white rounded-full p-2">
                     <p className="bg-[#CEDEBD] rounded-full p-4 text-base text-[#00213F] font-bold">
@@ -127,19 +134,19 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border-[#435334] text-[#FFF] bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
-                  Add to Cart
+                <button className="border-[#435334] text-[#FFF] bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  Order Now
                 </button>
               </div>
             </div>
             <div className="relative shadow-md p-10">
               <div className="absolute top-5 right-5 hover:cursor-pointer">
-                <i className="text-gray-500">
+                <i className="text-gray-500 hover:text-[#FF785B]">
                   <FavoriteBorderIcon />
                 </i>
               </div>
               <div className="relative flex flex-col items-center justify-center">
-                <img src={Pizza} alt="" className="h-56 w-56" />
+                <img src={Pizza} alt="" className="object-contain h-56 w-56" />
                 <div className="absolute left-2 top-0">
                   <div className="bg-white rounded-full p-2">
                     <p className="bg-[#CEDEBD] rounded-full p-4 text-base text-[#00213F] font-bold">
@@ -155,8 +162,8 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border-[#435334] text-[#FFF] bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
-                  Add to Cart
+                <button className="border-[#435334] text-[#FFF] bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] p-3">
+                  Order Now
                 </button>
               </div>
             </div>
@@ -275,7 +282,7 @@ function HomePage() {
                   <h1 className="text-lg text-[#00213F] font-bold">
                     Emily Thompson
                   </h1>
-                  <p className="text-[#435334]">Desinger</p>
+                  <p className="text-[#435334]">UI/UX Designer</p>
                 </span>
               </div>
               <div className="text-justify text-gray-700">
