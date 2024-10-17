@@ -23,6 +23,7 @@ function HomePage() {
   //useState for Specified Position
   const [clicked, setClicked] = useState();
 
+  // This logic allow users to scroll up at the top of the page.
   const scrollUp = () => {
     window.scrollTo({
       top: 0, // position start from top 0.
@@ -33,40 +34,34 @@ function HomePage() {
 
   return (
     <>
-      <div className="overflow-hidden pb-24">
-        <div className="max-w-7xl mx-auto py-24 px-5">
-          <div className="bg-[#CEDEBD] py-24 rounded-[100px] grow">
-            <div className="relative flex items-center justify-between max-w-6xl mx-auto p-5">
-              <div className="sm:max-w-sm md:w-md lg:max-w-xl z-10">
+      {/* Mobile view is not responsive */}
+      <div className="overflow-hidden lg:m-5">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-[#CEDEBD] lg:rounded-[7em]">
+            <div className="flex-row flex items-center justify-between space-x-5 sm:p-10 md:px-16">
+              <div className="">
                 <h1 className="Pacifico font-normal text-[#00213F] sm:text-4xl md:text-7xl">
-                  Fresh Food
+                  Fresh Food.
                 </h1>
-                <p className="pt-5 text-[#00213F] text-xl font-semibold">
+                <p className="pt-5 text-[#00213F] sm:text-sm md:text-xl font-semibold">
                   Indulge in the extraordinary with our Unforgettable Chicken
                   Bite
+                </p>
+                <p className="pt-5 text-[#00213F] text-lg font-semibold">
+                  Open everyday from 8-12 pm
                 </p>
                 <button className="pt-8">
                   <NavLink
                     to="/Menu"
                     onClick={scrollUp}
-                    className="p-3 px-5 bg-[#ff785b] text-white rounded-full"
+                    className="p-3 px-5 bg-[#ff785b] hover:bg-[#E8FBFF] hover:text-[#00213F] text-white rounded-full"
                   >
-                    {clicked ? "Scrolling..." : "Discover Menu"}
+                    {clicked ? "Scrolling..." : "Get Started"}
                   </NavLink>
                 </button>
               </div>
-              <img
-                src={Chicken}
-                alt=""
-                className="absolute -right-44 md:w-[36em] lg:w-[39em] sm:hidden md:block"
-              />
-              {/* NOT RESPONSIVE YET, BE RIGHT BACK. ALMOST 2hrs fixing it. */}
-              <div className="pt-44">
-                <img
-                  src={Chicken}
-                  alt=""
-                  className="absolute w-[30em] right-0 sm:block md:hidden"
-                />
+              <div>
+                <img src={Chicken} alt="" className="object-scale-down sm:h-64 md:h-96" />
               </div>
             </div>
           </div>
@@ -104,7 +99,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
                   Add to Cart
                 </button>
               </div>
@@ -132,7 +127,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
                   Add to Cart
                 </button>
               </div>
@@ -160,7 +155,7 @@ function HomePage() {
                 </span>
               </div>
               <div className="text-center pt-10">
-                <button className="border-[#435334] text-[#FFF] font-bold bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
+                <button className="border-[#435334] text-[#FFF] bg-[#FF785B] hover:bg-[#E8FBFF] hover:text-[#00213F] rounded-full p-3">
                   Add to Cart
                 </button>
               </div>
@@ -180,7 +175,7 @@ function HomePage() {
         </div>
         <div className="flex sm:flex-col lg:flex-row items-center justify-evenly text-center text-lg font-bold max-w-6xl mx-auto py-16">
           <div>
-            <img src={Order} alt="" className="h-[300px] w-[300px]" />
+            <img src={Order} alt="" className="h-[300px] w-[300px] p-11" />
             <p>Easy To Order</p>
           </div>
           <div>
@@ -195,8 +190,8 @@ function HomePage() {
       </div>
       <div className="bg-[#FF785B] py-24 mt-14">
         {/* Book Now */}
-        <div className="flex items-center justify-center pt-10">
-          <div className="flex sm:flex-col lg:flex-row max-w-6xl mx-auto space-x-10">
+        <div className="flex items-center justify-center ">
+          <div className="flex sm:flex-col lg:flex-row max-w-6xl px-10">
             <div>
               <img
                 src={pasta}
@@ -204,7 +199,7 @@ function HomePage() {
                 className="object-contain h-96 w-screen"
               />
             </div>
-            <div className="space-y-5 p-10">
+            <div className="space-y-5 py-20">
               <h1 className="text-white  text-3xl font-bold">
                 Make order now and get 10% discount!
               </h1>
@@ -231,7 +226,7 @@ function HomePage() {
           <p className="text-2xl font-bold">Why Choose Us?</p>
         </div>
         <div className="flex items-center justify-center pt-10">
-          <div className="flex sm:flex-col lg:flex-row max-w-6xl mx-auto space-x-10">
+          <div className="flex items-center sm:flex-col lg:flex-row max-w-6xl mx-auto">
             <div>
               <img
                 src={pasta2}
@@ -239,7 +234,7 @@ function HomePage() {
                 className="object-contain h-96 w-screen"
               />
             </div>
-            <div className="space-y-5 p-10">
+            <div className="space-y-5 px-10">
               <h1 className="text-3xl font-bold">
                 Top Food Picks Across the Country
               </h1>
@@ -262,7 +257,7 @@ function HomePage() {
         </div>
         <div className="flex items-center justify-center max-w-6xl mx-auto pt-10">
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-5">
-            <div className="shadow relative hover:bg-[#E8FBFF] p-6 rounded-xl">
+            <div className="shadow relative p-6 rounded-xl">
               <span className="absolute right-4 text-gray-500">
                 <FormatQuoteIcon />
               </span>
@@ -291,7 +286,7 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="shadow relative hover:bg-[#E8FBFF] bg-[#FFF] p-6 rounded-xl">
+            <div className="shadow relative bg-[#FFF] p-6 rounded-xl">
               <span className="absolute right-4 text-gray-500">
                 <FormatQuoteIcon />
               </span>
@@ -320,7 +315,7 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="shadow relative hover:bg-[#E8FBFF] bg-[#FFF] p-6 rounded-xl">
+            <div className="shadow relative bg-[#FFF] p-6 rounded-xl">
               <span className="absolute right-4 text-gray-500">
                 <FormatQuoteIcon />
               </span>
@@ -349,7 +344,7 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="shadow relative hover:bg-[#E8FBFF] bg-[#FFF] p-6 rounded-xl sm:block lg:hidden">
+            <div className="shadow relative bg-[#FFF] p-6 rounded-xl sm:block lg:hidden">
               <span className="absolute right-4 text-gray-500">
                 <FormatQuoteIcon />
               </span>
@@ -378,7 +373,7 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="shadow relative hover:bg-[#E8FBFF] bg-[#FFF] p-6 rounded-xl sm:block lg:hidden">
+            <div className="shadow relative bg-[#FFF] p-6 rounded-xl sm:block lg:hidden">
               <span className="absolute right-4 text-gray-500">
                 <FormatQuoteIcon />
               </span>
@@ -411,7 +406,7 @@ function HomePage() {
         </div>
         <div className="flex items-center justify-center max-w-6xl mx-auto pb-10 sm:hidden md:hidden lg:block">
           <div className="grid lg:grid-cols-6 md:grid-cols-2 sm:grid-cols-1 gap-4">
-            <div className="shadow relative hover:bg-[#E8FBFF] bg-[#FFF] p-6 rounded-xl lg:col-start-2 md:col-end-4">
+            <div className="shadow relative bg-[#FFF] p-6 rounded-xl lg:col-start-2 md:col-end-4">
               <span className="absolute right-4 text-gray-500">
                 <FormatQuoteIcon />
               </span>
@@ -440,7 +435,7 @@ function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="shadow relative hover:bg-[#E8FBFF] bg-[#FFF] p-6 rounded-xl col-start-4 col-end-6">
+            <div className="shadow relative bg-[#FFF] p-6 rounded-xl col-start-4 col-end-6">
               <span className="absolute right-4 text-gray-500">
                 <FormatQuoteIcon />
               </span>

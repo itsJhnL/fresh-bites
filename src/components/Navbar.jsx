@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 import Logo from "../assets/logo/Chicken.png";
 import "../index.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 
 function Navbar() {
   const [clicked, setClicked] = useState();
@@ -60,15 +60,28 @@ function Navbar() {
           {clicked ? "Contact" : "Contact"}
         </NavLink>
         <span className="text-gray-700 sm:hidden lg:inline-block">|</span>
-        <NavLink to="" className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block">
+        <NavLink
+          to=""
+          className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block"
+        >
           <FavoriteBorderIcon />
-          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">2</span>
+          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">
+            2
+          </span>
         </NavLink>
-        <NavLink to="" className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block">
+        <NavLink
+          to=""
+          className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block"
+        >
           <ShoppingCartOutlinedIcon />
-          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">2</span>
+          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">
+            2
+          </span>
         </NavLink>
-        <NavLink to="" className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block">
+        <NavLink
+          to=""
+          className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block"
+        >
           <PersonOutlineOutlinedIcon />
         </NavLink>
       </>
@@ -78,24 +91,17 @@ function Navbar() {
   return (
     <div className="sticky top-0 z-50 backdrop-blur-lg bg-[#FFF]/80">
       <nav>
-        <div className="flex items-center justify-between py-8 max-w-7xl mx-auto px-5">
+        <div className="flex items-center justify-between py-6 max-w-7xl mx-auto px-5">
           <div>
             <NavLink to="/" onClick={scrollUp}>
-              <img src={Logo} alt="" className="h-[30px] w-full" />
+              <img
+                src={Logo}
+                alt=""
+                className="h-[30px] w-full sm:hidden md:block "
+              />
               {clicked ? "" : ""}
             </NavLink>
           </div>
-          {/* <div className="flex space-x-8 sm:block lg:hidden">
-            <NavLink to="" className="text-[#435334] sm:inline-block lg:hidden">
-              <FavoriteIcon />
-            </NavLink>
-            <NavLink to="" className="text-[#435334] sm:inline-block lg:hidden">
-              <ShoppingCartIcon />
-            </NavLink>
-            <NavLink to="" className="text-[#435334] sm:inline-block lg:hidden">
-              <PersonIcon />
-            </NavLink>
-          </div> */}
           <div className="flex items-center justify-center text-base space-x-8 sm:hidden lg:block">
             <NavLinks />
           </div>
