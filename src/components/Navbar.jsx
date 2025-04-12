@@ -65,8 +65,8 @@ function Navbar() {
           className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block"
         >
           <FavoriteBorderIcon />
-          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">
-            11
+          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[9px] -mx-2 -my-2 text-[#FFF] text-[11px]">
+            0
           </span>
         </NavLink>
         <NavLink
@@ -74,8 +74,8 @@ function Navbar() {
           className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block"
         >
           <ShoppingCartOutlinedIcon />
-          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[8px] -mx-2 -my-2 text-[#FFF] text-[11px]">
-            13
+          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[9px] -mx-2 -my-2 text-[#FFF] text-[11px]">
+            0
           </span>
         </NavLink>
         <NavLink

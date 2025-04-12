@@ -37,7 +37,9 @@ export default function Footer() {
                   <i>
                     <CallIcon />
                   </i>
-                  <span className="pl-3"><a href="#">+63 912 345 6789</a></span>
+                  <span className="pl-3">
+                    <a href="#">+63 912 345 6789</a>
+                  </span>
                 </div>
                 <div className="flex hover:text-[#FF785B]">
                   <i>
@@ -71,15 +73,9 @@ export default function Footer() {
               Our Menu
             </h1>
             <div className="space-y-2 text-gray-700">
-              <p className="cursor-pointer hover:text-[#FF785B]">
-                Break Fast
-              </p>
-              <p className="cursor-pointer hover:text-[#FF785B]">
-                Lunch
-              </p>
-              <p className="cursor-pointer hover:text-[#FF785B]">
-                Dinner
-              </p>
+              <p className="cursor-pointer hover:text-[#FF785B]">Break Fast</p>
+              <p className="cursor-pointer hover:text-[#FF785B]">Lunch</p>
+              <p className="cursor-pointer hover:text-[#FF785B]">Dinner</p>
             </div>
           </div>
           <div>
@@ -104,15 +100,21 @@ export default function Footer() {
             <ul className="flex flex-col space-y-2 text-gray-700">
               <li className="cursor-pointer hover:text-[#FF785B]">
                 <FacebookIcon />
-                <a href="#" className="pl-3">Facebook</a>
+                <a href="#" className="pl-3">
+                  Facebook
+                </a>
               </li>
               <li className="cursor-pointer hover:text-[#FF785B]">
                 <TwitterIcon />
-                <a href="#" className="pl-3">Twitter</a>
+                <a href="#" className="pl-3">
+                  Twitter
+                </a>
               </li>
               <li className="cursor-pointer hover:text-[#FF785B]">
                 <YouTubeIcon />
-                <a href="#" className="pl-3">YouTube</a>
+                <a href="#" className="pl-3">
+                  YouTube
+                </a>
               </li>
             </ul>
           </div>
@@ -120,7 +122,7 @@ export default function Footer() {
       </div>
       <div className="flex items-center justify-center p-5 bg-[#F1F1F1] text-center">
         <p className="text-base">
-          All Rights Reserved &copy; 2024 Copyright | Made by{" "}
+          All Rights Reserved &copy; 2025 Copyright | Made by{" "}
           <a
             href="https://janggodev.vercel.app/"
             target="blank"

@@ -14,7 +14,7 @@ import ScrollButton from "./components/ScrollButton";
 
 export default function App() {
   return (
-    <div className="">
+    <div>
       <Navbar />
       <ScrollButton />
       {/* <HomePage /> */}
