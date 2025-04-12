@@ -82,8 +82,7 @@ function Navbar() {
           to=""
           className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block"
         >
-          {/* <PersonOutlineOutlinedIcon /> */}
-          LOGIN
+          <PersonOutlineOutlinedIcon />
         </NavLink>
       </>
     );
