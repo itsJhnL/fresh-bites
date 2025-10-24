@@ -18,7 +18,7 @@ export default function Menu() {
   return (
     <>
       <div className="flex items-center justify-between max-w-7xl mx-auto">
-        <div className="grid gap-4 h-full sm:grid-cols-2 max-sm:w-full sm:m-5 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid gap-4 h-full sm:grid-cols-1 max-sm:w-full sm:m-5 md:grid-cols-3 lg:grid-cols-4">
           {dishes.map((data) => {
             return (
               <div className="relative shadow-xl p-7" key={data.id}>
