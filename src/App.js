@@ -11,6 +11,7 @@ import "./App.css";
 import ScrollButton from "./components/ScrollButton";
 
 // import styled from "styled-components";
+//Node version 22 fixed
 
 export default function App() {
   return (
