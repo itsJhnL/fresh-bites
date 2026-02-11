@@ -1,10 +1,10 @@
 const hero = [
   {
     id: 1,
-    title: "Today's special",
-    subtitle: "Fresh food menu",
+    title: "A Chef In Every Tasty Meal Box",
+    subtitle: "Get pre-portioned ingredients for Gusto Meal Kits best recipes delivered direct to your door!",
     paragraph:
-      "Induldge in the extraordinary with our Unforgettable Chicken Bite",
+      "",
     time: "Open everyday from 8AM - 11PM",
     imageURL: "menu/chicken2.png",
     backgroundImage: "background.png",

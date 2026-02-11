@@ -48,16 +48,16 @@ function HomePage() {
                 <div className="flex items-center justify-center">
                   <div className="max-w-7xl sm:flex-col md:flex-row flex items-center justify-between m-5">
                     <div className="sm:text-center md:text-left">
-                      <h1 className="Pacifico font-normal text-[#00213F] sm:text-3xl md:text-6xl lg:text-7xl">
+                      <h1 className="font-bold text-[#00213F] sm:text-3xl md:text-6xl lg:text-7xl">
                         {data.title}
                       </h1>
-                      <p className="pt-7 text-[#00213F] sm:text-sm md:text-4xl font-semibold">
+                      <p className="pt-2 text-[#00213F] sm:text-sm md:text-lg font-medium">
                         {data.subtitle}
                       </p>
-                      <p className="pt-5 text-[#00213F] sm:text-sm md:text-xl font-semibold">
+                      {/* <p className="pt-5 text-[#00213F] sm:text-sm md:text-xl font-semibold">
                         {data.paragraph}
-                      </p>
-                      <p className="pt-5 text-[#00213F] text-lg font-semibold">
+                      </p> */}
+                      <p className="pt-2 text-[#00213F] text-lg font-semibold">
                         {data.time}
                       </p>
                       <div className="flex gap-5">
@@ -85,7 +85,7 @@ function HomePage() {
                       <img
                         src={data.imageURL}
                         alt=""
-                        className="object-contain sm:h-64 md:h-full"
+                        className="object-cover min-h-64 sm:h-64 md:h-full"
                       />
                     </div>
                   </div>
