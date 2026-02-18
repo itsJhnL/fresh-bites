@@ -83,7 +83,7 @@ const reviews = [
     subtitle: "⭐⭐⭐⭐",
     paragraph:
       "So juicy and flavorful! The marinade had a nice mix of herbs and spices, and the chicken was grilled to perfection. Loved the smoky char — super satisfying meal!",
-    imageURL: "/reviews/person1.jpg",
+    imageURL: "/reviews/Person1.jpg",
   },
   {
     id: 2,
@@ -91,7 +91,7 @@ const reviews = [
     subtitle: "⭐⭐⭐⭐⭐",
     paragraph:
       "Crispy base, loads of toppings, and perfectly melted cheese — every bite was delicious. You can tell the ingredients are fresh. Totally hit the spot!",
-    imageURL: "/reviews/person2.jpg",
+    imageURL: "/reviews/Person2.jpg",
   },
   {
     id: 3,
@@ -99,7 +99,7 @@ const reviews = [
     subtitle: "⭐⭐⭐⭐⭐",
     paragraph:
       "Crispy on the outside, tender inside — that chicken patty was amazing! The bun was soft and held together well. Super filling and full of flavor.",
-    imageURL: "/reviews/person3.jpg",
+    imageURL: "/reviews/Person3.jpg",
   },
   {
     id: 4,
@@ -107,7 +107,7 @@ const reviews = [
     subtitle: "⭐⭐⭐⭐",
     paragraph:
       "Thin crust, cheesy, and the spice level was just right. Pepperoni was generous and had that perfect crisp on the edges. Would order again without thinking twice.",
-    imageURL: "/reviews/person4.jpg",
+    imageURL: "/reviews/Person4.jpg",
   },
   {
     id: 5,
@@ -115,7 +115,7 @@ const reviews = [
     subtitle: "⭐⭐⭐⭐⭐",
     paragraph:
       "Crispy, juicy, and not greasy at all! The seasoning was addictive, and the portion size was perfect for sharing. Everyone at the table loved it.",
-    imageURL: "/reviews/person5.jpg",
+    imageURL: "/reviews/Person5.jpg",
   },
 ];
 
