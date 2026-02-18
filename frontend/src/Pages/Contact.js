@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "../components/Footer";
-import image from "../assets/images/background.png";
+// import image from "../assets/images/background.png";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CallIcon from "@mui/icons-material/Call";
 import AttachEmailIcon from "@mui/icons-material/AttachEmail";

@@ -1,19 +1,19 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import Footer from "../components/Footer.jsx";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { dishes } from "../data/data.js";
 
 export default function Menu() {
-   const [clicked, setClicked] = useState();
+  //  const [clicked, setClicked] = useState();
 
-  const scrollUp = () => {
+  /* const scrollUp = () => {
     window.scrollTo({
       top: "0",
       behavior: "smooth",
     });
     setClicked(true);
-  };
+  }; */
 
   return (
     <>

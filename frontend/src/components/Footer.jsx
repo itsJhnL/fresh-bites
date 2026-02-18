@@ -1,4 +1,3 @@
-import React from "react";
 // import Logo from "../assets/logo/Chicken.png";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CallIcon from "@mui/icons-material/Call";
@@ -122,7 +121,7 @@ export default function Footer() {
       </div>
       <div className="flex items-center justify-center p-5 bg-[#F1F1F1] text-center">
         <p className="text-base">
-          All Rights Reserved &copy; 2025 Copyright | Made by{" "}
+          All Rights Reserved &copy; 2026 Copyright | Made by{" "}
           <a
             href="https://janggodev.vercel.app/"
             target="blank"
