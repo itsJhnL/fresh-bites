@@ -1,4 +1,3 @@
-// import Logo from "../assets/logo/Chicken.png";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CallIcon from "@mui/icons-material/Call";
 import AttachEmailIcon from "@mui/icons-material/AttachEmail";
@@ -26,7 +25,8 @@ export default function Footer() {
                   <span className="pl-3">
                     <a
                       href="https://www.google.com/search?q=nueva+ecija+philippines&oq=Nueva+Ecija+Philippines"
-                      target="_block"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       Nueva Ecija, Philippines
                     </a>
@@ -37,7 +37,7 @@ export default function Footer() {
                     <CallIcon />
                   </i>
                   <span className="pl-3">
-                    <a href="#">+63 912 345 6789</a>
+                    <a href="tel:+639123456789">+63 912 345 6789</a>
                   </span>
                 </div>
                 <div className="flex hover:text-[#FF785B]">
@@ -83,14 +83,14 @@ export default function Footer() {
             </h1>
             <div className="space-y-2 text-gray-700">
               <p className="cursor-pointer hover:text-[#FF785B]">
-                <a href="#">Services</a>
+                <a href="/services">Services</a>
               </p>
               <p className="cursor-pointer hover:text-[#FF785B]"></p>
               <p className="cursor-pointer hover:text-[#FF785B]">
-                <a href="#">Help & Support</a>
+                <a href="/support">Help & Support</a>
               </p>
               <p className="cursor-pointer hover:text-[#FF785B]">
-                <a href="#">Terms & Conditions</a>
+                <a href="/terms">Terms & Conditions</a>
               </p>
             </div>
           </div>
@@ -99,19 +99,19 @@ export default function Footer() {
             <ul className="flex flex-col space-y-2 text-gray-700">
               <li className="cursor-pointer hover:text-[#FF785B]">
                 <FacebookIcon />
-                <a href="#" className="pl-3">
+                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="pl-3">
                   Facebook
                 </a>
               </li>
               <li className="cursor-pointer hover:text-[#FF785B]">
                 <TwitterIcon />
-                <a href="#" className="pl-3">
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="pl-3">
                   Twitter
                 </a>
               </li>
               <li className="cursor-pointer hover:text-[#FF785B]">
                 <YouTubeIcon />
-                <a href="#" className="pl-3">
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" className="pl-3">
                   YouTube
                 </a>
               </li>
@@ -124,8 +124,8 @@ export default function Footer() {
           All Rights Reserved &copy; 2026 Copyright | Made by{" "}
           <a
             href="https://janggodev.vercel.app/"
-            target="blank"
-            rel="noopenner"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-[#435334]"
           >
             <b>JanggoDev</b>

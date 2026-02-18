@@ -16,7 +16,7 @@ import {
 
 function HomePage() {
   //useState for Specified Position
-  const [clicked, setClicked] = useState();
+  const [clicked, setClicked] = useState(false);
 
   // This logic allow users to scroll up at the top of the page.
   const scrollUp = () => {
@@ -31,13 +31,13 @@ function HomePage() {
     <>
       {hero.map((data) => {
         return (
-          <>
+          <div key={data.id}>
             <div className="mx-auto z-0">
               <div className="flex content-center justify-center">
                 <div className="blur-xl absolute max-w-full max-h-full">
                   <img
                     src={data.backgroundImage}
-                    alt="background"
+                    alt="Hero background"
                     className="z-0"
                   />
                 </div>
@@ -84,7 +84,7 @@ function HomePage() {
                     <div className="sm:pt-10 md:p-0">
                       <img
                         src={data.imageURL}
-                        alt=""
+                        alt={data.title}
                         className="object-cover min-h-64 sm:h-64 md:h-full"
                       />
                     </div>
@@ -92,7 +92,7 @@ function HomePage() {
                 </div>
               </div>
             </div>
-          </>
+          </div>
         );
       })}
       <div className="py-14">
@@ -105,7 +105,7 @@ function HomePage() {
           <div className="grid gap-4 h-full sm:grid-cols-2 max-sm:w-full sm:m-5 md:grid-cols-3 lg:grid-cols-4">
             {specialties.map((data) => {
               return (
-                <div className="relative shadow-xl p-7">
+                <div key={data.id} className="relative shadow-xl p-7">
                   <div className="flex justify-end hover:cursor-pointer">
                     <i className="text-gray-500 hover:text-[#FF785B]">
                       <FavoriteBorderIcon />
@@ -114,7 +114,7 @@ function HomePage() {
                   <div className="relative flex flex-col items-center jusity-center">
                     <img
                       src={data.imageURL}
-                      alt="Chicken"
+                      alt={data.subtitle}
                       className="object-contain h-48 w-48"
                     />
                     <span className="text-center space-y-2 pt-5">
@@ -159,6 +159,7 @@ function HomePage() {
               <div key={data.id}>
                 <img
                   src={data.imageURL}
+                  alt={data.subtitle}
                   className="h-[300px] w-[300px] p-11"
                 />
                 <p>{data.subtitle}</p>
@@ -173,11 +174,11 @@ function HomePage() {
           <div className="flex sm:flex-col lg:flex-row max-w-6xl px-10">
             {discount.map((data) => {
               return (
-                <>
-                  <div key={data.id}>
+                <div key={data.id} className="contents">
+                  <div>
                     <img
                       src={data.imageURL}
-                      alt=""
+                      alt={data.title}
                       className="object-contain h-96 w-screen"
                     />
                   </div>
@@ -192,7 +193,7 @@ function HomePage() {
                       </NavLink>
                     </button>
                   </div>
-                </>
+                </div>
               );
             })}
           </div>
@@ -208,11 +209,14 @@ function HomePage() {
         <div className="flex items-center justify-center pt-10">
           {about.map((data) => {
             return (
-              <div className="flex items-center sm:flex-col lg:flex-row max-w-6xl mx-auto">
+              <div
+                key={data.id}
+                className="flex items-center sm:flex-col lg:flex-row max-w-6xl mx-auto"
+              >
                 <div>
                   <img
                     src={data.imageURL}
-                    alt=""
+                    alt={data.title}
                     className="object-contain h-96 w-screen"
                   />
                 </div>
@@ -236,7 +240,7 @@ function HomePage() {
           <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4 m-5">
             {reviews.map((data) => {
               return (
-                <div className="shadow relative p-6 rounded-xl">
+                <div key={data.id} className="shadow relative p-6 rounded-xl">
                   <span className="absolute right-4 text-gray-500">
                     <FormatQuoteIcon />
                   </span>
@@ -245,7 +249,7 @@ function HomePage() {
                       <div className="border bg-[#FFF] rounded-full p-2">
                         <img
                           src={data.imageURL}
-                          alt="Profile"
+                          alt={data.name}
                           className="object-cover object-top h-[100px] w-[100px] rounded-full"
                         />
                       </div>
