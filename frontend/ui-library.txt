@@ -1,0 +1,17 @@
+Technologies used in this project:
+
+Language:
+1. JavaScript (ES6+)
+
+Core framework/library:
+2. React
+3. React Router DOM
+
+UI libraries:
+4. Tailwind CSS - utility-first styling framework
+5. Material UI (MUI) - UI components/icons (including Snackbar/Dialog)
+6. Framer Motion - animations and transitions
+
+Build/runtime tools:
+7. React Scripts (Create React App)
+8. Node.js + npm

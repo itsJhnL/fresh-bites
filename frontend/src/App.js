@@ -5,6 +5,7 @@ import Contact from "./Pages/Contact";
 import Order from "./Pages/Order";
 import About from "./Pages/About";
 import User from "./Pages/User";
+import NotFound404 from "./Pages/NotFound404";
 import Navbar from "./components/Navbar";
 import HomePage from "./components/HomePage";
 import "./App.css";
@@ -26,6 +27,7 @@ export default function App() {
         <Route exact path="/Contact" element={<Contact />}></Route>
         <Route exact path="/Order" element={<Order />}></Route>
         <Route exact path="/User" element={<User />}></Route>
+        <Route path="*" element={<NotFound404 />}></Route>
       </Routes>
     </div>
   );

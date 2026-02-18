@@ -2,136 +2,124 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CallIcon from "@mui/icons-material/Call";
 import AttachEmailIcon from "@mui/icons-material/AttachEmail";
 import FacebookIcon from "@mui/icons-material/Facebook";
-// import InstagramIcon from "@mui/icons-material/Instagram";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import YouTubeIcon from "@mui/icons-material/YouTube";
+import { NavLink } from "react-router-dom";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <div className="bg-[#FFF] border-t-4">
-      <div className="max-w-6xl mx-auto py-20 px-5">
-        <div className="grid lg:grid-cols-5 sm:grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-2 lg:col-span-2">
-            {/* <img src={Logo} alt="" /> */}
-            <h1 className="Pacifico font-normal text-[#00213F] text-4xl">
-              Fresh Bites
-            </h1>
-            <div>
-              <div className="space-y-2 text-gray-700">
-                <div className="flex hover:text-[#FF785B]">
-                  <i>
-                    <LocationOnIcon />
-                  </i>
-                  <span className="pl-3">
-                    <a
-                      href="https://www.google.com/search?q=nueva+ecija+philippines&oq=Nueva+Ecija+Philippines"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Nueva Ecija, Philippines
-                    </a>
-                  </span>
-                </div>
-                <div className="flex hover:text-[#FF785B]">
-                  <i>
-                    <CallIcon />
-                  </i>
-                  <span className="pl-3">
-                    <a href="tel:+639123456789">+63 912 345 6789</a>
-                  </span>
-                </div>
-                <div className="flex hover:text-[#FF785B]">
-                  <i>
-                    <AttachEmailIcon />
-                  </i>
-                  <span className="pl-3">
-                    <a href="mailto:JanggoDev@gmail.com">info@fresbites.com</a>
-                  </span>
-                </div>
-              </div>
-            </div>
-            {/* I need to think about */}
-            {/* <div className="flex flex-col">
-              <h1 className="text-base font-bold text-[#00213F] pt-5">
-                Sign up to get 10% off your first order
-              </h1>
-              <form className="flex items-center justify-between pt-2">
-                <input
-                  type="email"
-                  placeholder="Your Email Address"
-                  className="border p-2 outline-none w-full"
-                />
-                <button className="hover:bg-[#E8FBFF] bg-[#FF785B] rounded-r-full text-white hover:text-[#00213F] p-2">
-                  Subscribe
-                </button>
-              </form>
-            </div> */}
+    <footer className="mt-12 border-t border-[#efe3d8] bg-[linear-gradient(180deg,#fffdfb_0%,#fff7ef_100%)]">
+      <div className="mx-auto grid max-w-6xl gap-8 px-5 py-14 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+        <div className="space-y-4">
+          <h2 className="Pacifico text-4xl font-normal text-[#00213F]">Fresh Bites</h2>
+          <p className="text-sm leading-relaxed text-[#475569]">
+            Freshly prepared meals delivered fast. Order your favorites anytime.
+          </p>
+          <div className="space-y-2 text-sm text-[#334155]">
+            <a
+              href="https://www.google.com/search?q=nueva+ecija+philippines"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-[#FF785B]"
+            >
+              <LocationOnIcon fontSize="small" />
+              Nueva Ecija, Philippines
+            </a>
+            <a
+              href="tel:+639123456789"
+              className="flex items-center gap-2 hover:text-[#FF785B]"
+            >
+              <CallIcon fontSize="small" />
+              +63 912 345 6789
+            </a>
+            <a
+              href="mailto:info@freshbites.com"
+              className="flex items-center gap-2 hover:text-[#FF785B]"
+            >
+              <AttachEmailIcon fontSize="small" />
+              info@freshbites.com
+            </a>
           </div>
-          <div>
-            <h1 className="text-base font-bold pb-5 text-[#00213F]">
-              Our Menu
-            </h1>
-            <div className="space-y-2 text-gray-700">
-              <p className="cursor-pointer hover:text-[#FF785B]">Break Fast</p>
-              <p className="cursor-pointer hover:text-[#FF785B]">Lunch</p>
-              <p className="cursor-pointer hover:text-[#FF785B]">Dinner</p>
-            </div>
+        </div>
+
+        <div>
+          <h3 className="pb-4 text-base font-bold text-[#00213F]">Our Menu</h3>
+          <div className="space-y-2 text-sm text-[#475569]">
+            <p>Break Fast</p>
+            <p>Lunch</p>
+            <p>Dinner</p>
+            <p>All Dishes</p>
           </div>
-          <div>
-            <h1 className="text-base font-bold pb-5 text-[#00213F]">
-              Useful Links
-            </h1>
-            <div className="space-y-2 text-gray-700">
-              <p className="cursor-pointer hover:text-[#FF785B]">
-                <a href="/services">Services</a>
-              </p>
-              <p className="cursor-pointer hover:text-[#FF785B]"></p>
-              <p className="cursor-pointer hover:text-[#FF785B]">
-                <a href="/support">Help & Support</a>
-              </p>
-              <p className="cursor-pointer hover:text-[#FF785B]">
-                <a href="/terms">Terms & Conditions</a>
-              </p>
-            </div>
+        </div>
+
+        <div>
+          <h3 className="pb-4 text-base font-bold text-[#00213F]">Quick Links</h3>
+          <div className="space-y-2 text-sm text-[#475569]">
+            <NavLink to="/" className="block hover:text-[#FF785B]">
+              Home
+            </NavLink>
+            <NavLink to="/Menu" className="block hover:text-[#FF785B]">
+              Menu
+            </NavLink>
+            <NavLink to="/Contact" className="block hover:text-[#FF785B]">
+              Contact
+            </NavLink>
+            <NavLink to="/Menu?view=cart" className="block hover:text-[#FF785B]">
+              Your Cart
+            </NavLink>
           </div>
-          <div>
-            <h1 className="text-base font-bold pb-5 text-[#00213F]">Socials</h1>
-            <ul className="flex flex-col space-y-2 text-gray-700">
-              <li className="cursor-pointer hover:text-[#FF785B]">
-                <FacebookIcon />
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="pl-3">
-                  Facebook
-                </a>
-              </li>
-              <li className="cursor-pointer hover:text-[#FF785B]">
-                <TwitterIcon />
-                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" className="pl-3">
-                  Twitter
-                </a>
-              </li>
-              <li className="cursor-pointer hover:text-[#FF785B]">
-                <YouTubeIcon />
-                <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" className="pl-3">
-                  YouTube
-                </a>
-              </li>
-            </ul>
+        </div>
+
+        <div>
+          <h3 className="pb-4 text-base font-bold text-[#00213F]">Socials</h3>
+          <div className="flex items-center gap-3 text-[#334155]">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-[#e5d5c9] p-2 transition hover:border-[#FF785B] hover:text-[#FF785B]"
+              aria-label="Facebook"
+            >
+              <FacebookIcon fontSize="small" />
+            </a>
+            <a
+              href="https://x.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-[#e5d5c9] p-2 transition hover:border-[#FF785B] hover:text-[#FF785B]"
+              aria-label="Twitter"
+            >
+              <TwitterIcon fontSize="small" />
+            </a>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-full border border-[#e5d5c9] p-2 transition hover:border-[#FF785B] hover:text-[#FF785B]"
+              aria-label="YouTube"
+            >
+              <YouTubeIcon fontSize="small" />
+            </a>
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center p-5 bg-[#F1F1F1] text-center">
-        <p className="text-base">
-          All Rights Reserved &copy; 2026 Copyright | Made by{" "}
+
+      <div className="border-t border-[#f1e6dd] bg-[#fffaf5] px-5 py-4 text-center text-sm text-[#64748b]">
+        <p className="font-medium">All Rights Reserved &copy; {currentYear} Fresh Bites</p>
+        <p className="mt-1 font-medium text-[#334155]">
+          Made by{" "}
           <a
             href="https://janggodev.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#435334]"
+            className="font-bold text-[#ff785b] underline underline-offset-2 hover:text-[#d95f43]"
           >
-            <b>JanggoDev</b>
+            JanggoDev
           </a>
         </p>
       </div>
-    </div>
+    </footer>
   );
 }

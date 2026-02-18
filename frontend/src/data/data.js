@@ -2,12 +2,26 @@ const hero = [
   {
     id: 1,
     title: "A Chef In Every Tasty Meal Box",
-    subtitle: "Get pre-portioned ingredients for Gusto Meal Kits best recipes delivered direct to your door!",
-    paragraph:
-      "",
-    // time: "Open everyday from 8AM - 11PM",
-    imageURL: "menu/chicken2.png",
-    backgroundImage: "background.png",
+    subtitle:
+      "Get pre-portioned ingredients for Gusto Meal Kits best recipes delivered direct to your door!",
+    imageURL: "/menu/chicken2.png",
+    backgroundImage: "/background.png",
+  },
+  {
+    id: 2,
+    title: "Fresh Recipes, Delivered Daily",
+    subtitle:
+      "Chef-designed meals made simple with premium ingredients and fast doorstep delivery.",
+    imageURL: "/menu/pizza2.png",
+    backgroundImage: "/background.png",
+  },
+  {
+    id: 3,
+    title: "From Kitchen To Your Table",
+    subtitle:
+      "Order in seconds and enjoy handcrafted dishes that are full of flavor and always satisfying.",
+    imageURL: "/menu/pasta2.png",
+    backgroundImage: "/background.png",
   },
 ];
 
@@ -125,72 +139,84 @@ const dishes = [
     price: "P499",
     title: "Lemon Herb Roasted Chicken",
     imageURL: "/menu/chicken1.png",
+    mealType: "dinner",
   },
   {
     id: 2,
     price: "P499",
     title: "Roasted Chicken with Carrots",
     imageURL: "/menu/chicken2.png",
+    mealType: "lunch",
   },
   {
     id: 3,
     price: "P399",
     title: "Roast Bites",
     imageURL: "/menu/chicken6.png",
+    mealType: "lunch",
   },
   {
     id: 4,
     price: "P569",
     title: "Lemon Herb Chicken",
     imageURL: "/menu/chicken3.png",
+    mealType: "dinner",
   },
   {
     id: 5,
     price: "P199",
     title: "Roasted Chicken Legs",
     imageURL: "/menu/chicken5.png",
+    mealType: "dinner",
   },
   {
     id: 6,
     price: "P699",
     title: "Pizza Bites",
     imageURL: "/menu/pizza1.png",
+    mealType: "lunch",
   },
   {
     id: 7,
     price: "P900",
     title: "Strawchoco Pizza",
     imageURL: "/menu/pizza3.png",
+    mealType: "dinner",
   },
   {
     id: 8,
     price: "P499",
     title: "Margherita Pizza",
     imageURL: "/menu/pizza2.png",
+    mealType: "lunch",
   },
   {
     id: 9,
     price: "P259",
     title: "Burger Bite King",
     imageURL: "/menu/burger1.png",
+    mealType: "breakfast",
   },
   {
     id: 10,
     price: "P399",
     title: "Burger Overload",
     imageURL: "/menu/burger2.png",
+    mealType: "breakfast",
   },
   {
     id: 11,
     price: "P199",
     title: "Spaghetti Bolognese",
     imageURL: "/menu/pasta.png",
+    mealType: "lunch",
   },
   {
     id: 12,
     price: "P199",
     title: "Meatballs Pasta",
     imageURL: "/menu/meatballs.png",
+    mealType: "dinner",
   },
 ];
 

@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 .env
+.env.*
+!.env.example
+.envrc
 
 # testing
 /coverage
@@ -22,3 +25,22 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
+
+# local deploy/config
+.vercel
+.netlify
+
+# secrets / keys / certs
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.cer
+
+# local editor files
+.vscode/
+.idea/
+*.swp
+*.swo
