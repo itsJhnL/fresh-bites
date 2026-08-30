@@ -49,22 +49,22 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#fff8ef_0%,_#fffdf8_55%,_#ffffff_100%)]">
+    <div className="min-h-screen bg-cream-100">
       <section className="mx-auto max-w-6xl px-5 py-14 sm:py-16">
         <div className="mb-8 text-center">
-          <h1 className="text-3xl font-extrabold text-[#1f2937] sm:text-4xl">
+          <h1 className="font-display text-3xl text-ink-900 sm:text-4xl">
             Get in touch, let&apos;s talk.
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-[#64748b] sm:text-base">
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-ink-500 sm:text-base">
             For inquiries, collaboration opportunities, or simple feedback, send us
             a message and we&apos;ll respond as soon as possible.
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-2xl border border-[#f1e4d8] bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-xl font-bold text-[#00213F]">Contact Information</h2>
-            <p className="mt-2 text-sm text-[#64748b]">
+          <div className="rounded-xl border border-cream-200 bg-cream-50 p-6 shadow-card sm:p-8">
+            <h2 className="text-xl font-bold text-ink-900">Contact Information</h2>
+            <p className="mt-2 text-sm text-ink-500">
               You can also reach us directly using the details below.
             </p>
 
@@ -73,50 +73,54 @@ export default function Contact() {
                 href="https://www.google.com/search?q=nueva+ecija+philippines"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 rounded-xl border border-[#f2ebe4] p-4 transition hover:border-[#FF785B]"
+                className="flex items-start gap-3 rounded-lg border border-cream-200 p-4 transition hover:border-terracotta-400"
               >
-                <span className="rounded-lg bg-[#fff2eb] p-2 text-[#FF785B]">
+                <span className="rounded-lg bg-terracotta-50 p-2 text-terracotta-500">
                   <LocationOnIcon fontSize="small" />
                 </span>
                 <span>
-                  <p className="text-sm font-semibold text-[#334155]">Location</p>
-                  <p className="text-sm text-[#64748b]">Nueva Ecija, Philippines</p>
+                  <p className="text-sm font-semibold text-ink-900">Location</p>
+                  <p className="text-sm text-ink-500">Nueva Ecija, Philippines</p>
                 </span>
               </a>
 
               <a
                 href="tel:+639927180980"
-                className="flex items-start gap-3 rounded-xl border border-[#f2ebe4] p-4 transition hover:border-[#FF785B]"
+                className="flex items-start gap-3 rounded-lg border border-cream-200 p-4 transition hover:border-terracotta-400"
               >
-                <span className="rounded-lg bg-[#fff2eb] p-2 text-[#FF785B]">
+                <span className="rounded-lg bg-terracotta-50 p-2 text-terracotta-500">
                   <CallIcon fontSize="small" />
                 </span>
                 <span>
-                  <p className="text-sm font-semibold text-[#334155]">Phone</p>
-                  <p className="text-sm text-[#64748b]">+63 992-718-0980</p>
+                  <p className="text-sm font-semibold text-ink-900">Phone</p>
+                  <p className="text-sm text-ink-500">+63 992-718-0980</p>
                 </span>
               </a>
 
               <a
                 href="mailto:johnleo.bruno@gmail.com"
-                className="flex items-start gap-3 rounded-xl border border-[#f2ebe4] p-4 transition hover:border-[#FF785B]"
+                className="flex items-start gap-3 rounded-lg border border-cream-200 p-4 transition hover:border-terracotta-400"
               >
-                <span className="rounded-lg bg-[#fff2eb] p-2 text-[#FF785B]">
+                <span className="rounded-lg bg-terracotta-50 p-2 text-terracotta-500">
                   <AttachEmailIcon fontSize="small" />
                 </span>
                 <span>
-                  <p className="text-sm font-semibold text-[#334155]">Email</p>
-                  <p className="text-sm text-[#64748b]">JanggoDev@gmail.com</p>
+                  <p className="text-sm font-semibold text-ink-900">Email</p>
+                  <p className="text-sm text-ink-500">JanggoDev@gmail.com</p>
                 </span>
               </a>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-[#f1e4d8] bg-white p-6 shadow-sm sm:p-8">
-            <h2 className="text-xl font-bold text-[#00213F]">Send a Message</h2>
+          <div className="rounded-xl border border-cream-200 bg-cream-50 p-6 shadow-card sm:p-8">
+            <h2 className="text-xl font-bold text-ink-900">Send a Message</h2>
+            <p className="mt-1 text-xs text-ink-500">
+              Demo form — messages are kept on this device only and aren&apos;t sent to
+              anyone yet.
+            </p>
             <form onSubmit={handleSubmit} className="mt-5 space-y-4">
               <div>
-                <label htmlFor="name" className="mb-1 block text-sm font-semibold text-[#334155]">
+                <label htmlFor="name" className="mb-1 block text-sm font-semibold text-ink-700">
                   Name
                 </label>
                 <input
@@ -124,12 +128,12 @@ export default function Contact() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-[#d5dde5] px-3 py-2 text-sm outline-none focus:border-[#667B68]"
+                  className="w-full rounded-lg border border-cream-300 bg-cream-50 px-3 py-2 text-sm text-ink-900 outline-none focus:border-sage-500"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="email" className="mb-1 block text-sm font-semibold text-[#334155]">
+                <label htmlFor="email" className="mb-1 block text-sm font-semibold text-ink-700">
                   Email
                 </label>
                 <input
@@ -138,14 +142,14 @@ export default function Contact() {
                   type="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-[#d5dde5] px-3 py-2 text-sm outline-none focus:border-[#667B68]"
+                  className="w-full rounded-lg border border-cream-300 bg-cream-50 px-3 py-2 text-sm text-ink-900 outline-none focus:border-sage-500"
                   required
                 />
               </div>
               <div>
                 <label
                   htmlFor="subject"
-                  className="mb-1 block text-sm font-semibold text-[#334155]"
+                  className="mb-1 block text-sm font-semibold text-ink-700"
                 >
                   Subject
                 </label>
@@ -154,14 +158,14 @@ export default function Contact() {
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-[#d5dde5] px-3 py-2 text-sm outline-none focus:border-[#667B68]"
+                  className="w-full rounded-lg border border-cream-300 bg-cream-50 px-3 py-2 text-sm text-ink-900 outline-none focus:border-sage-500"
                   required
                 />
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="mb-1 block text-sm font-semibold text-[#334155]"
+                  className="mb-1 block text-sm font-semibold text-ink-700"
                 >
                   Message
                 </label>
@@ -171,23 +175,23 @@ export default function Contact() {
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full rounded-lg border border-[#d5dde5] px-3 py-2 text-sm outline-none focus:border-[#667B68]"
+                  className="w-full rounded-lg border border-cream-300 bg-cream-50 px-3 py-2 text-sm text-ink-900 outline-none focus:border-sage-500"
                   required
                 />
               </div>
               <button
                 type="submit"
-                className="w-full rounded-xl bg-[#FF785B] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#e96b4f]"
+                className="w-full rounded-xl bg-terracotta-500 px-4 py-2.5 text-sm font-semibold text-cream-50 transition hover:bg-terracotta-600"
               >
                 Send Message
               </button>
               {errorMessage && (
-                <p className="text-center text-sm font-semibold text-[#b42318]">
+                <p className="text-center text-sm font-semibold text-terracotta-600">
                   {errorMessage}
                 </p>
               )}
               {submitted && (
-                <p className="text-center text-sm font-semibold text-[#2f6d31]">
+                <p className="text-center text-sm font-semibold text-sage-600">
                   Message sent successfully.
                 </p>
               )}

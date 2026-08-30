@@ -1,25 +1,36 @@
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
+import { useCart } from "./CartContext";
 
 const ShopContext = createContext(null);
 
+// Cart state/logic lives in CartContext (src/context/CartContext.jsx) —
+// that's the actual single source of truth for cart data, persistence, and
+// calculations. This context just re-exposes it under the names existing
+// call sites (Navbar, HomePage, Menu, FoodCard, FoodDetails) already use,
+// so none of them needed to change, while favorites stays owned here since
+// it's a separate concern from the cart rework this phase is about.
 export function ShopProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
-  const [cartItems, setCartItems] = useState([]);
+  const cart = useCart();
 
-  const normalizeItem = useCallback(
+  const normalizeFavorite = useCallback(
     (item) => ({
       id: item.id,
-      title: item.title || item.subtitle || "Food Item",
+      title: item.title || item.subtitle || item.name || "Food Item",
       price: item.price || "",
-      imageURL: item.imageURL || "",
+      imageURL: item.imageURL || item.image_url || "",
       mealType: item.mealType || null,
+      slug: item.slug || null,
+      description: item.description || null,
+      categoryName: item.categoryName || null,
+      rating: item.rating ?? null,
     }),
     []
   );
 
   const toggleFavorite = useCallback(
     (item) => {
-      const normalized = normalizeItem(item);
+      const normalized = normalizeFavorite(item);
       setFavorites((prev) => {
         const exists = prev.some((fav) => fav.id === normalized.id);
         if (exists) {
@@ -29,7 +40,7 @@ export function ShopProvider({ children }) {
         return [...prev, normalized];
       });
     },
-    [normalizeItem]
+    [normalizeFavorite]
   );
 
   const isFavorite = useCallback(
@@ -37,84 +48,21 @@ export function ShopProvider({ children }) {
     [favorites]
   );
 
-  const addToCart = useCallback(
-    (item) => {
-      const normalized = normalizeItem(item);
-      setCartItems((prev) => {
-        const existingItem = prev.find((cartItem) => cartItem.id === normalized.id);
-        if (existingItem) {
-          return prev.map((cartItem) =>
-            cartItem.id === normalized.id
-              ? { ...cartItem, quantity: cartItem.quantity + 1 }
-              : cartItem
-          );
-        }
-
-        return [
-          ...prev,
-          {
-            ...normalized,
-            quantity: 1,
-          },
-        ];
-      });
-    },
-    [normalizeItem]
-  );
-
-  const removeFromCart = useCallback((id) => {
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
-  }, []);
-
-  const increaseCartQuantity = useCallback((id) => {
-    setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-  }, []);
-
-  const decreaseCartQuantity = useCallback((id) => {
-    setCartItems((prev) =>
-      prev
-        .map((item) =>
-          item.id === id
-            ? { ...item, quantity: Math.max(0, item.quantity - 1) }
-            : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  }, []);
-
-  const clearCart = useCallback(() => {
-    setCartItems([]);
-  }, []);
-
   const value = useMemo(
     () => ({
       favorites,
-      cartItems,
       favoritesCount: favorites.length,
-      cartCount: cartItems.reduce((sum, item) => sum + item.quantity, 0),
       toggleFavorite,
       isFavorite,
-      addToCart,
-      removeFromCart,
-      increaseCartQuantity,
-      decreaseCartQuantity,
-      clearCart,
+      cartItems: cart.items,
+      cartCount: cart.itemCount,
+      addToCart: cart.addItem,
+      removeFromCart: cart.removeItem,
+      increaseCartQuantity: cart.increaseQuantity,
+      decreaseCartQuantity: cart.decreaseQuantity,
+      clearCart: cart.clearCart,
     }),
-    [
-      favorites,
-      cartItems,
-      toggleFavorite,
-      isFavorite,
-      addToCart,
-      removeFromCart,
-      increaseCartQuantity,
-      decreaseCartQuantity,
-      clearCart,
-    ]
+    [favorites, toggleFavorite, isFavorite, cart]
   );
 
   return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;

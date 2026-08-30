@@ -2,19 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,300;1,200&family=Roboto&display=swap");
+/* Ibarra Real Nova: the display serif carrying FreshBite's editorial
+   character (headings, hero copy, brand wordmark) — never the workhorse
+   UI voice. Figtree: the body/UI sans for everything functional (forms,
+   tables, nav, buttons). Neither is on the training-data-default list
+   (Inter, Roboto, Fraunces, Geist, Plus Jakarta Sans, Space Grotesk, ...)
+   that every AI-generated UI converges on. */
+@import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto";
 }
 
-.Pacifico {
-  font-family: "Pacifico";
+html {
+  scroll-behavior: smooth;
 }
 
-.monasans {
-  font-family: "Monasans";
+body {
+  font-family: "Figtree", system-ui, sans-serif;
+  background-color: #fffdf9; /* cream-50 */
+  color: #241c15; /* ink-900 */
+}
+
+/* Browser surfaces carry the design too, not just the components we draw
+   deliberately — selection, focus rings, and scrollbars ship with generic
+   defaults otherwise. */
+::selection {
+  background-color: #fbe1d3; /* terracotta-100 */
+  color: #241c15; /* ink-900 */
+}
+
+:focus-visible {
+  outline: 2px solid #c1502d; /* terracotta-500 */
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf6ec; /* cream-100 */
+}
+::-webkit-scrollbar-thumb {
+  background-color: #eedcc2; /* cream-300 */
+  border-radius: 9999px;
+  border: 3px solid #fdf6ec;
+}
+* {
+  scrollbar-color: #eedcc2 #fdf6ec;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

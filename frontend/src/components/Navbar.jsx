@@ -1,164 +1,229 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import Logo from "../assets/logo/Chicken.png";
-import "../index.css";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 import { useShop } from "../context/ShopContext";
+import { useAuth } from "../context/AuthContext";
 
-function Navbar() {
-  const [clicked, setClicked] = useState();
+// No logo/wordmark here by design — the header is nav + primary CTA only.
+// Branding lives in the hero and footer instead (see HomePage.jsx, Footer.jsx).
+const PRIMARY_LINKS = [
+  { to: "/", label: "Home", end: true },
+  { to: "/Menu", label: "Menu" },
+  { to: "/About", label: "About" },
+  { to: "/Contact", label: "Contact" },
+];
+
+function CountBadge({ count }) {
+  if (!count) return null;
+  return (
+    <span className="absolute -right-1.5 -top-1.5 flex h-4 min-w-[16px] items-center justify-center rounded-full bg-terracotta-500 px-1 text-[10px] font-bold text-cream-50">
+      {count}
+    </span>
+  );
+}
+
+function IconLink({ to, label, icon, count, onClick }) {
+  return (
+    <NavLink
+      to={to}
+      onClick={onClick}
+      aria-label={label}
+      className="relative text-ink-700 transition hover:text-terracotta-500"
+    >
+      {icon}
+      <CountBadge count={count} />
+    </NavLink>
+  );
+}
+
+export default function Navbar() {
   const { favoritesCount, cartCount } = useShop();
+  const { isAuthenticated, isAdmin } = useAuth();
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  const scrollUp = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "auto",
-    });
-    setClicked(true);
-  };
-
-  const [nav, setNav] = useState();
-
-  const showNav = () => {
-    setNav(!nav);
-  };
-
-  const NavLinks = () => {
-    return (
-      <>
-        <NavLink
-          to="/"
-          onClick={scrollUp}
-          style={({ isActive }) => ({
-            color: isActive ? "#435334" : "#00213F",
-            fontWeight: isActive ? "bold" : "bold",
-            borderBottom: isActive ? "solid 3px" : "",
-          })}
-        >
-          {clicked ? "Home" : "Home"}
-        </NavLink>
-        <NavLink
-          to="/Menu"
-          onClick={scrollUp}
-          style={({ isActive }) => ({
-            color: isActive ? "#435334" : "#00213F",
-            fontWeight: isActive ? "bold" : "bold",
-            borderBottom: isActive ? "solid 3px" : "",
-          })}
-        >
-          {clicked ? "Menu" : "Menu"}
-        </NavLink>
-        <NavLink
-          to="/Contact"
-          onClick={scrollUp}
-          style={({ isActive }) => ({
-            color: isActive ? "#435334" : "#00213F",
-            fontWeight: isActive ? "bold" : "bold",
-            borderBottom: isActive ? "solid 3px" : "",
-          })}
-        >
-          {clicked ? "Contact" : "Contact"}
-        </NavLink>
-        <span className="text-gray-700 sm:hidden lg:inline-block">|</span>
-        <NavLink
-          to="/Menu?view=favorites"
-          onClick={scrollUp}
-          className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block"
-        >
-          <FavoriteBorderIcon />
-          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[9px] -mx-2 -my-2 text-[#FFF] text-[11px]">
-            {favoritesCount}
-          </span>
-        </NavLink>
-        <NavLink
-          to="/Menu?view=cart"
-          onClick={scrollUp}
-          className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block"
-        >
-          <ShoppingCartOutlinedIcon />
-          <span className="absolute bg-[#FF785B] border font-bold rounded-full px-[9px] -mx-2 -my-2 text-[#FFF] text-[11px]">
-            {cartCount}
-          </span>
-        </NavLink>
-        <NavLink
-          to="/User"
-          onClick={scrollUp}
-          className="text-[#435334] hover:text-[#FF785B] sm:hidden lg:inline-block"
-        >
-          <PersonOutlineOutlinedIcon />
-        </NavLink>
-      </>
-    );
-  };
+  const scrollUp = () => window.scrollTo({ top: 0, behavior: "auto" });
+  const closeDrawer = () => setDrawerOpen(false);
+  const accountPath = isAuthenticated ? "/profile" : "/User";
 
   return (
-    <div className="sticky top-0 z-50 backdrop-blur-lg bg-[#FFF]/80">
-      <nav>
-        <div className="flex items-center justify-between py-6 max-w-7xl mx-auto px-5">
-          <div>
-            <NavLink to="/" onClick={scrollUp}>
-              <img
-                src={Logo}
-                alt=""
-                className="h-[30px] w-full sm:hidden md:block "
-              />
-              {clicked ? "" : ""}
-            </NavLink>
-          </div>
-          <div className="flex items-center justify-center text-base space-x-8 sm:hidden lg:block">
-            <NavLinks />
-          </div>
-          <div className="flex sm:blocok lg:hidden">
-            <motion.button
-              type="button"
-              onClick={showNav}
-              whileTap={{ scale: 0.92 }}
-              className="rounded-lg p-1"
-              aria-label="Toggle menu"
+    <>
+    {/* backdrop-blur-sm below intentionally wraps ONLY <nav> — CSS spec
+        makes an element with an active backdrop-filter/filter the
+        containing block for `position: fixed` descendants, which broke the
+        mobile drawer/backdrop below (they'd resolve `fixed` against this
+        thin sticky bar instead of the viewport, corrupting their layout
+        and compositing). Keeping the drawer as a sibling avoids that trap. */}
+    <div className="sticky top-0 z-50 border-b border-cream-200 bg-cream-50/95 backdrop-blur-sm">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
+        <div className="hidden items-center gap-8 lg:flex">
+          {PRIMARY_LINKS.map((link) => (
+            <NavLink
+              key={link.to}
+              to={link.to}
+              end={link.end}
+              onClick={scrollUp}
+              className={({ isActive }) =>
+                `border-b-2 pb-0.5 text-sm font-semibold transition ${
+                  isActive
+                    ? "border-terracotta-500 text-terracotta-500"
+                    : "border-transparent text-ink-900 hover:text-terracotta-500"
+                }`
+              }
             >
-              <motion.div
-                animate={nav ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-                className="mb-1 h-[2px] w-6 bg-[#1f2937]"
-              />
-              <motion.div
-                animate={nav ? { opacity: 0 } : { opacity: 1 }}
-                className="mb-1 h-[2px] w-6 bg-[#1f2937]"
-              />
-              <motion.div
-                animate={nav ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-                className="h-[2px] w-6 bg-[#1f2937]"
-              />
-            </motion.button>
-          </div>
+              {link.label}
+            </NavLink>
+          ))}
         </div>
-        <AnimatePresence>
-          {nav && (
+
+        <button
+          type="button"
+          onClick={() => setDrawerOpen((open) => !open)}
+          aria-label={drawerOpen ? "Close menu" : "Open menu"}
+          aria-expanded={drawerOpen}
+          className="rounded-lg p-1 text-ink-900 transition hover:text-terracotta-500 lg:hidden"
+        >
+          {drawerOpen ? <CloseIcon /> : <MenuIcon />}
+        </button>
+
+        <div className="flex items-center gap-5">
+          <span className="hidden lg:inline-flex">
+            <IconLink
+              to="/Menu?view=favorites"
+              label="Favorites"
+              icon={<FavoriteBorderIcon fontSize="small" />}
+              count={favoritesCount}
+              onClick={scrollUp}
+            />
+          </span>
+          <IconLink
+            to="/Cart"
+            label="Cart"
+            icon={<ShoppingCartOutlinedIcon />}
+            count={cartCount}
+            onClick={scrollUp}
+          />
+          <span className="hidden lg:inline-flex">
+            <IconLink to={accountPath} label="Account" icon={<PersonOutlineOutlinedIcon />} onClick={scrollUp} />
+          </span>
+          {isAdmin && (
+            <NavLink
+              to="/admin"
+              onClick={scrollUp}
+              className="hidden rounded-full border border-sage-500 px-3 py-1 text-xs font-bold text-sage-600 transition hover:bg-sage-50 lg:inline-flex"
+            >
+              Admin
+            </NavLink>
+          )}
+          {/* Primary CTA — the header's one job besides navigation. */}
+          <NavLink
+            to="/Menu"
+            onClick={scrollUp}
+            className="hidden rounded-full bg-terracotta-500 px-5 py-2 text-sm font-bold text-cream-50 transition hover:bg-terracotta-600 lg:inline-flex"
+          >
+            Order Now
+          </NavLink>
+        </div>
+      </nav>
+    </div>
+
+      <AnimatePresence>
+        {drawerOpen && (
+          <>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute h-[100vh] w-[100vw] backdrop-blur-sm bg-white/30"
+              transition={{ duration: 0.15 }}
+              onClick={closeDrawer}
+              className="fixed inset-0 z-40 bg-ink-900/30 lg:hidden"
+              aria-hidden="true"
+            />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
+              className="fixed right-0 top-0 z-50 h-full w-[78vw] max-w-xs bg-cream-50 p-6 shadow-card lg:hidden"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Site menu"
             >
-              <motion.div
-                initial={{ x: "100%" }}
-                animate={{ x: 0 }}
-                exit={{ x: "100%" }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="absolute right-0 h-[100vh] w-[65vw] bg-[#f1f1f1]/90 p-5 max-sm:block lg:hidden"
-              >
-                <div className="flex flex-col space-y-4" onClick={showNav}>
-                  <NavLinks />
-                </div>
-              </motion.div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-bold uppercase tracking-wide text-ink-500">Menu</span>
+                <button
+                  type="button"
+                  onClick={closeDrawer}
+                  aria-label="Close menu"
+                  className="rounded-lg p-1 text-ink-700 hover:text-terracotta-500"
+                >
+                  <CloseIcon />
+                </button>
+              </div>
+
+              <div className="mt-8 flex flex-col gap-1">
+                {PRIMARY_LINKS.map((link) => (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    end={link.end}
+                    onClick={() => {
+                      scrollUp();
+                      closeDrawer();
+                    }}
+                    className={({ isActive }) =>
+                      `rounded-lg px-3 py-2.5 text-base font-semibold ${
+                        isActive ? "bg-terracotta-50 text-terracotta-500" : "text-ink-900 hover:bg-cream-100"
+                      }`
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                ))}
+                <NavLink
+                  to="/Menu?view=favorites"
+                  onClick={closeDrawer}
+                  className="flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-semibold text-ink-900 hover:bg-cream-100"
+                >
+                  Favorites
+                  {favoritesCount > 0 && (
+                    <span className="rounded-full bg-terracotta-100 px-2 py-0.5 text-xs font-bold text-terracotta-600">
+                      {favoritesCount}
+                    </span>
+                  )}
+                </NavLink>
+                <NavLink
+                  to={accountPath}
+                  onClick={closeDrawer}
+                  className="rounded-lg px-3 py-2.5 text-base font-semibold text-ink-900 hover:bg-cream-100"
+                >
+                  {isAuthenticated ? "My Account" : "Login / Sign Up"}
+                </NavLink>
+                {isAdmin && (
+                  <NavLink
+                    to="/admin"
+                    onClick={closeDrawer}
+                    className="rounded-lg px-3 py-2.5 text-base font-semibold text-sage-600 hover:bg-sage-50"
+                  >
+                    Admin Panel
+                  </NavLink>
+                )}
+                <NavLink
+                  to="/Menu"
+                  onClick={closeDrawer}
+                  className="mt-3 rounded-lg bg-terracotta-500 px-3 py-3 text-center text-base font-bold text-cream-50 transition hover:bg-terracotta-600"
+                >
+                  Order Now
+                </NavLink>
+              </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-    </div>
+          </>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
-
-export default Navbar;

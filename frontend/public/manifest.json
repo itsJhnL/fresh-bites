@@ -1,0 +1,9 @@
+{
+  "short_name": "Fresh Bites",
+  "name": "Fresh Bites",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#667B68",
+  "background_color": "#ffffff"
+}
