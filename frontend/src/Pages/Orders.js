@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
+import Toast from "../components/Toast";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Footer from "../components/Footer.jsx";
 import EmptyState from "../components/EmptyState";
@@ -158,21 +157,13 @@ export default function Orders() {
         )}
       </section>
 
-      <Snackbar
+      <Toast
         open={toast.open}
+        message={toast.message}
+        severity={toast.severity}
         autoHideDuration={3000}
         onClose={() => setToast((prev) => ({ ...prev, open: false }))}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-      >
-        <Alert
-          onClose={() => setToast((prev) => ({ ...prev, open: false }))}
-          severity={toast.severity}
-          variant="filled"
-          sx={{ width: "100%" }}
-        >
-          {toast.message}
-        </Alert>
-      </Snackbar>
+      />
       <Footer />
     </>
   );

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import SpaOutlinedIcon from "@mui/icons-material/SpaOutlined";
+import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
@@ -9,8 +11,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useShop } from "../context/ShopContext";
 import { useAuth } from "../context/AuthContext";
 
-// No logo/wordmark here by design — the header is nav + primary CTA only.
-// Branding lives in the hero and footer instead (see HomePage.jsx, Footer.jsx).
+// Logo/wordmark reinstated per the latest homepage reference (reverses the
+// earlier "no logo in the header" decision — a deliberate direction change,
+// not an oversight). Since Navbar is shared by every route, this and the
+// rest of this file's styling apply site-wide, not just to the homepage.
 const PRIMARY_LINKS = [
   { to: "/", label: "Home", end: true },
   { to: "/Menu", label: "Menu" },
@@ -60,6 +64,22 @@ export default function Navbar() {
         and compositing). Keeping the drawer as a sibling avoids that trap. */}
     <div className="sticky top-0 z-50 border-b border-cream-200 bg-cream-50/95 backdrop-blur-sm">
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4">
+        {/* Tagline hides below sm: — at 320px its letter-spaced caps text is
+            wider than "Fresh Bites" itself and was pushing the header past
+            the viewport (confirmed: 20px horizontal overflow on every
+            page, since Navbar is global — measured, not guessed). */}
+        <NavLink to="/" end onClick={scrollUp} className="flex min-w-0 items-center gap-1.5 sm:gap-2" aria-label="FreshBite home">
+          <SpaOutlinedIcon className="shrink-0 text-pine-600" fontSize="medium" />
+          <span className="min-w-0 leading-tight">
+            <span className="font-playfair text-lg font-semibold text-graphite-900 sm:text-2xl">
+              Fresh <span className="italic text-terracotta-500">Bites</span>
+            </span>
+            <span className="hidden font-inter text-[10px] font-medium uppercase tracking-[0.15em] text-graphite-500 sm:block">
+              Real food. Made to order.
+            </span>
+          </span>
+        </NavLink>
+
         <div className="hidden items-center gap-8 lg:flex">
           {PRIMARY_LINKS.map((link) => (
             <NavLink
@@ -80,17 +100,10 @@ export default function Navbar() {
           ))}
         </div>
 
-        <button
-          type="button"
-          onClick={() => setDrawerOpen((open) => !open)}
-          aria-label={drawerOpen ? "Close menu" : "Open menu"}
-          aria-expanded={drawerOpen}
-          className="rounded-lg p-1 text-ink-900 transition hover:text-terracotta-500 lg:hidden"
-        >
-          {drawerOpen ? <CloseIcon /> : <MenuIcon />}
-        </button>
-
         <div className="flex items-center gap-5">
+          <span className="hidden lg:inline-flex">
+            <IconLink to="/Menu" label="Search the menu" icon={<SearchIcon />} onClick={scrollUp} />
+          </span>
           <span className="hidden lg:inline-flex">
             <IconLink
               to="/Menu?view=favorites"
@@ -127,6 +140,16 @@ export default function Navbar() {
           >
             Order Now
           </NavLink>
+
+          <button
+            type="button"
+            onClick={() => setDrawerOpen((open) => !open)}
+            aria-label={drawerOpen ? "Close menu" : "Open menu"}
+            aria-expanded={drawerOpen}
+            className="rounded-lg p-1 text-ink-900 transition hover:text-terracotta-500 lg:hidden"
+          >
+            {drawerOpen ? <CloseIcon /> : <MenuIcon />}
+          </button>
         </div>
       </nav>
     </div>

@@ -44,6 +44,21 @@ module.exports = {
           400: "#C88A1F",
           500: "#A8730F",
         },
+        // Added for the homepage hero/highlight redesign + header logo —
+        // the reference palette's dark green and near-black text didn't
+        // have a close enough match in the tokens above (sage/ink are both
+        // warmer/more olive-brown than this reference's cooler pine-green
+        // and green-gray). terracotta-500 and cream-100 WERE close enough
+        // to the reference's accent-orange/cream-background and are reused
+        // as-is rather than duplicated here.
+        pine: {
+          50: "#E8F1E6",
+          600: "#2E4A3B",
+        },
+        graphite: {
+          500: "#5B635A",
+          900: "#1F2A22",
+        },
       },
       fontFamily: {
         // Display serif with real editorial character for headings/hero
@@ -52,6 +67,12 @@ module.exports = {
         // Body/UI sans for everything functional: forms, tables, nav,
         // buttons, cart, checkout, admin.
         sans: ["Figtree", "system-ui", "sans-serif"],
+        // Added for the homepage hero/highlight redesign + header logo
+        // (see index.css for the Google Fonts import). Deliberately
+        // additive — `display`/`sans` above are untouched, so every other
+        // page keeps rendering in Ibarra Real Nova/Figtree exactly as before.
+        playfair: ["\"Playfair Display\"", "Georgia", "serif"],
+        inter: ["Inter", "system-ui", "sans-serif"],
       },
       boxShadow: {
         // One soft elevation tier, used deliberately, not stacked.

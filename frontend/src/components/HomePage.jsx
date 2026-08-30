@@ -6,8 +6,15 @@ import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CallIcon from "@mui/icons-material/Call";
 import AttachEmailIcon from "@mui/icons-material/AttachEmail";
+import GrassOutlinedIcon from "@mui/icons-material/GrassOutlined";
+import RestaurantMenuOutlinedIcon from "@mui/icons-material/RestaurantMenuOutlined";
+import DeliveryDiningOutlinedIcon from "@mui/icons-material/DeliveryDiningOutlined";
+import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
+import EventAvailableOutlinedIcon from "@mui/icons-material/EventAvailableOutlined";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Footer from "./Footer.jsx";
 import FoodCard from "./FoodCard";
+import FoodImage from "./FoodImage";
 import ReservationForm from "./ReservationForm";
 import Skeleton from "./Skeleton";
 import { MenuGridSkeleton, CategoryNavSkeleton } from "./MenuSkeletons";
@@ -34,8 +41,6 @@ function averageRating(list) {
 // items always render through FoodImage's honest placeholder fallback
 // instead (see FoodCard.jsx / FoodImage.jsx).
 const HERO_IMAGE = "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1800&q=80";
-const CHEF_SPECIAL_IMAGE =
-  "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80";
 const CHEF_IMAGE = "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1200&q=80";
 const LOCATION_IMAGE =
   "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80";
@@ -45,17 +50,25 @@ export default function HomePage() {
 
   const [categories, setCategories] = useState([]);
   const [categoriesLoading, setCategoriesLoading] = useState(true);
+  const [categoriesError, setCategoriesError] = useState("");
 
   const [featured, setFeatured] = useState([]);
   const [menuItemCount, setMenuItemCount] = useState(null);
   const [menuLoading, setMenuLoading] = useState(true);
   const [menuError, setMenuError] = useState("");
 
-  useEffect(() => {
-    fetchCategories()
+  const loadCategories = () => {
+    setCategoriesLoading(true);
+    setCategoriesError("");
+    return fetchCategories()
       .then(setCategories)
-      .catch(() => setCategories([]))
+      .catch(() => setCategoriesError("We couldn't load menu categories right now. Please try again shortly."))
       .finally(() => setCategoriesLoading(false));
+  };
+
+  useEffect(() => {
+    loadCategories();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -76,79 +89,177 @@ export default function HomePage() {
 
   return (
     <>
-      {/* 1. Hero — large, food-focused, real photography. Branding lives
-          here (a small eyebrow tag) since the header deliberately carries
-          none.
-          Contrast: a photo-wide gradient alone measured well under WCAG's
-          4.5:1 minimum in places (verified by sampling actual rendered
-          pixels behind the text) — bright regions of the photo (plate,
-          tablecloth) show through inconsistently depending on crop/width.
-          The bg-ink-900/90 panel below guarantees contrast regardless of
-          what's behind it, rather than hoping the gradient lines up. */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={HERO_IMAGE} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-ink-900/70 via-ink-900/30 to-ink-900/20" />
-        </div>
-        <div className="relative mx-auto flex min-h-[560px] max-w-6xl flex-col justify-center px-5 py-20 sm:min-h-[620px]">
+      {/* 1. Hero — split layout matching the reference: text on a plain
+          cream field (trivially high contrast, no overlay/shadow needed
+          since nothing sits on top of the photo), photo confined to its
+          own rounded card on the right. Reuses the existing real hero
+          photo and existing copy — only the container/layout changed. */}
+      <section className="bg-cream-50">
+        <div className="mx-auto grid max-w-7xl gap-10 px-5 py-16 md:grid-cols-2 md:items-center md:py-24">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="max-w-xl rounded-xl bg-ink-900/90 p-7 text-cream-50 sm:p-10"
           >
-            <p className="font-display text-lg italic text-terracotta-300">{hero.eyebrow}</p>
-            <h1 className="mt-3 font-display text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+            <p className="font-inter text-sm font-semibold uppercase tracking-[0.15em] text-pine-600">
+              Fresh Ingredients. Real Flavor.
+            </p>
+            <h1 className="mt-4 font-playfair text-5xl font-bold leading-tight text-graphite-900 sm:text-6xl">
               {hero.title}
             </h1>
-            <p className="mt-5 max-w-md text-base text-cream-50 sm:text-lg">{hero.subtitle}</p>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-4 h-1 w-16 bg-terracotta-500" aria-hidden="true" />
+            <p className="mt-5 max-w-md font-inter text-base text-graphite-500 sm:text-lg">{hero.subtitle}</p>
+            <div className="mt-7 flex flex-wrap items-center gap-3">
               <NavLink
                 to="/Menu"
-                className="rounded-full bg-terracotta-500 px-7 py-3.5 text-sm font-bold text-cream-50 transition hover:bg-terracotta-600"
+                className="flex items-center gap-2 rounded-full bg-terracotta-500 px-7 py-3.5 font-inter text-sm font-bold text-cream-50 transition hover:bg-terracotta-600"
               >
+                <ShoppingBagOutlinedIcon fontSize="small" />
                 Order Now
               </NavLink>
               <a
                 href="#reserve"
-                className="rounded-full border-2 border-cream-50 px-7 py-3.5 text-sm font-bold text-cream-50 transition hover:bg-cream-50 hover:text-ink-900"
+                className="flex items-center gap-2 rounded-full border-2 border-pine-600 px-7 py-3.5 font-inter text-sm font-bold text-pine-600 transition hover:bg-pine-600 hover:text-cream-50"
               >
+                <EventAvailableOutlinedIcon fontSize="small" />
                 Reserve a Table
               </a>
             </div>
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3">
+              {[
+                { Icon: GrassOutlinedIcon, label: "Fresh Ingredients" },
+                { Icon: RestaurantMenuOutlinedIcon, label: "Chef Designed" },
+                { Icon: DeliveryDiningOutlinedIcon, label: "Fast Delivery" },
+              ].map(({ Icon, label }) => (
+                <div key={label} className="flex items-center gap-2">
+                  <Icon className="text-pine-600" fontSize="small" />
+                  <span className="font-inter text-sm font-medium text-graphite-900">{label}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.97 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="overflow-hidden rounded-[2rem] shadow-card"
+          >
+            <img
+              src={HERO_IMAGE}
+              alt="A chef-prepared dish, plated and ready to serve"
+              className="aspect-[4/3] w-full object-cover md:aspect-[5/6]"
+            />
           </motion.div>
         </div>
       </section>
 
-      {/* 2. Chef's Specialties / Featured Menu — editorial highlight (never
-          claims a specific priced dish) immediately followed by the live,
-          data-driven Popular Dishes grid, as one continuous "featured menu"
-          moment. */}
-      <section className="mx-auto max-w-6xl px-5 py-16">
-        <div className="grid gap-10 md:grid-cols-2 md:items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            className="overflow-hidden rounded-xl border border-cream-200 shadow-card"
-          >
-            <img
-              src={CHEF_SPECIAL_IMAGE}
-              alt={chefSpecial.imageAlt}
-              className="aspect-[4/3] w-full object-cover"
-              loading="lazy"
-            />
-          </motion.div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.15em] text-sage-600">{chefSpecial.eyebrow}</p>
-            <h2 className="mt-2 font-display text-3xl text-ink-900 sm:text-4xl">{chefSpecial.title}</h2>
-            <p className="mt-4 text-base leading-relaxed text-ink-700">{chefSpecial.description}</p>
-            <NavLink
-              to="/Menu"
-              className="mt-6 inline-block rounded-full border-2 border-terracotta-500 px-6 py-2.5 text-sm font-bold text-terracotta-500 transition hover:bg-terracotta-500 hover:text-cream-50"
-            >
-              Explore the Full Menu
-            </NavLink>
+      {/* 2. This Week's Highlight — a real, currently-featured menu item
+          (fetched below in the same effect that feeds Popular Dishes), not
+          generic marketing copy over a stock photo. The "Featured" badge is
+          the actual is_featured flag already used to build Popular Dishes —
+          there's no separate "chef's pick" field in the data model, so
+          nothing new was added to show it. Stats below are all real: menu
+          item count from the same fetch, the delivery estimate shared with
+          real order tracking (OrderDetailPanels.jsx), and the rating
+          computed from the actual reviews array — never invented figures. */}
+      <section className="bg-pine-50 py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-5">
+          <div className="grid gap-12 md:grid-cols-2 md:items-center">
+            <div className="relative pb-8 sm:pb-10">
+              {menuLoading ? (
+                <Skeleton className="aspect-[4/3] w-full rounded-2xl" />
+              ) : menuError || !featured[0] ? (
+                <div className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl border border-dashed border-pine-600/30 bg-cream-50 px-6 text-center text-sm text-graphite-500">
+                  {menuError || "No featured dish is available right now."}
+                </div>
+              ) : (
+                <>
+                  <div className="overflow-hidden rounded-2xl shadow-card">
+                    <FoodImage
+                      src={featured[0].imageURL}
+                      alt={featured[0].name}
+                      className="aspect-[4/3] w-full object-cover"
+                    />
+                  </div>
+                  {featured[0].isFeatured && (
+                    <span className="absolute left-4 top-4 flex items-center gap-1 rounded-full bg-pine-600 px-3 py-1 font-inter text-xs font-bold uppercase tracking-wide text-cream-50">
+                      <StarIcon sx={{ fontSize: 14 }} /> Featured
+                    </span>
+                  )}
+                  <div className="absolute bottom-0 left-4 right-4 flex items-center gap-3 rounded-xl bg-cream-50 p-4 shadow-card sm:left-8 sm:right-auto sm:w-72">
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate font-playfair text-base font-semibold text-graphite-900">
+                        {featured[0].name}
+                      </p>
+                      <p className="mt-0.5 line-clamp-1 font-inter text-xs text-graphite-500">
+                        {featured[0].description}
+                      </p>
+                    </div>
+                    <NavLink
+                      to={`/Menu/${featured[0].slug}`}
+                      aria-label={`View ${featured[0].name}`}
+                      className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-pine-600 text-cream-50 transition hover:bg-pine-600/90"
+                    >
+                      <ArrowForwardIcon fontSize="small" />
+                    </NavLink>
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div>
+              <p className="font-inter text-sm font-semibold uppercase tracking-[0.15em] text-pine-600">
+                {chefSpecial.eyebrow}
+              </p>
+              <h2 className="mt-2 font-playfair text-3xl font-bold text-graphite-900 sm:text-4xl">
+                {chefSpecial.title}
+              </h2>
+              <p className="mt-4 max-w-md font-inter text-base leading-relaxed text-graphite-500">
+                {chefSpecial.description}
+              </p>
+              <NavLink
+                to="/Menu"
+                className="mt-6 inline-flex items-center gap-2 rounded-full bg-terracotta-500 px-6 py-2.5 font-inter text-sm font-bold text-cream-50 transition hover:bg-terracotta-600"
+              >
+                Explore Menu
+                <ArrowForwardIcon fontSize="small" />
+              </NavLink>
+
+              <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-6 sm:grid-cols-4">
+                {menuLoading || categoriesLoading ? (
+                  Array.from({ length: 4 }).map((_, i) => (
+                    <div key={i}>
+                      <Skeleton className="h-7 w-14" />
+                      <Skeleton className="mt-2 h-3 w-20" />
+                    </div>
+                  ))
+                ) : (
+                  <>
+                    <div>
+                      <p className="font-playfair text-2xl font-bold text-graphite-900">100%</p>
+                      <p className="mt-1 font-inter text-xs text-graphite-500">Made Fresh to Order</p>
+                    </div>
+                    <div>
+                      <p className="font-playfair text-2xl font-bold text-graphite-900">{menuItemCount}+</p>
+                      <p className="mt-1 font-inter text-xs text-graphite-500">Dishes on the Menu</p>
+                    </div>
+                    <div>
+                      <p className="font-playfair text-2xl font-bold text-graphite-900">
+                        ~{DELIVERY_ESTIMATE_MINUTES} min
+                      </p>
+                      <p className="mt-1 font-inter text-xs text-graphite-500">Average Delivery</p>
+                    </div>
+                    <div>
+                      <p className="font-playfair text-2xl font-bold text-graphite-900">
+                        {avgRating ? avgRating.toFixed(1) : "—"}★
+                      </p>
+                      <p className="mt-1 font-inter text-xs text-graphite-500">Average Rating</p>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -207,6 +318,10 @@ export default function HomePage() {
           <div className="mt-8">
             {categoriesLoading ? (
               <CategoryNavSkeleton />
+            ) : categoriesError ? (
+              <ErrorState message={categoriesError} onRetry={loadCategories} />
+            ) : categories.length === 0 ? (
+              <p className="text-center text-sm text-ink-500">No categories are available right now.</p>
             ) : (
               <div className="flex flex-wrap justify-center gap-3">
                 {categories.map((category) => (

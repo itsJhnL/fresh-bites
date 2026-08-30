@@ -2,8 +2,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Footer from "../components/Footer.jsx";
-import Snackbar from "@mui/material/Snackbar";
-import Alert from "@mui/material/Alert";
+import Toast from "../components/Toast";
 import { fetchCategories, fetchMenuItems, toMenuCardItem } from "../lib/menuService";
 import { useShop } from "../context/ShopContext";
 import CategoryNav from "../components/CategoryNav";
@@ -364,21 +363,7 @@ export default function Menu() {
           )}
         </div>
       </div>
-      <Snackbar
-        open={toast.open}
-        autoHideDuration={2200}
-        onClose={handleCloseToast}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-      >
-        <Alert
-          onClose={handleCloseToast}
-          severity={toast.severity}
-          variant="filled"
-          sx={{ width: "100%" }}
-        >
-          {toast.message}
-        </Alert>
-      </Snackbar>
+      <Toast open={toast.open} message={toast.message} severity={toast.severity} onClose={handleCloseToast} />
       <Footer />
     </>
   );

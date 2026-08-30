@@ -2,12 +2,15 @@
 
 Express + PostgreSQL backend for Fresh Bites, with JWT + bcrypt authentication.
 
-> **Migration status:** customer-facing authentication has moved to Supabase
-> Auth (see `/supabase/migrations` and `frontend/src/context/AuthContext.jsx`).
-> The routes below (`/api/auth/*`) are no longer called by the frontend but
-> are kept as the reference implementation while the rest of the app —
-> order creation, the admin panel — is migrated to Supabase in later phases.
-> This server is not being deleted yet.
+> **Migration status: complete.** The entire app — auth, menu, cart pricing,
+> order creation, order tracking, and the admin panel — now runs on Supabase
+> (Auth, Postgres, RLS, and the RPCs in `/supabase/migrations`). Every route
+> below is orphaned: nothing in `frontend/src` imports `frontend/src/api/*.js`
+> (the client that used to call this server) anymore. This server is kept in
+> the repo only as a reference implementation of the pre-Supabase design
+> (server-side pricing, JWT auth, rate limiting) — it is not deployed
+> anywhere and the live app does not depend on it. Safe to retire once
+> nobody needs it as a reference; not being deleted automatically.
 
 ## Setup
 

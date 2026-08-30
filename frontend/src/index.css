@@ -10,6 +10,12 @@
    that every AI-generated UI converges on. */
 @import url("https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
 
+/* Playfair Display + Inter: used only by the homepage hero/highlight
+   redesign and the header logo (font-playfair / font-inter utilities in
+   tailwind.config.js) — added alongside the pair above, not replacing it,
+   so every other page keeps using Ibarra Real Nova/Figtree unchanged. */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
