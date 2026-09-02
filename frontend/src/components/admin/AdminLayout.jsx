@@ -4,7 +4,9 @@ const links = [
   { to: "/admin", label: "Dashboard", end: true },
   { to: "/admin/orders", label: "Orders" },
   { to: "/admin/menu", label: "Menu Manager" },
+  { to: "/admin/categories", label: "Categories" },
   { to: "/admin/users", label: "Users" },
+  { to: "/admin/settings", label: "Settings" },
 ];
 
 export default function AdminLayout() {

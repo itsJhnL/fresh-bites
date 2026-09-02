@@ -47,16 +47,21 @@ export async function fetchCategories() {
 
 const MENU_ITEM_COLUMNS =
   "id, category_id, name, slug, description, price, image_url, meal_type, " +
-  "rating, preparation_time, is_available, is_featured, created_at, " +
+  "rating, preparation_time, is_available, is_featured, sort_order, created_at, " +
   "category:categories(id, name, slug)";
 
+// Ordered by the admin-controlled sort_order (see
+// supabase/migrations/009_menu_items_sort_order.sql) rather than name, so
+// changes made in the CMS's "Sort Order" field are actually reflected here
+// — Menu.js's own sort dropdown still re-sorts on top of this when a
+// customer picks a different order.
 export async function fetchMenuItems() {
   const { data, error } = await withTimeout(
     supabase
       .from("menu_items")
       .select(MENU_ITEM_COLUMNS)
       .eq("is_available", true)
-      .order("name", { ascending: true })
+      .order("sort_order", { ascending: true })
   );
 
   if (error) throw error;

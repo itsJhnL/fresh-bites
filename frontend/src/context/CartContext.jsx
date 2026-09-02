@@ -1,6 +1,7 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import { calculateCartTotals, MAX_QUANTITY_PER_ITEM } from "../utils/cartMath";
+import { calculateCartTotals, MAX_QUANTITY_PER_ITEM, DEFAULT_DELIVERY_FEE } from "../utils/cartMath";
 import { toNumber, formatPeso } from "../utils/money";
+import { fetchRestaurantSettings } from "../lib/settingsService";
 
 const CartContext = createContext(null);
 
@@ -90,6 +91,25 @@ function isAddable(item) {
 
 export function CartProvider({ children }) {
   const [items, setItems] = useState(() => readStoredCart());
+  const [deliveryFee, setDeliveryFee] = useState(DEFAULT_DELIVERY_FEE);
+
+  // Reads the admin-configurable delivery fee (see /admin/settings and
+  // supabase/migrations/012_restaurant_settings.sql). A failed fetch just
+  // keeps DEFAULT_DELIVERY_FEE — this is display only, so it's never worth
+  // blocking the cart over; create_order() is what actually charges the fee.
+  useEffect(() => {
+    let cancelled = false;
+    fetchRestaurantSettings()
+      .then((settings) => {
+        if (!cancelled && settings?.delivery_fee != null) {
+          setDeliveryFee(Number(settings.delivery_fee));
+        }
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     try {
@@ -154,7 +174,7 @@ export function CartProvider({ children }) {
 
   const clearCart = useCallback(() => setItems([]), []);
 
-  const totals = useMemo(() => calculateCartTotals(items), [items]);
+  const totals = useMemo(() => calculateCartTotals(items, deliveryFee), [items, deliveryFee]);
 
   const value = useMemo(
     () => ({

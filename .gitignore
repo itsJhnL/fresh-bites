@@ -1,0 +1,10 @@
+# Root-level ignore — frontend/ and backend/ keep their own .gitignore for
+# their respective node_modules/build output. This one covers the repo root:
+# the new api/ (Vercel serverless functions) needs no dependencies of its
+# own, but `vercel dev`/`vercel link` write local-only files here that must
+# never be committed, especially anything holding SUPABASE_SERVICE_ROLE_KEY.
+.vercel
+.env
+.env.local
+.env.*.local
+node_modules

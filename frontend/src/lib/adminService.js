@@ -8,10 +8,58 @@ import { withTimeout } from "./withTimeout";
 // AdminRoute let the current user reach this page. A non-admin calling any
 // of these directly gets rejected by the database, not just hidden by the UI.
 
+// No separate image_path column — the storage path used to delete a
+// replaced/removed image is deterministically recoverable from image_url
+// itself (see storageService.pathFromPublicUrl), so a second column
+// storing the same information redundantly wasn't added.
 const ADMIN_MENU_ITEM_COLUMNS =
   "id, category_id, name, slug, description, price, image_url, meal_type, " +
-  "rating, preparation_time, is_available, is_featured, created_at, updated_at, " +
+  "rating, preparation_time, is_available, is_featured, sort_order, created_at, updated_at, " +
   "category:categories(id, name, slug)";
+
+// Best-effort audit trail (see supabase/migrations/011_admin_management_hardening.sql)
+// — actor_user_id defaults to auth.uid() on the DB side, so callers here
+// only ever send what happened, never who. Never allowed to fail the
+// caller's actual write: a lost log entry is a minor issue, a blocked menu
+// edit because logging failed would not be.
+async function logActivity(action, targetType, targetId, metadata = {}) {
+  try {
+    await supabase.from("admin_activity_log").insert({
+      action,
+      target_type: targetType,
+      target_id: targetId != null ? String(targetId) : null,
+      metadata,
+    });
+  } catch {
+    // Non-fatal — see comment above.
+  }
+}
+
+// actor_user_id references auth.users, not profiles, so PostgREST can't
+// auto-embed a name the way fetchAdminOrders() embeds categories on
+// menu_items — same manual-merge pattern as fetchAdminOrders() below.
+export async function fetchRecentActivity(limit = 8) {
+  const { data: rows, error } = await withTimeout(
+    supabase
+      .from("admin_activity_log")
+      .select("id, actor_user_id, action, target_type, target_id, metadata, created_at")
+      .order("created_at", { ascending: false })
+      .limit(limit)
+  );
+  if (error) throw error;
+  if (!rows || rows.length === 0) return [];
+
+  const actorIds = [...new Set(rows.map((row) => row.actor_user_id).filter(Boolean))];
+  if (actorIds.length === 0) return rows.map((row) => ({ ...row, actorName: "Unknown" }));
+
+  const { data: profiles, error: profileError } = await withTimeout(
+    supabase.from("profiles").select("id, full_name").in("id", actorIds)
+  );
+  if (profileError) throw profileError;
+
+  const nameById = new Map((profiles || []).map((profile) => [profile.id, profile.full_name]));
+  return rows.map((row) => ({ ...row, actorName: nameById.get(row.actor_user_id) || "Unknown" }));
+}
 
 function slugify(value) {
   return value
@@ -27,30 +75,64 @@ function slugify(value) {
 export async function fetchDashboardStats() {
   const startOfToday = new Date();
   startOfToday.setHours(0, 0, 0, 0);
+  const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
 
-  const [totalOrdersRes, todayOrdersRes, revenueRes, customersRes, availableMenuRes] = await withTimeout(
+  const [
+    totalOrdersRes,
+    todayOrdersRes,
+    revenueRes,
+    totalUsersRes,
+    adminsRes,
+    availableMenuRes,
+    totalMenuRes,
+    unavailableMenuRes,
+    categoriesRes,
+    recentMenuRes,
+  ] = await withTimeout(
     Promise.all([
       supabase.from("orders").select("id", { count: "exact", head: true }),
       supabase.from("orders").select("id", { count: "exact", head: true }).gte("created_at", startOfToday.toISOString()),
       supabase.from("orders").select("total").neq("status", "cancelled"),
       supabase.from("profiles").select("id", { count: "exact", head: true }),
+      supabase.from("user_roles").select("user_id", { count: "exact", head: true }).eq("role", "admin"),
       supabase.from("menu_items").select("id", { count: "exact", head: true }).eq("is_available", true),
+      supabase.from("menu_items").select("id", { count: "exact", head: true }),
+      supabase.from("menu_items").select("id", { count: "exact", head: true }).eq("is_available", false),
+      supabase.from("categories").select("id", { count: "exact", head: true }),
+      supabase.from("menu_items").select("id", { count: "exact", head: true }).gte("created_at", sevenDaysAgo.toISOString()),
     ])
   );
 
-  const firstError = [totalOrdersRes, todayOrdersRes, revenueRes, customersRes, availableMenuRes].find(
-    (res) => res.error
-  )?.error;
+  const firstError = [
+    totalOrdersRes,
+    todayOrdersRes,
+    revenueRes,
+    totalUsersRes,
+    adminsRes,
+    availableMenuRes,
+    totalMenuRes,
+    unavailableMenuRes,
+    categoriesRes,
+    recentMenuRes,
+  ].find((res) => res.error)?.error;
   if (firstError) throw firstError;
 
   const revenue = (revenueRes.data || []).reduce((sum, order) => sum + Number(order.total), 0);
+  const totalUsers = totalUsersRes.count || 0;
+  const administrators = adminsRes.count || 0;
 
   return {
     totalOrders: totalOrdersRes.count || 0,
     todayOrders: todayOrdersRes.count || 0,
     revenue,
-    customers: customersRes.count || 0,
+    totalUsers,
+    administrators,
+    customers: Math.max(totalUsers - administrators, 0),
     availableMenuItems: availableMenuRes.count || 0,
+    totalMenuItems: totalMenuRes.count || 0,
+    inactiveMenuItems: unavailableMenuRes.count || 0,
+    categoriesCount: categoriesRes.count || 0,
+    recentMenuItems: recentMenuRes.count || 0,
   };
 }
 
@@ -59,7 +141,7 @@ export async function fetchDashboardStats() {
 // ============================================================================
 export async function fetchAdminMenuItems() {
   const { data, error } = await withTimeout(
-    supabase.from("menu_items").select(ADMIN_MENU_ITEM_COLUMNS).order("created_at", { ascending: false })
+    supabase.from("menu_items").select(ADMIN_MENU_ITEM_COLUMNS).order("sort_order", { ascending: true })
   );
   if (error) throw error;
   return data || [];
@@ -81,6 +163,9 @@ function menuItemPatch(payload) {
   }
   if (payload.isAvailable !== undefined) patch.is_available = Boolean(payload.isAvailable);
   if (payload.isFeatured !== undefined) patch.is_featured = Boolean(payload.isFeatured);
+  if (payload.sortOrder !== undefined) {
+    patch.sort_order = payload.sortOrder === "" || payload.sortOrder == null ? 0 : Number(payload.sortOrder);
+  }
   return patch;
 }
 
@@ -92,6 +177,7 @@ export async function createMenuItem(payload) {
     supabase.from("menu_items").insert(row).select(ADMIN_MENU_ITEM_COLUMNS).single()
   );
   if (error) throw error;
+  logActivity("menu_item_created", "menu_item", data.id, { name: data.name });
   return data;
 }
 
@@ -100,12 +186,17 @@ export async function updateMenuItem(itemId, payload) {
     supabase.from("menu_items").update(menuItemPatch(payload)).eq("id", itemId).select(ADMIN_MENU_ITEM_COLUMNS).single()
   );
   if (error) throw error;
+  const action = payload.isAvailable !== undefined && Object.keys(payload).length === 1
+    ? "menu_item_availability_changed"
+    : "menu_item_updated";
+  logActivity(action, "menu_item", itemId, { name: data.name, is_available: data.is_available });
   return data;
 }
 
 export async function deleteMenuItem(itemId) {
   const { error } = await withTimeout(supabase.from("menu_items").delete().eq("id", itemId));
   if (error) throw error;
+  logActivity("menu_item_deleted", "menu_item", itemId);
 }
 
 // ============================================================================
@@ -119,15 +210,22 @@ export async function fetchAdminCategories() {
   return data || [];
 }
 
-export async function createCategory({ name, sortOrder }) {
+export async function createCategory({ name, description, sortOrder }) {
   const { data, error } = await withTimeout(
     supabase
       .from("categories")
-      .insert({ name: name.trim(), slug: slugify(name), sort_order: Number(sortOrder) || 0, is_active: true })
+      .insert({
+        name: name.trim(),
+        slug: slugify(name),
+        description: description?.trim() || null,
+        sort_order: Number(sortOrder) || 0,
+        is_active: true,
+      })
       .select()
       .single()
   );
   if (error) throw error;
+  logActivity("category_created", "category", data.id, { name: data.name });
   return data;
 }
 
@@ -136,12 +234,48 @@ export async function updateCategoryActive(categoryId, isActive) {
     supabase.from("categories").update({ is_active: Boolean(isActive) }).eq("id", categoryId).select().single()
   );
   if (error) throw error;
+  logActivity("category_updated", "category", categoryId, { name: data.name, is_active: data.is_active });
+  return data;
+}
+
+// Used by the delete confirmation flow (AdminCategories.js) to refuse
+// deleting a category that still has menu items pointing at it, rather than
+// silently orphaning them — menu_items.category_id is ON DELETE SET NULL,
+// so the database itself would allow it, but that's not what an admin
+// clicking "Delete" on a populated category actually wants to happen.
+export async function countMenuItemsInCategory(categoryId) {
+  const { count, error } = await withTimeout(
+    supabase.from("menu_items").select("id", { count: "exact", head: true }).eq("category_id", categoryId)
+  );
+  if (error) throw error;
+  return count || 0;
+}
+
+// Full field edit (name/description/sort order) — updateCategoryActive
+// above stays a separate, smaller call since the quick activate/deactivate
+// toggle used throughout the category list doesn't need the rest of the
+// edit form's validation/state around it.
+export async function updateCategory(categoryId, { name, description, sortOrder }) {
+  const patch = {};
+  if (name !== undefined) {
+    patch.name = name.trim();
+    patch.slug = slugify(name);
+  }
+  if (description !== undefined) patch.description = description?.trim() || null;
+  if (sortOrder !== undefined) patch.sort_order = sortOrder === "" || sortOrder == null ? 0 : Number(sortOrder);
+
+  const { data, error } = await withTimeout(
+    supabase.from("categories").update(patch).eq("id", categoryId).select().single()
+  );
+  if (error) throw error;
+  logActivity("category_updated", "category", categoryId, { name: data.name });
   return data;
 }
 
 export async function deleteCategory(categoryId) {
   const { error } = await withTimeout(supabase.from("categories").delete().eq("id", categoryId));
   if (error) throw error;
+  logActivity("category_deleted", "category", categoryId);
 }
 
 // ============================================================================
@@ -187,11 +321,48 @@ export async function updateOrderStatus(orderId, status) {
 }
 
 // ============================================================================
-// Users (admin, read-only this phase) — see 008_admin_list_users.sql for
-// exactly what is and isn't exposed.
+// Users — see 008/011_*.sql for exactly what is and isn't exposed.
 // ============================================================================
 export async function fetchAdminUsers() {
   const { data, error } = await withTimeout(supabase.rpc("admin_list_users"));
   if (error) throw error;
   return data || [];
+}
+
+// The ONLY way a role ever changes — admin_set_user_role() (see
+// 011_admin_management_hardening.sql) re-checks is_admin() itself, refuses
+// self-demotion, and refuses demoting the last remaining admin. This
+// function is used for BOTH "Make Admin" and "Remove Admin Access" — same
+// RPC, different p_role — the UI-side last-admin/self-lockout checks in
+// AdminUsers.js are a friendlier pre-check, not the actual enforcement.
+export async function setUserRole(userId, role) {
+  const { error } = await withTimeout(supabase.rpc("admin_set_user_role", { p_user_id: userId, p_role: role }));
+  if (error) throw error;
+}
+
+// Creating a new Supabase Auth user requires the service-role key, which
+// must never reach the browser — this calls the Vercel serverless function
+// at /api/admin-create-user (server-side only) instead of doing it here.
+// See api/admin-create-user.js for the actual account creation + the
+// server-side re-check that the CALLER is an admin before it does anything.
+export async function createAdminAccount({ fullName, email, password }) {
+  const { data: sessionData, error: sessionError } = await withTimeout(supabase.auth.getSession());
+  if (sessionError) throw sessionError;
+  const accessToken = sessionData?.session?.access_token;
+  if (!accessToken) throw new Error("Your session has expired. Please sign in again.");
+
+  const response = await fetch("/api/admin-create-user", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify({ fullName, email, password }),
+  });
+
+  const body = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw new Error(body.error || "Could not create this administrator account.");
+  }
+  return body;
 }

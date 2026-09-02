@@ -1,10 +1,11 @@
 import { toNumber } from "./money";
 
-// Flat delivery fee, matching supabase/migrations/003_functions.sql's
-// create_order() v_delivery_fee constant. Discount is always 0 for now —
-// there's no promo/discount engine yet, same as the backend RPC. Keep both
-// in sync if either side ever changes.
-export const DELIVERY_FEE = 49;
+// Fallback only — used before restaurant_settings has loaded (or if that
+// fetch fails) so the cart still renders a sane total instead of ₱0.
+// supabase/migrations/012_restaurant_settings.sql's create_order() RPC is
+// the actual source of truth for what gets charged; this is DISPLAY only,
+// same as the rest of this file.
+export const DEFAULT_DELIVERY_FEE = 49;
 export const MAX_QUANTITY_PER_ITEM = 50;
 
 function priceOf(item) {
@@ -14,12 +15,13 @@ function priceOf(item) {
 // The one place cart totals get computed. Menu, Cart, and Checkout all call
 // this instead of each keeping their own reduce() — this output is for
 // DISPLAY only; the create_order RPC recalculates everything authoritatively
-// server-side and never trusts what the client sends.
-export function calculateCartTotals(items) {
+// server-side (reading the same restaurant_settings.delivery_fee) and never
+// trusts what the client sends.
+export function calculateCartTotals(items, deliveryFee = DEFAULT_DELIVERY_FEE) {
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
   const subtotal = items.reduce((sum, item) => sum + priceOf(item) * item.quantity, 0);
-  const deliveryFee = subtotal > 0 ? DELIVERY_FEE : 0;
+  const fee = subtotal > 0 ? deliveryFee : 0;
   const discount = 0;
-  const total = subtotal + deliveryFee - discount;
-  return { itemCount, subtotal, deliveryFee, discount, total };
+  const total = subtotal + fee - discount;
+  return { itemCount, subtotal, deliveryFee: fee, discount, total };
 }

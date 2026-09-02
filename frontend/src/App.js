@@ -19,7 +19,10 @@ import NotFound404 from "./Pages/NotFound404";
 import AdminDashboard from "./Pages/admin/AdminDashboard";
 import AdminOrders from "./Pages/admin/AdminOrders";
 import AdminMenuManager from "./Pages/admin/AdminMenuManager";
+import AdminCategories from "./Pages/admin/AdminCategories";
 import AdminUsers from "./Pages/admin/AdminUsers";
+import AdminSettings from "./Pages/admin/AdminSettings";
+import AdminLogin from "./Pages/admin/AdminLogin";
 import Navbar from "./components/Navbar";
 import HomePage from "./components/HomePage";
 import AdminLayout from "./components/admin/AdminLayout";
@@ -95,6 +98,7 @@ export default function App() {
           <Route path="/Register" element={<RegisterPage />}></Route>
           <Route path="/ForgotPassword" element={<ForgotPasswordPage />}></Route>
           <Route path="/ResetPassword" element={<ResetPasswordPage />}></Route>
+          <Route path="/admin/login" element={<AdminLogin />}></Route>
           <Route
             path="/admin"
             element={
@@ -106,7 +110,9 @@ export default function App() {
             <Route index element={<AdminDashboard />}></Route>
             <Route path="orders" element={<AdminOrders />}></Route>
             <Route path="menu" element={<AdminMenuManager />}></Route>
+            <Route path="categories" element={<AdminCategories />}></Route>
             <Route path="users" element={<AdminUsers />}></Route>
+            <Route path="settings" element={<AdminSettings />}></Route>
           </Route>
           <Route path="*" element={<NotFound404 />}></Route>
           </Routes>
