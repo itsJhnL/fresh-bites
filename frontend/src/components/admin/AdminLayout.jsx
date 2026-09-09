@@ -1,12 +1,15 @@
 import { NavLink, Outlet } from "react-router-dom";
 
+// Base path deliberately isn't a plain "/admin" — see App.js. Obscuring the
+// URL isn't real access control (is_admin()/RLS already is), but it keeps
+// the panel off the obvious path automated scanners and bots try first.
 const links = [
-  { to: "/admin", label: "Dashboard", end: true },
-  { to: "/admin/orders", label: "Orders" },
-  { to: "/admin/menu", label: "Menu Manager" },
-  { to: "/admin/categories", label: "Categories" },
-  { to: "/admin/users", label: "Users" },
-  { to: "/admin/settings", label: "Settings" },
+  { to: "/j/admin", label: "Dashboard", end: true },
+  { to: "/j/admin/orders", label: "Orders" },
+  { to: "/j/admin/menu", label: "Menu Manager" },
+  { to: "/j/admin/categories", label: "Categories" },
+  { to: "/j/admin/users", label: "Users" },
+  { to: "/j/admin/settings", label: "Settings" },
 ];
 
 export default function AdminLayout() {

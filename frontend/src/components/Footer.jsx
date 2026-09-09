@@ -105,7 +105,7 @@ export default function Footer() {
               </>
             )}
             {isAdmin && (
-              <NavLink to="/admin" className="block transition hover:text-terracotta-500">
+              <NavLink to="/j/admin" className="block transition hover:text-terracotta-500">
                 Admin Panel
               </NavLink>
             )}

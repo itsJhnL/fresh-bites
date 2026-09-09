@@ -13,14 +13,14 @@ export default function AdminRoute({ children }) {
   // /User page — same Supabase Auth underneath, distinct entry point.
   if (!isAuthenticated) {
     const redirect = encodeURIComponent(location.pathname + location.search);
-    return <Navigate to={`/admin/login?redirect=${redirect}`} replace />;
+    return <Navigate to={`/j/admin/login?redirect=${redirect}`} replace />;
   }
 
   // Logged in but not an admin -> AdminLogin itself shows the "not an
   // admin" state (with a sign-out option) rather than silently bouncing
   // them home, which would look like a broken link with no explanation.
   if (!isAdmin) {
-    return <Navigate to="/admin/login" replace />;
+    return <Navigate to="/j/admin/login" replace />;
   }
 
   return children;

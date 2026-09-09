@@ -93,7 +93,7 @@ export function CartProvider({ children }) {
   const [items, setItems] = useState(() => readStoredCart());
   const [deliveryFee, setDeliveryFee] = useState(DEFAULT_DELIVERY_FEE);
 
-  // Reads the admin-configurable delivery fee (see /admin/settings and
+  // Reads the admin-configurable delivery fee (see /j/admin/settings and
   // supabase/migrations/012_restaurant_settings.sql). A failed fetch just
   // keeps DEFAULT_DELIVERY_FEE — this is display only, so it's never worth
   // blocking the cart over; create_order() is what actually charges the fee.

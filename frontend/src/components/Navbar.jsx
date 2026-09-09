@@ -125,7 +125,7 @@ export default function Navbar() {
           </span>
           {isAdmin && (
             <NavLink
-              to="/admin"
+              to="/j/admin"
               onClick={scrollUp}
               className="hidden rounded-full border border-sage-500 px-3 py-1 text-xs font-bold text-sage-600 transition hover:bg-sage-50 lg:inline-flex"
             >
@@ -228,7 +228,7 @@ export default function Navbar() {
                 </NavLink>
                 {isAdmin && (
                   <NavLink
-                    to="/admin"
+                    to="/j/admin"
                     onClick={closeDrawer}
                     className="rounded-lg px-3 py-2.5 text-base font-semibold text-sage-600 hover:bg-sage-50"
                   >

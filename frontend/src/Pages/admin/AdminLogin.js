@@ -19,7 +19,7 @@ export default function AdminLogin() {
   const [submitting, setSubmitting] = useState(false);
   const isSubmittingRef = useRef(false);
 
-  const redirectTo = new URLSearchParams(location.search).get("redirect") || "/admin";
+  const redirectTo = new URLSearchParams(location.search).get("redirect") || "/j/admin";
 
   // isAdmin only settles to its real value once AuthContext's own
   // loadUserData has finished (see AuthContext.jsx) — a React state update

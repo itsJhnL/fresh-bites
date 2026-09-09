@@ -367,7 +367,7 @@ function AddAdminDialog({ open, onClose, onCreated }) {
         <form onSubmit={handleSubmit} className="grid gap-3 pt-1 pb-2">
           <p className="text-xs text-ink-500">
             Creates a new, pre-confirmed Supabase account with administrator access. The account can sign in at
-            /admin/login immediately with the password set here.
+            /j/admin/login immediately with the password set here.
           </p>
           <div>
             <label className="mb-1 block text-xs font-semibold text-ink-700">Full Name</label>
